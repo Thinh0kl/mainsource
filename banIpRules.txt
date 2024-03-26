@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Set the threshold for high Send-Q value
+THRESHOLD=1000000
+
+# Interval in seconds for checking Send-Q values
+INTERVAL=5
+
+# IP address to exclude from banning
+EXCLUDE_IP="172.31.37.37"
+
+#banningport
+PORT=10002
+
+# Function to check for high Send-Q IPs and ban them
+ban_high_sendq_ips() {
+  # Get the list of IPs with their Send-Q values
+  ips_with_sendq=$(ss -tun state connected | awk 'NR>1 {if ($2 > '"$THRESHOLD"' && $6 != "'"$EXCLUDE_IP"':*") print $6}')
+
+  # Loop through the list and ban each IP
+  for ip in $ips_with_sendq; do
+    # Extract just the IP address (remove port number)
+    ip_address=$(echo $ip | cut -d':' -f1)
+
+    # Check if the IP is already banned
+    if ! sudo ufw status | grep -qw "$ip_address"; then
+      # Add a firewall rule to ban the IP
+      sudo ufw deny from $ip_address to any port $PORT
+      echo "Banned IP: $ip_address"
+    fi
+  done
+}
+
+# Main loop to continuously check and ban IPs with high Send-Q
+while true; do
+  ban_high_sendq_ips
+  sleep $INTERVAL
+done
