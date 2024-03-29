@@ -4560,6 +4560,7 @@ public class NpcFactory {
                             this.createOtherMenu(player, ConstNpc.BASE_MENU, "\nTa sẽ giúp ngươi chuyển sinh nếu ngươi\nđã đạt tối đa sức mạnh"
                                     + "\nNgươi sẽ được reset về 2k sức mạnh"
                                     + "\nvà ngươi sẽ nhận được 2000sdg + 10k ki,hpg"
+                                    + "\nvà max 500 lan."
                                     + "\n Bạn đã chuyển sinh được " + player.chuyenSinh + " Lần",
                                     "Chuyển sinh",
                                     "Đóng");
@@ -4575,6 +4576,10 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         if (player.iDMark.isBaseMenu()) {
+                            if(player.chuyenSinh > 500){
+                                Service.gI().sendThongBao(player, "Ban da dat gioi han chuyen sinh");
+                                return;
+                            }
                             if (select == 0) {
                                 OpenPowerService.gI().chuyenSinh(player);
                             }
