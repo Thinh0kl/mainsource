@@ -6182,10 +6182,10 @@ public class NpcFactory {
                                         if (player.tongnap2 >= 500000 && player.mocnap < 1) {
                                             Item item = ItemService.gI().createNewItem((short) (1294));
                                             Item item2 = ItemService.gI().createNewItem((short) (2153));
-
+                                            item.itemOptions.add(new Item.ItemOption(72, 1));
                                             item.itemOptions.add(new Item.ItemOption(50, 55));
                                             item.itemOptions.add(new Item.ItemOption(77, 60));
-                                            item.itemOptions.add(new Item.ItemOption(77, 60));
+                                            item.itemOptions.add(new Item.ItemOption(103, 60));
 
                                             item2.itemOptions.add(new Item.ItemOption(50, 150));
                                             item2.itemOptions.add(new Item.ItemOption(77, 180));
@@ -6207,9 +6207,10 @@ public class NpcFactory {
                                             Item item = ItemService.gI().createNewItem((short) (1285));
                                             Item item2 = ItemService.gI().createNewItem((short) (2150));
 
+                                            item.itemOptions.add(new Item.ItemOption(72, 1));
                                             item.itemOptions.add(new Item.ItemOption(50, 55));
                                             item.itemOptions.add(new Item.ItemOption(77, 60));
-                                            item.itemOptions.add(new Item.ItemOption(77, 60));
+                                            item.itemOptions.add(new Item.ItemOption(103, 60));
 
                                             item2.itemOptions.add(new Item.ItemOption(50, 200));
                                             item2.itemOptions.add(new Item.ItemOption(77, 210));
