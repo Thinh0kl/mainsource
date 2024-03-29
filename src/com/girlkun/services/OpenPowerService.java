@@ -51,7 +51,7 @@ public class OpenPowerService {
         
             } else {
         if (player.nPoint.power >= 1999999999999L) {
-            player.nPoint.power -= (player.nPoint.power - 2000);
+            player.nPoint.power -= (player.nPoint.power - 100000000);
             player.chuyenSinh++;
            
             player.nPoint.hpg += 10000;
