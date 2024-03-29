@@ -5254,12 +5254,14 @@ public class NpcFactory {
                                     );
                                     break;
                                 case 1://Shop
-                                    if (player.mott == 1) {
-                                        ChangeMapService.gI().changeMapBySpaceShip(player, 174, -1, 432);
-                                    } else {
-                                        this.npcChat(player, "Bạn chưa mở giới hạn thiên tử. ");
-                                    }
-                                    break;
+                                Service.gI().sendThongBao(player, "map tam thoi bao tri, het dua top se mo");
+                                    // if (player.mott == 1) {
+                                     
+                                    //     ChangeMapService.gI().changeMapBySpaceShip(player, 174, -1, 432);
+                                    // } else {
+                                    //     this.npcChat(player, "Bạn chưa mở giới hạn thiên tử. ");
+                                    // }
+                                    // break;
                                 case 2:
                                     if (player.mott == 1) {
                                         this.npcChat(player, "Bạn mở rồi mà ?? ");
