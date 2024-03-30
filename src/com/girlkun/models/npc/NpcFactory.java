@@ -5254,7 +5254,8 @@ public class NpcFactory {
                                     );
                                     break;
                                 case 1://Shop
-                                Service.gI().sendThongBao(player, "map tam thoi bao tri, het dua top se mo");
+                                    Service.gI().sendThongBao(player, "Chức năng tạm thời bảo trì, ai cố tình vào sẽ bị khóa acc. Hết đua top mở");
+                                break;
                                     // if (player.mott == 1) {
                                      
                                     //     ChangeMapService.gI().changeMapBySpaceShip(player, 174, -1, 432);
