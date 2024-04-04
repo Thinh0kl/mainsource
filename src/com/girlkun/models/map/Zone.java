@@ -293,7 +293,9 @@ public class Zone {
                         msg.writer().writeShort(item.quantity);
                         player.sendMessage(msg);
                         msg.cleanup();
+                        if(this.map != null || this.map.zones != null || !this.map.zones.isEmpty()){
                         Service.gI().sendToAntherMePickItem(player, itemMapId);
+                        }
                         if (!(this.map.mapId >= 21 && this.map.mapId <= 23
                                 && itemMap.itemTemplate.id == 74
                                 || this.map.mapId >= 42 && this.map.mapId <= 44

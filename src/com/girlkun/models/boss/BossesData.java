@@ -1816,13 +1816,13 @@ public class BossesData {
             "Rồng Thần Tà Ác", //name
             ConstPlayer.NAMEC, //gender
             new short[]{1255, 1256, 1257, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-            1000000000l, //dame
-            new long[]{1000000000000000000l}, //hp
+            100000000000l, //dame
+            new long[]{30000000000000000l}, //hp
             new int[]{180}, //map join
             new int[][]{
                 {Skill.THOI_MIEN, 3, 100000},
                 {Skill.KHIEN_NANG_LUONG, 1, 200000},
-                {Skill.KAMEJOKO, 7, 500},
+                {Skill.KAMEJOKO, 7, 500000},
                 {Skill.THAI_DUONG_HA_SAN, 3, 120000},},//skill//skill
 
             new String[]{}, //text chat 1
@@ -1901,12 +1901,11 @@ public class BossesData {
             "Zamasu Fusion", //name
             ConstPlayer.NAMEC, //gender
             new short[]{1231, 1232, 1233, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-            100000000l, //dame
-            new long[]{30000000000000000l}, //hp
+            100000000000l, //dame
+            new long[]{8000000000000000l}, //hp
             new int[]{180}, //map join
             new int[][]{
                 {Skill.THOI_MIEN, 3, 100000},
-                {Skill.KHIEN_NANG_LUONG, 1, 200000},
                 {Skill.KAMEJOKO, 7, 500},
                 {Skill.THAI_DUONG_HA_SAN, 3, 120000},},//skill//skill
 

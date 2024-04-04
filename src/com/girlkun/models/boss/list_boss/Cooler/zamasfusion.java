@@ -22,11 +22,11 @@ public class zamasfusion extends Boss {
         if (Util.isTrue(40, 100)) {
              // random Do
             int randomDo =  Util.nextInt(1048, 1062);
-            int randomGiap = Util.nextInt(2000, 10000);
+            int randomGiap = Util.nextInt(500, 5000);
             int randomHP = Util.nextInt(200, 300);
-            int randomTC = Util.nextInt(70, 110);
+            int randomTC = Util.nextInt(25, 100);
             int randomKI = Util.nextInt(200, 300);
-            int randomChiMang = Util.nextInt(30, 70);
+            int randomChiMang = Util.nextInt(10, 30);
 
             // random skh
             int ramdonSKHTD = Util.nextInt(127, 129);

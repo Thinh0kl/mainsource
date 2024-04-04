@@ -18,28 +18,24 @@ public class rongtaac extends Boss {
     public void reward(Player plKill) {
         if (Util.isTrue(50, 100)) {
             if (Util.isTrue(5, 100)) {
-                int randomTC = Util.nextInt(600, 800);
+                int randomTC = Util.nextInt(50, 100);
 
                 ItemMap mvbt = new ItemMap(this.zone, 2158, 1, this.location.x, this.location.y, plKill.id);
                 mvbt.options.add(new Item.ItemOption(220, randomTC));
-                mvbt.options.add(new Item.ItemOption(21, 400));// giap
                 mvbt.options.add(new Item.ItemOption(36, 0)); // hoac 128 , 129
                 mvbt.options.add(new Item.ItemOption(76, 0)); // hoac 140 ,141
                 Service.gI().dropItemMap(this.zone, mvbt);
             } else {
-                int item[] = {2128, 2129, 2130, 2156, 2157, 2158, 2159, 2160, 2164, 2169};
-                int randomITEM = Util.nextInt(0, 9);
+                int item[] = {2128, 2129, 2130, 2156, 2157, 2158, 2159, 2160};
+                int randomITEM = Util.nextInt(0, 7);
                 int randomCM = Util.nextInt(20, 30);
-                int randomGIAP = Util.nextInt(4000, 6000);
-                int randomhp = Util.nextInt(1000, 1500);
-                int randomTC = Util.nextInt(500, 600);
-                int randomSD = Util.nextInt(300, 600);
-                int randomHP = Util.nextInt(350, 450);
-                int randomCMM = Util.nextInt(130, 180);
+                int randomGIAP = Util.nextInt(500, 2000);
+                int randomhp = Util.nextInt(200, 400);
+                int randomTC = Util.nextInt(100, 200);
 
                 ItemMap mvbt = new ItemMap(this.zone, item[randomITEM], 1, this.location.x, this.location.y, plKill.id);
 
-                if (item[randomITEM] >= 2156 && item[randomITEM] <= 2169 && item[randomITEM] != 2164) {
+                if (item[randomITEM] >= 2156 && item[randomITEM] <= 2169 ) {
                     switch (item[randomITEM]) {
                         case 2156:
                             mvbt.options.add(new Item.ItemOption(47, randomGIAP));
@@ -56,19 +52,9 @@ public class rongtaac extends Boss {
                         case 2160:
                             mvbt.options.add(new Item.ItemOption(14, randomCM));
                             break;
-                        case 2169:
-                            mvbt.options.add(new Item.ItemOption(50, randomSD));
-                            mvbt.options.add(new Item.ItemOption(77, randomHP));
-                            mvbt.options.add(new Item.ItemOption(103, randomHP));
-                            mvbt.options.add(new Item.ItemOption(5, randomCMM));
-                            mvbt.options.add(new Item.ItemOption(14, 60));
-                            mvbt.options.add(new Item.ItemOption(93, 10));
-
-                            break;
+                    
 
                     }
-
-                    mvbt.options.add(new Item.ItemOption(21, 400));// giap
                     mvbt.options.add(new Item.ItemOption(36, 0)); // hoac 128 , 129
                     mvbt.options.add(new Item.ItemOption(76, 0)); // hoac 140 ,141                
                     mvbt.options.add(new Item.ItemOption(34, 0)); // hoac 140 ,141

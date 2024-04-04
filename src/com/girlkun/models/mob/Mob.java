@@ -387,7 +387,7 @@ public class Mob {
             // }
 
         
-               if (Util.isTrue(1, 100)) {
+               if (Util.isTrue(5, 100)) {
                    ItemMap mvbt = new ItemMap(this.zone, 2117, 1, this.location.x, this.location.y, player.id);
                    mvbt.options.add(new Item.ItemOption(30, 1));
                    itemReward.add(mvbt);
@@ -848,18 +848,20 @@ public class Mob {
             try {
                 if (player.mott != 1) {
                 ChangeMapService.gI().changeMapBySpaceShip(player, player.gender + 21, -1, 250);
-                Service.gI().sendThongBao(player, "Địt bà già mày dịch chuyển con cặc, cút về nhà ");
+                Service.gI().sendThongBao(player, "Địt bà già mày dịch chuyển con cặc, cút");
                 }
             } catch (Exception ex) {
             }
             if (player.mott == 1) {
                 if (Util.isTrue(1, 100)) {
                     ItemMap mvbt = new ItemMap(this.zone, 1309, 1, this.location.x, this.location.y, player.id);
+                    list.add(mvbt);
                     mvbt.options.add(new Item.ItemOption(30, 1));
                     Service.gI().dropItemMap(this.zone, mvbt);
 
                 }if (Util.isTrue(5, 100)) {
                     ItemMap mvbt = new ItemMap(this.zone, 2155, 1, this.location.x, this.location.y, player.id);
+                    list.add(mvbt);
                     mvbt.options.add(new Item.ItemOption(30, 1));
                     Service.gI().dropItemMap(this.zone, mvbt);
 
@@ -871,20 +873,20 @@ public class Mob {
         
         if (player.zone.map.mapId == 179) {
             try {
-                if (player.mott != 1) {
+                if (player.moChiTon != 1) {
                 ChangeMapService.gI().changeMapBySpaceShip(player, player.gender + 21, -1, 250);
-                Service.gI().sendThongBao(player, "Địt bà già mày dịch chuyển con cặc, cút về nhà ");
+                Service.gI().sendThongBao(player, "Địt bà già mày dịch chuyển con cặc, cút ");
                 }
             } catch (Exception ex) {
             }
             if (player.mott == 1) {
                 if (Util.isTrue(1, 100)) {
-                    ItemMap mvbt = new ItemMap(this.zone, 2190, 1, this.location.x, this.location.y, player.id);
+                    ItemMap mvbt = new ItemMap(this.zone, 2190, 1, this.location.x, this.location.y, player.id);list.add(mvbt);
                     mvbt.options.add(new Item.ItemOption(30, 1));
                     Service.gI().dropItemMap(this.zone, mvbt);
 
                 }if (Util.isTrue(5, 100)) {
-                    ItemMap mvbt = new ItemMap(this.zone, 2210, 1, this.location.x, this.location.y, player.id);
+                    ItemMap mvbt = new ItemMap(this.zone, 2210, 1, this.location.x, this.location.y, player.id);list.add(mvbt);
                     mvbt.options.add(new Item.ItemOption(30, 1));
                     Service.gI().dropItemMap(this.zone, mvbt);
                 } else {

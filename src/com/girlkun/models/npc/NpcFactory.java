@@ -5253,16 +5253,13 @@ public class NpcFactory {
                                             + "\n|1|Thiên tử thể trạng: x2 KI", "Đóng"
                                     );
                                     break;
-                                case 1://Shop
-                                    Service.gI().sendThongBao(player, "Chức năng tạm thời bảo trì, ai cố tình vào sẽ bị khóa acc. Hết đua top mở");
-                                break;
-                                    // if (player.mott == 1) {
-                                     
-                                    //     ChangeMapService.gI().changeMapBySpaceShip(player, 174, -1, 432);
-                                    // } else {
-                                    //     this.npcChat(player, "Bạn chưa mở giới hạn thiên tử. ");
-                                    // }
-                                    // break;
+                                case 1:
+                                    if (player.mott == 1) {
+                                        ChangeMapService.gI().changeMapBySpaceShip(player, 174, -1, 432);
+                                    } else {
+                                        this.npcChat(player, "Bạn chưa mở giới hạn thiên tử. ");
+                                    }
+                                    break;
                                 case 2:
                                     if (player.mott == 1) {
                                         this.npcChat(player, "Bạn mở rồi mà ?? ");
@@ -6190,7 +6187,7 @@ public class NpcFactory {
 
                                             item2.itemOptions.add(new Item.ItemOption(50, 150));
                                             item2.itemOptions.add(new Item.ItemOption(77, 180));
-                                            item2.itemOptions.add(new Item.ItemOption(77, 180));
+                                            item2.itemOptions.add(new Item.ItemOption(103, 180));
                                             item2.itemOptions.add(new Item.ItemOption(5, 70));
                                             item2.itemOptions.add(new Item.ItemOption(14, 60));
                                             item2.itemOptions.add(new Item.ItemOption(30, 0));
@@ -6215,7 +6212,7 @@ public class NpcFactory {
 
                                             item2.itemOptions.add(new Item.ItemOption(50, 200));
                                             item2.itemOptions.add(new Item.ItemOption(77, 210));
-                                            item2.itemOptions.add(new Item.ItemOption(77, 210));
+                                            item2.itemOptions.add(new Item.ItemOption(103, 210));
                                             item2.itemOptions.add(new Item.ItemOption(5, 85));
                                             item2.itemOptions.add(new Item.ItemOption(14, 60));
                                             item2.itemOptions.add(new Item.ItemOption(30, 0));
@@ -6232,13 +6229,14 @@ public class NpcFactory {
                                             Item item = ItemService.gI().createNewItem((short) (2226));
                                             Item item2 = ItemService.gI().createNewItem((short) (2172));
 
-                                            item.itemOptions.add(new Item.ItemOption(50, 70));
-                                            item.itemOptions.add(new Item.ItemOption(77, 80));
-                                            item.itemOptions.add(new Item.ItemOption(77, 80));
+                                            item.itemOptions.add(new Item.ItemOption(50, 30));
+                                            item.itemOptions.add(new Item.ItemOption(77, 40));
+                                            item.itemOptions.add(new Item.ItemOption(103, 40));
+                                            item.itemOptions.add(new Item.ItemOption(5, 10));
 
                                             item2.itemOptions.add(new Item.ItemOption(50, 220));
                                             item2.itemOptions.add(new Item.ItemOption(77, 230));
-                                            item2.itemOptions.add(new Item.ItemOption(77, 230));
+                                            item2.itemOptions.add(new Item.ItemOption(103, 230));
                                             item2.itemOptions.add(new Item.ItemOption(5, 90));
                                             item2.itemOptions.add(new Item.ItemOption(14, 60));
                                             item2.itemOptions.add(new Item.ItemOption(76, 0));
@@ -6255,13 +6253,14 @@ public class NpcFactory {
                                             Item item = ItemService.gI().createNewItem((short) (2219));
                                             Item item2 = ItemService.gI().createNewItem((short) (2173));
 
-                                            item.itemOptions.add(new Item.ItemOption(50, 100));
-                                            item.itemOptions.add(new Item.ItemOption(77, 130));
-                                            item.itemOptions.add(new Item.ItemOption(77, 130));
+                                            item.itemOptions.add(new Item.ItemOption(50, 50));
+                                            item.itemOptions.add(new Item.ItemOption(77, 60));
+                                            item.itemOptions.add(new Item.ItemOption(103, 60));
+                                            item.itemOptions.add(new Item.ItemOption(5, 15));
 
                                             item2.itemOptions.add(new Item.ItemOption(50, 270));
                                             item2.itemOptions.add(new Item.ItemOption(77, 300));
-                                            item2.itemOptions.add(new Item.ItemOption(77, 300));
+                                            item2.itemOptions.add(new Item.ItemOption(103, 300));
                                             item2.itemOptions.add(new Item.ItemOption(5, 120));
                                             item2.itemOptions.add(new Item.ItemOption(14, 60));
                                             item2.itemOptions.add(new Item.ItemOption(30, 0));
@@ -6280,7 +6279,7 @@ public class NpcFactory {
 
                                             item.itemOptions.add(new Item.ItemOption(50, 150));
                                             item.itemOptions.add(new Item.ItemOption(77, 170));
-                                            item.itemOptions.add(new Item.ItemOption(77, 170));
+                                            item.itemOptions.add(new Item.ItemOption(103, 170));
                                             item.itemOptions.add(new Item.ItemOption(5, 200));
                                             item.itemOptions.add(new Item.ItemOption(30, 0));
 
