@@ -66,7 +66,7 @@ public class OpenPowerService {
 
     public boolean chuyenSinhPet(Player player) {   
             if (player.pet.nPoint.power >= 400000000000L) {
-                player.pet.nPoint.power -= (player.pet.nPoint.power - 2000);
+                player.pet.nPoint.power -= (player.pet.nPoint.power - 100000000000L);
                 player.chuyenSinhPet++;
                 player.pet.nPoint.hpg += 5000;
                 player.pet.nPoint.dameg += 1000;
@@ -84,9 +84,9 @@ public class OpenPowerService {
             Service.gI().sendThongBao(player, "Hành trang không đủ chỗ trống");
 
         } else {
-            if (player.tongnap >= 5000) {
-                PlayerDAO.subtn(player, 5000);
-                player.nPoint.power -= (player.nPoint.power - 2000);
+            if (player.tongnap >= 10000) {
+                PlayerDAO.subtn(player, 10000);
+                player.nPoint.power -= (player.nPoint.power - 100000000000L);
                 player.chuyenSinh++;
                 player.nPoint.hpg += 10000;
                 player.nPoint.dameg += 2000;
@@ -94,12 +94,12 @@ public class OpenPowerService {
                 Service.getInstance().point(player);
 //                Client.gI().kickSession(player.getSession());
                 if (!player.isPet) {
-                    Service.gI().sendThongBao(player, "Ngon rồi chú bé đần, cảm ơn 5k Của Ngươi");
+                    Service.gI().sendThongBao(player, "Ngon rồi chú bé đần, cảm ơn 10k Của Ngươi");
                 }
                 return true;
             } else {
                 if (!player.isPet) {
-                    Service.gI().sendThongBao(player, "Điểm Đổi của bạn không đủ 5k!");
+                    Service.gI().sendThongBao(player, "Điểm Đổi của bạn không đủ 10k!");
                 }
                 return false;
             }

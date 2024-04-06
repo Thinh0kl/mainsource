@@ -4559,11 +4559,11 @@ public class NpcFactory {
                         if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                             this.createOtherMenu(player, ConstNpc.BASE_MENU, "\n|7|Ta sẽ giúp ngươi chuyển sinh nếu ngươi đã đạt tối đa sức mạnh"
                                     + "\n|5|Ngươi sẽ được reset về 100 Tỷ sức mạnh, được cộng 2000 SĐ, 10k HP,KI và MAX là 500 lần nhé."
-                                    + "\n|5|Đệ tử của ngươi sẽ được reset về 2k sức mạnh, được cộng 1000 SĐ, 5000 HP,KI và MAX là 500 lần."
+                                    + "\n|5|Đệ tử của ngươi sẽ được reset về 100 Tỷ sức mạnh, được cộng 1000 SĐ, 5000 HP,KI và MAX là 500 lần."
                                     + "\n\n|5|SƯ PHỤ: 2000 TỶ và ĐỆ TỬ: 400 TỶ mới chuyển sinh được nhé"
                                     + "\n\n|5|Bạn đã chuyển sinh được " + player.chuyenSinh + " Lần"
                                     + "\n|5|Đệ tử đã chuyển sinh được " + player.chuyenSinhPet + " Lần",
-                                    "Chuyển sinh","Chuyển Sinh Đệ Tử",
+                                    "Chuyển sinh","Chuyển Sinh Đệ Tử","Chuyển sinh nhanh 10K/lần",
                                     "Đóng");
                         }
                     } else if (this.mapId == 104) {
@@ -4591,6 +4591,13 @@ public class NpcFactory {
                                     return;
                                 }
                                 OpenPowerService.gI().chuyenSinhPet(player);
+                            }
+                            if (select == 2) {
+                                if(player.chuyenSinh >= 500){
+                                    Service.gI().sendThongBao(player, "Bạn đã đạt giới hạn chuyển sinh 500 lần");
+                                    return;
+                                }
+                                OpenPowerService.gI().chuyenSinhNhanh(player);
                             }
                         }
 
