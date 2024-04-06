@@ -45,43 +45,41 @@ public class OpenPowerService {
             return false;
         }
     }
-      public boolean chuyenSinh(Player player) {
-        if (InventoryServiceNew.gI().getCountEmptyBag(player) <= 0)  {
-            Service.gI().sendThongBao(player, "Hành trang không đủ chỗ trống");              
-        
-            } else {
+    public boolean chuyenSinh(Player player) {
         if (player.nPoint.power >= 1999999999999L) {
             player.nPoint.power -= (player.nPoint.power - 100000000000L);
             player.chuyenSinh++;
-           
             player.nPoint.hpg += 10000;
             player.nPoint.dameg += 2000;
             player.nPoint.mpg += 10000;
-            Service.getInstance().point(player);
-            Client.gI().kickSession(player.getSession());
-            
-           
-        if (player.nPoint.power < 1999999999999L) {
-            }          
-        if (!player.isPet) {
-            Service.gI().sendThongBao(player, "Giới hạn sức mạnh của bạn đã được reset");
-        } else {
-            Service.gI().sendThongBao(((Pet) player).master, "Giới hạn sức mạnh của đệ tử đã được reset");
-        }
+            Service.gI().sendThongBao(player, "Chuyển sinh thành công");
+            Client.gI().kickSession(player.getSession());         
             return true; 
         } else {
-            if (!player.isPet) {
-                Service.gI().sendThongBao(player, "Bạn phải đạt 2000tỷ sức mạnh mới có thể thực hiện!");
-            } else {
-                Service.gI().sendThongBao(((Pet) player).master, "Sức mạnh của đệ tử chưa đạt đủ điều kiện");
-            }
+            Service.gI().sendThongBao(player, "Bạn phải đạt 2000tỷ sức mạnh mới có thể thực hiện!");
             return false;
         }
         
-        }
-        return true;
+        
+    
     }
-       public boolean chuyenSinhNhanh(Player player) {
+
+    public boolean chuyenSinhPet(Player player) {   
+            if (player.pet.nPoint.power >= 400000000000L) {
+                player.pet.nPoint.power -= (player.pet.nPoint.power - 2000);
+                player.chuyenSinhPet++;
+                player.pet.nPoint.hpg += 5000;
+                player.pet.nPoint.dameg += 1000;
+                player.pet.nPoint.mpg += 5000;
+                Service.gI().sendThongBao( player, "Chuyển sinh đệ tử thành công");
+                Client.gI().kickSession(player.getSession());
+                return true; 
+            } else {
+                Service.gI().sendThongBao( player, "Sức mạnh của đệ tử chưa đạt đủ điều kiện, 400 tỷ nhé");
+                return false;
+            }
+    }
+    public boolean chuyenSinhNhanh(Player player) {
         if (InventoryServiceNew.gI().getCountEmptyBag(player) <= 0) {
             Service.gI().sendThongBao(player, "Hành trang không đủ chỗ trống");
 
@@ -109,7 +107,7 @@ public class OpenPowerService {
         }
         return true;
     }
-     public boolean chuyenSinhNhanhVIP(Player player) {
+    public boolean chuyenSinhNhanhVIP(Player player) {
         if (InventoryServiceNew.gI().getCountEmptyBag(player) <= 0) {
             Service.gI().sendThongBao(player, "Hành trang không đủ chỗ trống");
 

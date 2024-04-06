@@ -29,7 +29,6 @@ import com.girlkun.services.ItemService;
 import com.girlkun.services.MapService;
 import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
-import static jdk.nashorn.internal.runtime.Debug.id;
 
 public class Client implements Runnable {
 

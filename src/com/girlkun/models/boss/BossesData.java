@@ -1844,7 +1844,7 @@ public class BossesData {
             new short[]{1309, 1310, 1311, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             1000000000000l, //dame
             new long[]{500000000000000000l}, //hp
-            new int[]{174}, //map join
+            new int[]{180}, //map join
             new int[][]{
                 {Skill.THOI_MIEN, 7, 100000},
                 {Skill.KHIEN_NANG_LUONG, 7, 100000},
@@ -1874,7 +1874,7 @@ public class BossesData {
             new short[]{1291, 1292, 1293, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             1000000000000000l, //dame
             new long[]{500000000000000000l}, //hp
-            new int[]{179}, //map join
+            new int[]{180}, //map join
             new int[][]{
                 {Skill.THOI_MIEN, 7, 100000},
                 {Skill.KHIEN_NANG_LUONG, 7, 500},
@@ -1902,7 +1902,7 @@ public class BossesData {
             ConstPlayer.NAMEC, //gender
             new short[]{1231, 1232, 1233, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             100000000000l, //dame
-            new long[]{8000000000000000l}, //hp
+            new long[]{5000000000000000l}, //hp
             new int[]{180}, //map join
             new int[][]{
                 {Skill.THOI_MIEN, 3, 100000},
@@ -1921,6 +1921,37 @@ public class BossesData {
             new String[]{"|-1|HAHA! ĐÉO CÓ ĐỒ GÌ ĐÂU MẤY CHÚ BÉ  !!!!!!!!!!!!"}, //text chat 3
             REST_15_M
     );
+    public static final BossData ZAMASFUSION2 = new BossData(
+        "Cửu Vỷ Hồ", //name
+        ConstPlayer.NAMEC, //gender
+        new short[]{1294, 1295, 1296, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+        100000000000l, //dame
+        new long[]{5000000000000000l}, //hp
+        new int[]{180}, //map join
+        new int[][]{
+            {Skill.THOI_MIEN, 3, 100000},
+            {Skill.KAMEJOKO, 7, 1000},            
+            {Skill.ANTOMIC, 7, 1000},            
+            {Skill.MA_PHONG_BA, 7, 1000},
+            {Skill.MASENKO, 7, 1000},            
+            {Skill.QUA_CAU_KENH_KHI, 7, 10},
+            {Skill.SUPER_KAME, 7, 10},
+
+
+            {Skill.THAI_DUONG_HA_SAN, 3, 120000},},//skill//skill
+
+        new String[]{}, //text chat 1
+        new String[]{"|-1|Loài người thật hèn hạ",
+            "|-1|Ta sẽ thanh trừng bọn ngươi",
+            "|-1|Tại sao loài người lại dám bước chân vào lãnh địa của ta?",
+            "|-1|Lũ người ngu ngốc chả biết gì hết",
+            "|-1Hãy để ta tiêu diệt các ngươi",
+            "|-1Mỏi tay rồi chứ gì lũ ngu, kakakaka",
+            "|-1Thách cả cha chúng mày vô luôn hahaha",
+            "|-1|Nhờ có ta mà mới có các ngươi",}, //text chat 2
+        new String[]{"|-1|HAHA! ĐÉO CÓ ĐỒ GÌ ĐÂU MẤY CHÚ BÉ  !!!!!!!!!!!!"}, //text chat 3
+        REST_1_M
+);
     public static final BossData XENDO = new BossData(
             "Thần Tài LUFFY", //name
             ConstPlayer.NAMEC, //gender
@@ -2032,8 +2063,8 @@ public class BossesData {
             ConstPlayer.TRAI_DAT, //gender
             new short[]{1219, 193, 194, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             90000000, //dame
-            new long[]{1000000000000l}, //hp
-            new int[]{170, 171, 172}, //map join
+            new long[]{1000000000000000l}, //hp
+            new int[]{180}, //map join
             new int[][]{
                 {Skill.KAMEJOKO, 7, 1000},
                 {Skill.KHIEN_NANG_LUONG, 7, 120000},},

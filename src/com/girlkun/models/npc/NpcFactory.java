@@ -1723,17 +1723,17 @@ public class NpcFactory {
                                             int gender = player.gender;
                                             if (gender == 0) {
                                                 this.createOtherMenu(player, ConstNpc.TTTD,
-                                                        "|7|Chọn SKH",
+                                                        "|7|Chọn SKH,\n Lưu ý: mỗi người chỉ được nhận 5 lần nên bạn hãy cẩn thận nhé\n Nếu muốn nhận nữa thì hãy mua lại",
                                                         "Songoku", "Thiên xin hăng", "Kaioken", "Đóng");
                                                 break;
                                             } else if (gender == 2) {
                                                 this.createOtherMenu(player, ConstNpc.TTXD,
-                                                        "|7|Chọn SKH",
+                                                        "|7|Chọn SKH,\n Lưu ý: mỗi người chỉ được nhận 5 lần nên bạn hãy cẩn thận nhé\n Nếu muốn nhận nữa thì hãy mua lại",
                                                         "Nappa", "Kakarot", "Caidc", "Đóng");
                                                 break;
                                             } else if (gender == 1) {
                                                 this.createOtherMenu(player, ConstNpc.TTNM,
-                                                        "|7|Chọn SKH",
+                                                        "|7|Chọn SKH,\n Lưu ý: mỗi người chỉ được nhận 5 lần nên bạn hãy cẩn thận nhé\n Nếu muốn nhận nữa thì hãy mua lại",
                                                         "Ốc tiêu", "Picolo", "Pikkoro Đai mao", "Đóng");
                                                 break;
                                             }
@@ -4557,12 +4557,13 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
-                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "\nTa sẽ giúp ngươi chuyển sinh nếu ngươi\nđã đạt tối đa sức mạnh"
-                                    + "\nNgươi sẽ được reset về 2k sức mạnh"
-                                    + "\nvà ngươi sẽ nhận được 2000sdg + 10k ki,hpg"
-                                    + "\nvà max 500 lan."
-                                    + "\n Bạn đã chuyển sinh được " + player.chuyenSinh + " Lần",
-                                    "Chuyển sinh",
+                            this.createOtherMenu(player, ConstNpc.BASE_MENU, "\n|7|Ta sẽ giúp ngươi chuyển sinh nếu ngươi đã đạt tối đa sức mạnh"
+                                    + "\n|5|Ngươi sẽ được reset về 100 Tỷ sức mạnh, được cộng 2000 SĐ, 10k HP,KI và MAX là 500 lần nhé."
+                                    + "\n|5|Đệ tử của ngươi sẽ được reset về 2k sức mạnh, được cộng 1000 SĐ, 5000 HP,KI và MAX là 500 lần."
+                                    + "\n\n|5|SƯ PHỤ: 2000 TỶ và ĐỆ TỬ: 400 TỶ mới chuyển sinh được nhé"
+                                    + "\n\n|5|Bạn đã chuyển sinh được " + player.chuyenSinh + " Lần"
+                                    + "\n|5|Đệ tử đã chuyển sinh được " + player.chuyenSinhPet + " Lần",
+                                    "Chuyển sinh","Chuyển Sinh Đệ Tử",
                                     "Đóng");
                         }
                     } else if (this.mapId == 104) {
@@ -4576,12 +4577,20 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         if (player.iDMark.isBaseMenu()) {
-                            if(player.chuyenSinh > 500){
-                                Service.gI().sendThongBao(player, "Ban da dat gioi han chuyen sinh");
-                                return;
-                            }
+                           
                             if (select == 0) {
+                                if(player.chuyenSinh >= 500){
+                                    Service.gI().sendThongBao(player, "Bạn đã đạt giới hạn chuyển sinh 500 lần");
+                                    return;
+                                }
                                 OpenPowerService.gI().chuyenSinh(player);
+                            }
+                            if (select == 1) {
+                                if(player.chuyenSinhPet >= 500){
+                                    Service.gI().sendThongBao(player, "Đệ tử đã đạt giới hạn chuyển sinh 500 lần");
+                                    return;
+                                }
+                                OpenPowerService.gI().chuyenSinhPet(player);
                             }
                         }
 
@@ -4604,7 +4613,7 @@ public class NpcFactory {
                 if (canOpenNpc(player) && this.mapId == 5) {
                     createOtherMenu(player, ConstNpc.BASE_MENU,
                             "|2|Ta Vừa Hắc Mắp Xêm Được Tóp Của Toàn Server\b|7|Người Muốn Xem Tóp Gì?",
-                            "Top Nhiệm Vụ", "Top Chuyển Sinh", "Top Nạp", "Đóng");
+                            "Top Nhiệm Vụ", "Top Chuyển Sinh", "Top Nạp","Top Chuyển Sinh\nđệ tử", "Đóng");
                 }
                 if (canOpenNpc(player) && this.mapId == 14) {
                     this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ta sẽ dẫn cậu tới hành tinh Berrus với điều kiện\n 2. đạt 80 tỷ sức mạnh "
@@ -4640,6 +4649,10 @@ public class NpcFactory {
                                     }
                                     if (select == 2) {
                                         Service.gI().showListTop(player, Manager.topNap);
+                                        break;
+                                    }
+                                    if (select == 3) {
+                                        Service.gI().showListTop(player, Manager.topCSPet);
                                         break;
                                     }
                                     // if (select == 3) {
@@ -5504,7 +5517,7 @@ public class NpcFactory {
 
                                 InventoryServiceNew.gI().subQuantityItemsBag(player, thientu, 9999);
                                 Item aott = ItemService.gI().createNewItem((short) 2158);
-                                aott.itemOptions.add(new Item.ItemOption(220, 500));
+                                aott.itemOptions.add(new Item.ItemOption(220, 150));
                                 aott.itemOptions.add(new Item.ItemOption(21, 400));
                                 aott.itemOptions.add(new Item.ItemOption(30, 1));
                                 aott.itemOptions.add(new Item.ItemOption(36, 1));
@@ -6090,11 +6103,11 @@ public class NpcFactory {
                                 case 1:
                                     createOtherMenu(player, 1111, "|1|Ngươi Muốn nhận quà mốc nạp đơn à?"
                                             + " Quà mốc nạp đơn sẽ reset theo tuần nhé. Tổng nạp tuần này của ngươi là :" + player.napdon + "\n"
-                                            + "|4|\n100k : 50Tr COIN, 10 Ngọc Rồng Tăng chỉ số, 20 Đá Bảo Vệ, Bông Tai C6, Cải Trang Vegeta Long Nhân VIP\n"
-                                            + "|4|\n200k : 100Tr COIN, 20 Ngọc Rồng Tăng chỉ số, 40 Đá Bảo Vệ, 200 Bùa Chân Mệnh\n"
-                                            + "|4|\n400k : 250Tr COIN, 50  Ngọc Rồng Tăng chỉ số ,80 Đá Bảo Vệ, 200 Bùa Hào Quang, 100 Bùa Chân Mệnh , Vé nâng cấp PET VIP\n"
-                                            + "|4|\n1000k : 500Tr COIN, 100 Ngọc Rồng Tăng chỉ số,200 đá bảo vệ, 500 Bùa Hào quang, 500 Bùa Chân Mệnh\n"
-                                            + "|4|\n2000k : 220  Ngọc Rồng Tăng chỉ số, 400 Đá Bảo vệ, 10 ngọc vip 10% SD hoặc HPKI nếu muốn đổi Ib Admin",
+                                            + "|4|\n100k : 50Tr COIN, 5 Ngọc Rồng Tăng chỉ số, 20 Đá Bảo Vệ, 2000 Đá Thiên Tử, 1000 Đá Chí Tôn\n"
+                                            + "|4|\n200k : 100Tr COIN, 10 Ngọc Rồng Tăng chỉ số, 40 Đá Bảo Vệ, 200 Bùa Chân Mệnh\n"
+                                            + "|4|\n400k : 250Tr COIN, 20  Ngọc Rồng Tăng chỉ số ,80 Đá Bảo Vệ, 200 Bùa Hào Quang, 100 Bùa Chân Mệnh \n"
+                                            + "|4|\n1000k : 500Tr COIN, 50 Ngọc Rồng Tăng chỉ số,200 đá bảo vệ, 500 Bùa Hào quang, 500 Bùa Chân Mệnh,7000 Đá Thiên Tử , 3000 Đá Chí Tôn\n"
+                                            + "|4|\n2000k : 115  Ngọc Rồng Tăng chỉ số, 400 Đá Bảo vệ, 10 ngọc vip 10% SD hoặc HPKI nếu muốn đổi Ib Admin , 10000 Vé Vi Hợp Cao Cấp",
                                             "Nhận quà");
 
                                     break;
@@ -6320,33 +6333,29 @@ public class NpcFactory {
                                     if (player.napdon >= 100000 && player.mocnapdon < 1) {
                                         player.mocnapdon = 1;
                                         PlayerDAO.addvnd(player, 50000000);
-                                        Item item2 = ItemService.gI().createNewItem((short) (2128), 10);
-                                        Item item3 = ItemService.gI().createNewItem((short) (2129), 10);
-                                        Item item4 = ItemService.gI().createNewItem((short) (2130), 10);
+                                        Item item2 = ItemService.gI().createNewItem((short) (2128), 5);
+                                        Item item3 = ItemService.gI().createNewItem((short) (2129), 5);
+                                        Item item4 = ItemService.gI().createNewItem((short) (2130), 5);
                                         Item item5 = ItemService.gI().createNewItem((short) (987), 20);
-                                        Item item7 = ItemService.gI().createNewItem((short) (2119), 1);
-                                        Item item8 = ItemService.gI().createNewItem((short) (2184), 1);
-                                        item8.itemOptions.add(new Item.ItemOption(50, 90));
-                                        item8.itemOptions.add(new Item.ItemOption(77, 120));
-                                        item8.itemOptions.add(new Item.ItemOption(103, 120));
-                                        item8.itemOptions.add(new Item.ItemOption(5, 10));
-                                        item8.itemOptions.add(new Item.ItemOption(14, 40));
-
+                                        Item item7 = ItemService.gI().createNewItem((short) (2155), 2000);
+                                        Item item8 = ItemService.gI().createNewItem((short) (2210), 1000);
+                                     
                                         InventoryServiceNew.gI().addItemBag(player, item2);
                                         InventoryServiceNew.gI().addItemBag(player, item3);
                                         InventoryServiceNew.gI().addItemBag(player, item4);
                                         InventoryServiceNew.gI().addItemBag(player, item5);
                                         InventoryServiceNew.gI().addItemBag(player, item7);
                                         InventoryServiceNew.gI().addItemBag(player, item8);
+                                   
 
                                         Service.gI().sendThongBao(player, "Nhận được quà mốc 100k");
                                         InventoryServiceNew.gI().sendItemBags(player);
                                     } else if (player.napdon >= 200000 && player.mocnapdon < 2) {
                                         player.mocnapdon = 2;
                                         PlayerDAO.addvnd(player, 100000000);
-                                        Item ittem2 = ItemService.gI().createNewItem((short) (2128), 20);
-                                        Item ittem6 = ItemService.gI().createNewItem((short) (2129), 20);
-                                        Item ittem4 = ItemService.gI().createNewItem((short) (2130), 20);
+                                        Item ittem2 = ItemService.gI().createNewItem((short) (2128), 10);
+                                        Item ittem6 = ItemService.gI().createNewItem((short) (2129), 10);
+                                        Item ittem4 = ItemService.gI().createNewItem((short) (2130), 10);
                                         Item ittem3 = ItemService.gI().createNewItem((short) (1309), 200);
                                         Item ittem5 = ItemService.gI().createNewItem((short) (987), 40);
 
@@ -6361,13 +6370,13 @@ public class NpcFactory {
                                     } else if (player.napdon >= 400000 && player.mocnapdon < 3) {
                                         player.mocnapdon = 3;
                                         PlayerDAO.addvnd(player, 250000000);
-                                        Item itttem2 = ItemService.gI().createNewItem((short) (2128), 50);
-                                        Item itttem4 = ItemService.gI().createNewItem((short) (2129), 50);
-                                        Item itttem1 = ItemService.gI().createNewItem((short) (2130), 50);
+                                        Item itttem2 = ItemService.gI().createNewItem((short) (2128), 20);
+                                        Item itttem4 = ItemService.gI().createNewItem((short) (2129), 20);
+                                        Item itttem1 = ItemService.gI().createNewItem((short) (2130), 20);
                                         Item itttem3 = ItemService.gI().createNewItem((short) (2190), 200);
                                         Item itttem5 = ItemService.gI().createNewItem((short) (987), 80);
                                         Item itttem6 = ItemService.gI().createNewItem((short) (1309), 100);
-                                        Item itttem7 = ItemService.gI().createNewItem((short) (2236), 1);
+                                     
 
                                         InventoryServiceNew.gI().addItemBag(player, itttem2);
                                         InventoryServiceNew.gI().addItemBag(player, itttem4);
@@ -6375,7 +6384,7 @@ public class NpcFactory {
                                         InventoryServiceNew.gI().addItemBag(player, itttem3);
                                         InventoryServiceNew.gI().addItemBag(player, itttem5);
                                         InventoryServiceNew.gI().addItemBag(player, itttem6);
-                                        InventoryServiceNew.gI().addItemBag(player, itttem7);
+                                       
 
                                         Service.gI().sendThongBao(player, "Nhận được quà mốc 400k");
                                         InventoryServiceNew.gI().sendItemBags(player);
@@ -6383,12 +6392,14 @@ public class NpcFactory {
                                         player.mocnapdon = 4;
 
                                         PlayerDAO.addvnd(player, 500000000);
-                                        Item iitem2 = ItemService.gI().createNewItem((short) (2128), 100);
-                                        Item iitem3 = ItemService.gI().createNewItem((short) (2129), 100);
-                                        Item iitem1 = ItemService.gI().createNewItem((short) (2130), 100);
+                                        Item iitem2 = ItemService.gI().createNewItem((short) (2128), 50);
+                                        Item iitem3 = ItemService.gI().createNewItem((short) (2129), 50);
+                                        Item iitem1 = ItemService.gI().createNewItem((short) (2130), 50);
                                         Item iitem4 = ItemService.gI().createNewItem((short) (2190), 500);
                                         Item iitem5 = ItemService.gI().createNewItem((short) (987), 200);
                                         Item iitem6 = ItemService.gI().createNewItem((short) (1309), 500);
+                                        Item iitem7 = ItemService.gI().createNewItem((short) (2155), 7000);
+                                        Item iitem8 = ItemService.gI().createNewItem((short) (2210), 3000);
 
                                         InventoryServiceNew.gI().addItemBag(player, iitem2);
                                         InventoryServiceNew.gI().addItemBag(player, iitem3);
@@ -6396,23 +6407,26 @@ public class NpcFactory {
                                         InventoryServiceNew.gI().addItemBag(player, iitem4);
                                         InventoryServiceNew.gI().addItemBag(player, iitem5);
                                         InventoryServiceNew.gI().addItemBag(player, iitem6);
+                                        InventoryServiceNew.gI().addItemBag(player, iitem7);
+                                        InventoryServiceNew.gI().addItemBag(player, iitem8);
 
                                         Service.gI().sendThongBao(player, "Nhận được quà mốc 1000k");
                                         InventoryServiceNew.gI().sendItemBags(player);
                                     } else if (player.napdon >= 2000000 && player.mocnapdon < 5) {
                                         player.mocnapdon = 5;
-
-                                        Item iiitem2 = ItemService.gI().createNewItem((short) (2128), 220);
-                                        Item iiitem3 = ItemService.gI().createNewItem((short) (2129), 220);
-                                        Item iiitem4 = ItemService.gI().createNewItem((short) (2130), 220);
+                                        Item iiitem2 = ItemService.gI().createNewItem((short) (2128), 115);
+                                        Item iiitem3 = ItemService.gI().createNewItem((short) (2129), 115);
+                                        Item iiitem4 = ItemService.gI().createNewItem((short) (2130), 115);
                                         Item iiitem5 = ItemService.gI().createNewItem((short) (987), 400);
                                         Item iiitem6 = ItemService.gI().createNewItem((short) (2164), 10);
+                                        Item iiitem7 = ItemService.gI().createNewItem((short) (2118), 10000);
 
                                         InventoryServiceNew.gI().addItemBag(player, iiitem2);
                                         InventoryServiceNew.gI().addItemBag(player, iiitem3);
                                         InventoryServiceNew.gI().addItemBag(player, iiitem4);
                                         InventoryServiceNew.gI().addItemBag(player, iiitem5);
                                         InventoryServiceNew.gI().addItemBag(player, iiitem6);
+                                        InventoryServiceNew.gI().addItemBag(player, iiitem7);
 
                                         Service.gI().sendThongBao(player, "Nhận được quà mốc 2000k");
                                         InventoryServiceNew.gI().sendItemBags(player);

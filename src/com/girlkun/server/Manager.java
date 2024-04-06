@@ -119,6 +119,7 @@ public class Manager {
             + "         CAST(SUBSTRING_INDEX(data_point, ',', 2) AS SIGNED) DESC\n"
             + "LIMIT 20;";
     public static final String queryTopCS = "SELECT id, chuyenSinh AS chuyenSinh FROM player ORDER BY chuyenSinh DESC LIMIT 20;";
+    public static final String queryTopCSPet = "SELECT id, chuyenSinhPet AS chuyenSinhPet FROM player ORDER BY chuyenSinhPet DESC LIMIT 20;";
     public static final String queryTopDiem = "SELECT id, topdiem AS topdiem FROM player ORDER BY topdiem DESC LIMIT 20;";
 
     public static List<TOP> topKhi;
@@ -134,6 +135,7 @@ public class Manager {
     //public static List<TOP> topSK;
     //public static List<TOP> topPVP;
     public static List<TOP> topCS;
+    public static List<TOP> topCSPet;
     //public static List<TOP> topNHS;
     public static long timeRealTop = 0;
     public static final short[] itemIds_TL = {555, 557, 559, 556, 558, 560, 562, 564, 566, 563, 565, 567, 561};
@@ -973,6 +975,8 @@ public class Manager {
             //Logger.success("Load top pvp thành công (" + topSK.size() + ")\n");
             topCS = realTop(queryTopCS, con);
             Logger.success("Load top chuyen Sinh thành công (" + topCS.size() + ")\n");
+            topCSPet = realTop(queryTopCSPet, con);
+            Logger.success("Load top chuyen Sinh pet thành công (" + topCS.size() + ")\n");
             topDiem = realTop(queryTopDiem, con);
             Logger.success("Load top Diem thành công (" + topDiem.size() + ")\n");
             //topNHS = realTop(queryTopNHS, con);
@@ -1036,6 +1040,10 @@ public class Manager {
                     case queryTopCS:
                         top.setInfo1(rs.getInt("chuyenSinh") + " lần");
                         top.setInfo2(rs.getInt("chuyenSinh") + " lần");
+                        break;
+                    case queryTopCSPet:
+                        top.setInfo1(rs.getInt("chuyenSinhPet") + " lần");
+                        top.setInfo2(rs.getInt("chuyenSinhPet") + " lần");
                         break;
                     case queryTopNap:
                         top.setInfo1(rs.getInt("tongnap") + " VNĐ");

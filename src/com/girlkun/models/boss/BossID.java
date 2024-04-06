@@ -116,5 +116,6 @@ public class BossID {
     public static final int GOKU4 = -2531;
     public static final int WUKONG = -2532;
     public static final int RONGTAAC = -2533;
+    public static final int ZAMASFUSION2 = -2534;
 
 }

@@ -24,7 +24,7 @@ public class zamasfusion extends Boss {
             int randomDo =  Util.nextInt(1048, 1062);
             int randomGiap = Util.nextInt(500, 5000);
             int randomHP = Util.nextInt(200, 300);
-            int randomTC = Util.nextInt(25, 100);
+            int randomTC = Util.nextInt(25, 70);
             int randomKI = Util.nextInt(200, 300);
             int randomChiMang = Util.nextInt(10, 30);
 
@@ -123,7 +123,7 @@ public class zamasfusion extends Boss {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);
                 }
-                damage = damage / 100;
+                damage = damage / 10;
             }
             this.nPoint.subHP(damage);
             if (isDie()) {

@@ -13,6 +13,7 @@ import com.girlkun.models.boss.list_boss.Cooler.zeno;
 import com.girlkun.models.boss.list_boss.Cooler.rongtaac;
 import com.girlkun.models.boss.list_boss.Cooler.wukong;
 import com.girlkun.models.boss.list_boss.Cooler.zamasfusion;
+import com.girlkun.models.boss.list_boss.Cooler.zamasfusion2;
 import com.girlkun.models.boss.list_boss.Cooler.heartgod;
 import com.girlkun.models.boss.list_boss.Cooler.goku4;
 import com.girlkun.models.boss.list_boss.HuyDiet.Champa;
@@ -139,6 +140,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.XENDO);
             this.createBoss(BossID.RONGTAAC);
             this.createBoss(BossID.ZAMASFUSION);
+            this.createBoss(BossID.ZAMASFUSION2);
             this.createBoss(BossID.HEARTGOD);
             this.createBoss(BossID.GOKU4);
             // this.createBoss(BossID.ZENO);
@@ -157,7 +159,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.KUKU);
             this.createBoss(BossID.MAP_DAU_DINH);
             this.createBoss(BossID.RAMBO);
-            // this.createBoss(BossID.KHI_ULTRA);
+            this.createBoss(BossID.KHI_ULTRA);
             this.createBoss(BossID.GRANOLA);
             this.createBoss(BossID.FIDE);
             this.createBoss(BossID.DR_KORE);
@@ -286,6 +288,8 @@ public class BossManager implements Runnable {
                     return new wukong();
                 case BossID.ZAMASFUSION:
                     return new zamasfusion();
+                case BossID.ZAMASFUSION2:
+                    return new zamasfusion2();
                 case BossID.HEARTGOD:
                     return new heartgod();
                 case BossID.GOKU4:

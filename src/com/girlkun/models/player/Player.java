@@ -74,6 +74,7 @@ public class Player {
     public IPVP pvp;
     public int pointPvp;
     public int chuyenSinh;
+    public int chuyenSinhPet;
     public int topdiem;
     public int nhanqua;
     public int thientu;

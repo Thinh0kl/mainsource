@@ -149,6 +149,7 @@ public class GodGK {
                             player.NguHanhSonPoint = rs.getInt("NguHanhSonPoint");
                             player.totalPlayerViolate = 0;
                             player.chuyenSinh = rs.getInt("chuyenSinh");
+                            player.chuyenSinhPet = rs.getInt("chuyenSinhPet");
                             player.topdiem = rs.getInt("topdiem");
                             player.nhanqua = rs.getInt("nhanqua");
                             player.thientu = rs.getInt("thientu");
