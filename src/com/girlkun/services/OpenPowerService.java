@@ -65,8 +65,8 @@ public class OpenPowerService {
     }
 
     public boolean chuyenSinhPet(Player player) {   
-            if (player.pet.nPoint.power >= 400000000000L) {
-                player.pet.nPoint.power -= (player.pet.nPoint.power - 100000000000L);
+            if (player.pet.nPoint.power >= 1000000000000L) {
+                player.pet.nPoint.power -= (player.pet.nPoint.power - 300000000000L);
                 player.chuyenSinhPet++;
                 player.pet.nPoint.hpg += 5000;
                 player.pet.nPoint.dameg += 1000;
@@ -75,7 +75,7 @@ public class OpenPowerService {
                 Client.gI().kickSession(player.getSession());
                 return true; 
             } else {
-                Service.gI().sendThongBao( player, "Sức mạnh của đệ tử chưa đạt đủ điều kiện, 400 tỷ nhé");
+                Service.gI().sendThongBao( player, "Sức mạnh của đệ tử chưa đạt đủ điều kiện, 1000 tỷ nhé");
                 return false;
             }
     }

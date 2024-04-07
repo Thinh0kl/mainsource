@@ -702,6 +702,7 @@ public class UseItem {
     }
 
     private void changePetBerus(Player player) {
+        player.chuyenSinhPet = 0;
         if(InventoryServiceNew.gI().findItemBag(player, 1108).isNotNullItem() && InventoryServiceNew.gI().findItemBag(player, 1108).quantity >=1){
             Item hon = null;
             hon = InventoryServiceNew.gI().findItemBag(player, 1108);
@@ -716,6 +717,7 @@ public class UseItem {
     }
 
     private void changePetgohan(Player player) {
+        player.chuyenSinhPet = 0;
      if(InventoryServiceNew.gI().findItemBag(player, 2114).isNotNullItem() && InventoryServiceNew.gI().findItemBag(player, 2114).quantity >=1){
             Item hon = null;
             hon = InventoryServiceNew.gI().findItemBag(player, 2114);
@@ -730,6 +732,7 @@ public class UseItem {
     }
 
     private void changePetmori(Player player) {
+        player.chuyenSinhPet = 0 ;
         if(InventoryServiceNew.gI().findItemBag(player, 2115).isNotNullItem() && InventoryServiceNew.gI().findItemBag(player, 2115).quantity >=1){
             Item hon = null;
             hon = InventoryServiceNew.gI().findItemBag(player, 2115);
@@ -744,6 +747,7 @@ public class UseItem {
     }
 
     private void changePetgoku(Player player) {
+        player.chuyenSinhPet = 0;
       if(InventoryServiceNew.gI().findItemBag(player, 2116).isNotNullItem() && InventoryServiceNew.gI().findItemBag(player, 2116).quantity >=1){
             Item hon = null;
             hon = InventoryServiceNew.gI().findItemBag(player, 2116);

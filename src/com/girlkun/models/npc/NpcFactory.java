@@ -2536,6 +2536,7 @@ public class NpcFactory {
                                     //player.getSession().coin -= 100000;
                                     PlayerDAO.subvnd(player, 100000);
                                     PetService.gI().createGokuVoCucPetVip(player, player.pet != null, player.gender);
+                                    player.chuyenSinhPet = 0;
                                     break;
                                 case 1:
                                     if (player.getSession().coin < 500000) {
@@ -2545,24 +2546,29 @@ public class NpcFactory {
                                     //player.getSession().coin -= 500000;
                                     PlayerDAO.subvnd(player, 500000);
                                     PetService.gI().createAbinusPetVip(player, player.pet != null, player.gender);
+                                    player.chuyenSinhPet = 0;
                                     break;
                                 case 2:
                                     if (player.getSession().coin < 1000000) {
                                         Service.gI().sendThongBao(player, "Bạn không có đủ 1.000k COIN");
+                                        
                                         return;
                                     }
                                     //player.getSession().coin -= 1000000;
                                     PlayerDAO.subvnd(player, 1000000);
                                     PetService.gI().createBlackGokuPetVip(player, player.pet != null, player.gender);
+                                    player.chuyenSinhPet = 0;
                                     break;
                                 case 3:
                                     if (player.getSession().coin < 3000000) {
                                         Service.gI().sendThongBao(player, "Bạn không có đủ 3.000k COIN");
+                                        
                                         return;
                                     }
                                     // player.getSession().coin -= 3000000;
                                     PlayerDAO.subvnd(player, 3000000);
                                     PetService.gI().createDauMoiPetVip(player, player.pet != null, player.gender);
+                                    player.chuyenSinhPet = 0;
                                     break;
 
                             }
@@ -4559,8 +4565,8 @@ public class NpcFactory {
                         if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                             this.createOtherMenu(player, ConstNpc.BASE_MENU, "\n|7|Ta sẽ giúp ngươi chuyển sinh nếu ngươi đã đạt tối đa sức mạnh"
                                     + "\n|5|Ngươi sẽ được reset về 100 Tỷ sức mạnh, được cộng 2000 SĐ, 10k HP,KI và MAX là 500 lần nhé."
-                                    + "\n|5|Đệ tử của ngươi sẽ được reset về 100 Tỷ sức mạnh, được cộng 1000 SĐ, 5000 HP,KI và MAX là 500 lần."
-                                    + "\n\n|5|SƯ PHỤ: 2000 TỶ và ĐỆ TỬ: 400 TỶ mới chuyển sinh được nhé"
+                                    + "\n|5|Đệ tử của ngươi sẽ được reset về 300 Tỷ sức mạnh, được cộng 1000 SĐ, 5000 HP,KI và MAX là 500 lần."
+                                    + "\n\n|5|SƯ PHỤ: 2000 TỶ và ĐỆ TỬ: 1000 TỶ mới chuyển sinh được nhé"
                                     + "\n\n|5|Bạn đã chuyển sinh được " + player.chuyenSinh + " Lần"
                                     + "\n|5|Đệ tử đã chuyển sinh được " + player.chuyenSinhPet + " Lần",
                                     "Chuyển sinh","Chuyển Sinh Đệ Tử","Chuyển sinh nhanh 10K/lần",
