@@ -284,6 +284,11 @@ public class ItemService {
         }
         return options[gender][skhId];
     }
+    public int randomSKHId2(byte gender) {
+        int[] options = { 129,  131,  135};
+       
+        return options[gender];
+    }
 
     public void OpenDHD(Player player, int itemUseId, int select) throws Exception {
         if (select < 0 || select > 4) return;
@@ -991,6 +996,38 @@ public class ItemService {
                 return 67;
             case 223:
                 return 68;
+            default:
+                return 0;
+        }
+    }
+    public int randomChiSo(short type) {
+        switch (type) {
+            case 0:
+                return 47;
+            case 1:
+                return 22;
+            case 2:
+                return 220;
+            case 3:
+                return 23;
+            case 4:
+                return 14;
+            default:
+                return 0;
+        }
+    }
+    public int randomChiSo2(int option) {
+        switch (option) {
+            case 47:
+                return 6000;
+            case 22:
+                return 1500;
+            case 220:
+                return 170;
+            case 23:
+                return 1500;
+            case 14:
+                return 30;
             default:
                 return 0;
         }

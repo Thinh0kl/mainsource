@@ -25,6 +25,7 @@ public class CombineServiceNew {
     private static final int COST_DOI_MANH_KICH_HOAT = 500000000;
 
     private static final int COST = 500000000;
+    private static final int MONEY = 100000;
 
     private static final int TIME_COMBINE = 1;
 
@@ -62,6 +63,7 @@ public class CombineServiceNew {
     public static final int MO_CHI_SO_PHAP_SU = 518;
     public static final int NANG_CAP_SKH_HD = 523;
     public static final int NANG_CAP_SKH_TS = 524;
+    public static final int NANG_CAP_SKH_TT = 528;
     public static final int SU_KIEN = 525;
     public static final int XOA_CHI_SO = 526;
     public static final int XOA_CHI_SO_1 = 527;
@@ -1113,6 +1115,28 @@ public class CombineServiceNew {
                     this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Còn thiếu nguyên liệu để nâng cấp hãy quay lại sau", "Đóng");
                 }
                 break;
+            case NANG_CAP_SKH_TT:
+                if (player.combineNew.itemsCombine.size() == 5) {
+                    if (player.combineNew.itemsCombine.stream().filter(item -> item.isNotNullItem() && (item.isDTT())).count() < 5) {
+                        this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Thiếu đồ thiên tử", "Đóng");
+                        return;
+                    }
+                    String npcSay = "|2|Con có muốn đổi các 5 trang bị này để lấy 1 trang bị SKH ?\n|7|Lưu Ý: Món đầu tiên sẽ là trang bị SKH sau nâng cấp";
+
+                    if (player.tongnap < MONEY) {
+                        this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Hết tiền rồi", "Đóng");
+                        return;
+                    }
+                    this.bill.createOtherMenu(player, ConstNpc.MENU_NANG_CAP_1,
+                            npcSay, "Nâng cấp\n" + Util.numberToMoney(MONEY) + " Điểm đổi", "Từ chối");
+                } else {
+                    if (player.combineNew.itemsCombine.size() > 5) {
+                        this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Trang bị không phù hợp hoặc không phải 5 món thiên tử khác nhau", "Đóng");
+                        return;
+                    }
+                    this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Thiếu đồ thiên tử hoặc trang bị không phù hợp", "Đóng");
+                }
+                break;
             case SU_KIEN:
                 if (InventoryServiceNew.gI().getCountEmptyBag(player) > 0) {
                     if (player.combineNew.itemsCombine.size() == 1) {
@@ -1139,11 +1163,6 @@ public class CombineServiceNew {
                         this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Thiếu đồ hủy diệt", "Đóng");
                         return;
                     }
-//                    if (player.combineNew.itemsCombine.stream().filter(item -> item.isNotNullItem() && item.isSKH()).count() < 2) {
-//                        this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Thiếu đồ kích hoạt ", "Đóng");
-//                        return;
-//                    }
-
                     String npcSay = "|2|Con có muốn đổi các món nguyên liệu ?\n|7|"
                             + "Và nhận được " + player.combineNew.itemsCombine.stream().filter(Item::isDHD).findFirst().get().typeName()
                             + "|1|Cần " + Util.numberToMoney(COST) + " vàng";
@@ -1271,6 +1290,9 @@ public class CombineServiceNew {
                 break;
             case NANG_CAP_SKH_TS:
                 openSKHTS(player);
+                break;
+            case NANG_CAP_SKH_TT:
+                openSKHTT(player);
                 break;
             case MO_CHI_SO_PHAP_SU:
                 moChiSoPhapSu(player);
@@ -2058,10 +2080,6 @@ public class CombineServiceNew {
             Service.gI().sendThongBao(player, "Thiếu đồ thiên sứ");
             return;
         }
-//        if (player.combineNew.itemsCombine.stream().filter(item -> item.isNotNullItem() && item.isSKH()).count() != 2) {
-//            Service.gI().sendThongBao(player, "Thiếu đồ kích hoạt");
-//            return;
-//        }
         if (InventoryServiceNew.gI().getCountEmptyBag(player) > 0) {
             if (player.inventory.gold < 1) {
                 Service.gI().sendThongBao(player, "Con cần thêm vàng để đổi...");
@@ -2092,6 +2110,54 @@ public class CombineServiceNew {
                 item.itemOptions.add(new Item.ItemOption(ItemService.gI().optionIdSKH(skhId), 1));
                 item.itemOptions.remove(item.itemOptions.stream().filter(itemOption -> itemOption.optionTemplate.id == 21).findFirst().get());
                 item.itemOptions.add(new Item.ItemOption(21, 35));
+                item.itemOptions.add(new Item.ItemOption(30, 1));
+            } else {
+                item = ItemService.gI().itemSKH(itemId, skhId);
+            }
+            InventoryServiceNew.gI().subQuantityItemsBag(player, itemTS, 1);
+            InventoryServiceNew.gI().addItemBag(player, item);
+            itemTS1.forEach(i -> InventoryServiceNew.gI().subQuantityItemsBag(player, i, 1));
+            InventoryServiceNew.gI().sendItemBags(player);
+            Service.gI().sendMoney(player);
+            player.combineNew.itemsCombine.clear();
+            reOpenItemCombine(player);
+        } else {
+            Service.gI().sendThongBao(player, "Bạn phải có ít nhất 1 ô trống hành trang");
+        }
+
+    }
+
+    private void openSKHTT(Player player) {
+        if (player.combineNew.itemsCombine.stream().filter(item -> item.isNotNullItem() && (item.isDTT())).count() != 5) {
+            Service.gI().sendThongBao(player, "Thiếu đồ thiên tử");
+            return;
+        }
+        if (InventoryServiceNew.gI().getCountEmptyBag(player) > 0) {
+            if (player.tongnap < 100000) {
+                Service.gI().sendThongBao(player, "Con cần thêm điểm đổi để thực hiện...");
+                return;
+            }
+            player.tongnap -= MONEY;
+            Item itemTS = player.combineNew.itemsCombine.stream().filter(Item::isDTT).findFirst().get();
+            List<Item> itemTS1 = player.combineNew.itemsCombine.stream().filter(item -> item.isNotNullItem() && (item.isDTT())).collect(Collectors.toList());
+
+            System.out.println(itemTS +"firstItem" );
+            System.out.println(itemTS1 +"listdoTT" );
+
+            CombineServiceNew.gI().sendEffectOpenItem(player, itemTS.template.iconID, itemTS.template.iconID);
+
+            short itemId = Manager.doTTKH[itemTS.template.type];
+            int skhId = ItemService.gI().randomSKHId2(player.gender);
+            Item item;
+            int randomChiso = ItemService.gI().randomChiSo(itemTS.template.type);
+            int randomChiSo2 = ItemService.gI().randomChiSo2(randomChiso);
+            if (new Item(itemId).isDTT()) {
+                item = Util.DoThienSu(itemId);
+                item.itemOptions.add(new Item.ItemOption(skhId, 1));
+                item.itemOptions.add(new Item.ItemOption(ItemService.gI().optionIdSKH(skhId), 1));
+                item.itemOptions.add(new Item.ItemOption(randomChiso, randomChiSo2));
+                item.itemOptions.remove(item.itemOptions.stream().filter(itemOption -> itemOption.optionTemplate.id == 21).findFirst().get());
+                item.itemOptions.add(new Item.ItemOption(21, 400));
                 item.itemOptions.add(new Item.ItemOption(30, 1));
             } else {
                 item = ItemService.gI().itemSKH(itemId, skhId);
@@ -3882,7 +3948,9 @@ public class CombineServiceNew {
             case NANG_CAP_SKH_HD:
                 return "Ta sẽ nâng cấp\n trang bị hủy diệt của người thành\n đồ kích hoạt hủy diệt!";
             case NANG_CAP_SKH_TS:
-                return "Ta sẽ nâng cấp\n trang bị hủy diệt của người thành\n đồ kích hoạt thiên sứ!";
+                return "Ta sẽ nâng cấp\n trang bị thiên sứ của người thành\n đồ kích hoạt thiên sứ!";
+            case NANG_CAP_SKH_TT:
+                return "Ta sẽ nâng cấp\n trang bị thiên tử của người thành\n đồ kích hoạt thiên tử!";
             case NANG_CAP_DO_HD:
                 return "Ta sẽ nâng cấp \n  trang bị của người thành\n đồ hủy diệt!";
             case NANG_CAP_SKH_VIP:
@@ -3941,6 +4009,9 @@ public class CombineServiceNew {
             case NANG_CAP_SKH_TS:
                 return "Chọn 3 trang bị thiên sứ khác nhau " + "\nSau đó chọn 'Nâng cấp'\n"
                         + "Món đầu tiên đặt vào sẽ là trang bị \nđể nâng cấp SKH Vip";
+            case NANG_CAP_SKH_TT:
+                        return "Chọn 5 trang bị thiên tử khác nhau " + "\nSau đó chọn 'Nâng cấp'\n"
+                                + "Món đầu tiên đặt vào sẽ là trang bị \nđể nâng cấp SKH Thiên tử Vip";
             case NANG_CAP_DO_HD:
                 return "Chọn 3 trang bị thần linh bất kì \n+ 1 đá Linh Thạch\n "
                         + "Nâng cấp sẽ cho ra \nđồ thiên sứ từ 0-15% chỉ số";

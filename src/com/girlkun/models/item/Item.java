@@ -127,6 +127,12 @@ public class Item {
         }
         return false;
     }
+    public boolean isDTT() {
+        if ((this.template.id >= 2156 && this.template.id <= 2160)) {
+            return true;
+        }
+        return false;
+    }
     public boolean isDSHD() {
         if (this.template.id >= 2053 && this.template.id <= 2065) {
             return true;

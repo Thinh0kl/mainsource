@@ -188,6 +188,7 @@ public class Manager {
     public static final short[] giaytsnm = {166, 167, 270, 271, 272, 273, 1058};
     public static final short[] radaTSSKH = {186, 187, 278, 279, 280, 281};
     public static final short[] radaTS = {1060, 1061, 1062};
+    public static final short[] doTTKH = {2156, 2157, 2158,2159,2160};
     public static final short[][][] doTSSKH = {{aotstd, quantstd, gangtstd, giaytstd, radaTSSKH}, {aotsnm, quantsnm, gangtsnm, giaytsnm, radaTSSKH}, {aotsxd, quantsxd, gangtsxd, giaytsxd, radaTSSKH}}; //fix rd
 
     //    public static final short[] aohdtd = {650};
