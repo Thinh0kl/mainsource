@@ -985,7 +985,7 @@ public class UseItem {
 
     private void useThiepMungXuanVIP(Player pl, Item item) {
         try {
-            if (InventoryServiceNew.gI().getCountEmptyBag(pl) <= 1) {
+            if (InventoryServiceNew.gI().getCountEmptyBag(pl) <= 5) {
                 Service.getInstance().sendThongBao(pl, "Bạn phải có ít nhất 1 ô trống hành trang");
                 return;
             }
@@ -999,13 +999,13 @@ public class UseItem {
             }
             if (hopquat1nap != null) {
               
-                 if (Util.isTrue(4, 100)) {
+                 if (Util.isTrue(10, 100)) {
                     int randomSPL = Util.nextInt(1,3);
                     Item sv1 = ItemService.gI().createNewItem((short) 2164, randomSPL);
                     InventoryServiceNew.gI().sendItemBags(pl);
                     InventoryServiceNew.gI().addItemBag(pl, sv1);
                     Service.getInstance().sendThongBao(pl, "Bạn nhận được "+randomSPL+" SPL");
-                } else if (Util.isTrue(4, 100)) {
+                } else if (Util.isTrue(10, 100)) {
                     int randomSD = Util.nextInt(10,40);
                     int randomSDCAO = Util.nextInt(40,70);
                     Item sv1 = ItemService.gI().createNewItem((short) 2229, 1);
@@ -1022,7 +1022,7 @@ public class UseItem {
                     InventoryServiceNew.gI().sendItemBags(pl);
                     InventoryServiceNew.gI().addItemBag(pl, sv1);
                     Service.getInstance().sendThongBao(pl, "Bạn Nhận Được Pet rồng thần tài VIP");
-                } else if (Util.isTrue(4, 100)) {
+                } else if (Util.isTrue(10, 100)) {
                     int randomSD = Util.nextInt(10,40);
                     int randomSDCAO = Util.nextInt(40,70);
                     Item sv1 = ItemService.gI().createNewItem((short) 2220, 1);
@@ -1033,13 +1033,12 @@ public class UseItem {
                         sv1.itemOptions.add(new Item.ItemOption(50, randomSD));
 
                     }
-
                     sv1.itemOptions.add(new Item.ItemOption(77, randomSD));
                     sv1.itemOptions.add(new Item.ItemOption(103, randomSD));
                     InventoryServiceNew.gI().sendItemBags(pl);
                     InventoryServiceNew.gI().addItemBag(pl, sv1);
                     Service.getInstance().sendThongBao(pl, "Bạn nhận được vật phẩm đeo lưng sao hỏa");
-                } else if (Util.isTrue(4, 100)) {
+                } else if (Util.isTrue(10, 100)) {
                     int randomSD = Util.nextInt(10,40);
                     int randomSDCAO = Util.nextInt(40,70);
                     Item sv1 = ItemService.gI().createNewItem((short) 2224, 1);
@@ -1057,7 +1056,7 @@ public class UseItem {
                     InventoryServiceNew.gI().addItemBag(pl, sv1);
                     Service.getInstance().sendThongBao(pl, "Bạn nhận được vật phẩm để bay VIP");
                 }
-                else if (Util.isTrue(4, 100)) {
+                else if (Util.isTrue(10, 100)) {
                     int randomSD = Util.nextInt(10,40);
                     int randomSDCAO = Util.nextInt(40,70);
                     Item sv1 = ItemService.gI().createNewItem((short) 2209, 1);
@@ -1076,14 +1075,22 @@ public class UseItem {
                     Service.getInstance().sendThongBao(pl, "Bạn nhận được vật phẩm để bay VIP");
                 }
                else {
-                    int random = Util.nextInt(1,3);
+                    int random = Util.nextInt(3,3);
                     Item sv1 = ItemService.gI().createNewItem((short) 2128, random);
                     Item sv2 = ItemService.gI().createNewItem((short) 2129, random);
                     Item sv3 = ItemService.gI().createNewItem((short) 2130, random);
+                    Item sv4 = ItemService.gI().createNewItem((short) 2190, 10);
+                    Item sv5 = ItemService.gI().createNewItem((short) 1309, 10);
+                    Item sv6 = ItemService.gI().createNewItem((short) 224, 100);
+                    Item sv7 = ItemService.gI().createNewItem((short) 222, 100);
                     InventoryServiceNew.gI().sendItemBags(pl);
                     InventoryServiceNew.gI().addItemBag(pl, sv1);
                     InventoryServiceNew.gI().addItemBag(pl, sv2);
                     InventoryServiceNew.gI().addItemBag(pl, sv3);
+                    InventoryServiceNew.gI().addItemBag(pl, sv4);
+                    InventoryServiceNew.gI().addItemBag(pl, sv5);
+                    InventoryServiceNew.gI().addItemBag(pl, sv6);
+                    InventoryServiceNew.gI().addItemBag(pl, sv7);
                     Service.getInstance().sendThongBao(pl, "Bạn Nhận Được "+random+" Ngọc Rồng Tăng Chỉ Số");
                 }
                 InventoryServiceNew.gI().subQuantityItemsBag(pl, hopquat1nap, 1);

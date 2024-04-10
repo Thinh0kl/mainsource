@@ -721,7 +721,7 @@ public class BossesData {
             ConstPlayer.TRAI_DAT, //gender
             new short[]{141, 142, 143, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
             120000, //dame
-            new long[]{150000000}, //hp
+            new long[]{1500000000000L}, //hp
             new int[]{62}, //map join
             (int[][]) Util.addArray(FULL_DEMON), //skill
             new String[]{}, //text chat 1

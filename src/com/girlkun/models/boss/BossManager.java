@@ -141,7 +141,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.RONGTAAC);
             this.createBoss(BossID.ZAMASFUSION);
 //            this.createBoss(BossID.ZAMASFUSION2);
-//            this.createBoss(BossID.HEARTGOD);
+           this.createBoss(BossID.HEARTGOD);
             this.createBoss(BossID.GOKU4);
             // this.createBoss(BossID.ZENO);
             // this.createBoss(BossID.WUKONG);
@@ -164,6 +164,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.FIDE);
             this.createBoss(BossID.DR_KORE);
             this.createBoss(BossID.ANDROID_14);
+            this.createBoss(BossID.TRUNG_UY_TRANG);
             // this.createBoss(BossID.SUPER_ANDROID_17); 
             this.createBoss(BossID.MABU);
         } catch (Exception ex) {
