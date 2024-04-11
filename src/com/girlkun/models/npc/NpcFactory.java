@@ -5343,7 +5343,7 @@ public class NpcFactory {
                                             + "\n|3|Cần x9999 lõi thiên tử để đổi găng, cải trang GoKu Thiên Tử\n"
                                             + "\n|3|LƯU Ý: Khi đổi đồ thiên tử bắt buộc ngươi phải có trang bị SKH Thiên Sứ để trao đổi.\n Ví dụ: Đổi áo thiên tử cần x999 Lõi Thiên Tử + 1 Áo SKH Thiên Sứ chỉ số bất kì"
                                             + "\n|3|Khi đổi cải trang Goku SSJ Thiên Tử, cần có cải trang goku thiên tử. Chỉ số sẽ là 180% sức đánh. \nNếu ngươi không có cải trang goku thiên tử, ngươi có thể đổi bằng cải trang Goku SSJ God ở mốc nạp 500K .\nKhi đổi với cải trang mốc nạp. Ngươi sẽ không cần tốn 9999 đá thiên tử",
-                                            "Áo", "Quần", "Găng", "Giày", "Lắc", "GoKu Thiên Tử", "Không thèm");
+                                            "Áo", "Quần", "Găng", "Giày", "Lắc", "GoKu Thiên Tử","Đổi CT mốc 500K", "Không thèm");
                                     break;
                                 case 2:
                                     if (player.mott == 1) {
@@ -5687,6 +5687,35 @@ public class NpcFactory {
                                 } else {
 
                                     InventoryServiceNew.gI().subQuantityItemsBag(player, thientu, 9999);
+
+                                    Item aott = ItemService.gI().createNewItem((short) 2162);
+                                    aott.itemOptions.add(new Item.ItemOption(50, 190));
+                                    aott.itemOptions.add(new Item.ItemOption(77, 200));
+                                    aott.itemOptions.add(new Item.ItemOption(103, 200));
+                                    aott.itemOptions.add(new Item.ItemOption(5, 80));
+                                    aott.itemOptions.add(new Item.ItemOption(14, 60));
+                                    aott.itemOptions.add(new Item.ItemOption(30, 1));
+                                    aott.itemOptions.add(new Item.ItemOption(36, 1));
+                                    InventoryServiceNew.gI().addItemBag(player, aott);
+                                    InventoryServiceNew.gI().sendItemBags(player);
+                                    this.npcChat(player, "Bạn nhận được 1" + aott.template.name);
+                                }
+                                break;
+                            }
+                            case 6: { //caitrang thientu
+                                Item thientu = null;
+                                try {
+                                    thientu = InventoryServiceNew.gI().findItemBag(player, 2153);
+                                } catch (Exception e) {
+//                                        throw new RuntimeException(e);
+                                }
+                                if (thientu == null || thientu.quantity < 1) {
+                                    this.npcChat(player, "Bạn không có CT Goku mốc 500K");
+                                } else if (InventoryServiceNew.gI().getCountEmptyBag(player) == 0) {
+                                    this.npcChat(player, "Hành trang của bạn không đủ chỗ trống");
+                                } else {
+
+                                    InventoryServiceNew.gI().subQuantityItemsBag(player, thientu, 1);
 
                                     Item aott = ItemService.gI().createNewItem((short) 2162);
                                     aott.itemOptions.add(new Item.ItemOption(50, 190));
@@ -7270,7 +7299,7 @@ public class NpcFactory {
                             Item item5 = player.inventory.itemsBody.get(5);
                             if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
 
-                                if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && item5.template.id == 2162) { //ctthientu
+                                if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && (item5.template.id == 2162 || item5.template.id == 2172 || item5.template.id == 2150 || item5.template.id == 2173 || item5.template.id == 2185)) { //ctthientu
 
                                     if (select == 0) {
                                         if (thientu == 1) {
