@@ -5707,7 +5707,8 @@ public class NpcFactory {
                                 try {
                                     thientu = InventoryServiceNew.gI().findItemBag(player, 2153);
                                 } catch (Exception e) {
-//                                        throw new RuntimeException(e);
+                                    //throw new RuntimeException(e);
+                                    return;
                                 }
                                 if (thientu == null || thientu.quantity < 1) {
                                     this.npcChat(player, "Bạn không có CT Goku mốc 500K");
