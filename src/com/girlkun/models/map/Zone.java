@@ -39,11 +39,11 @@ public class Zone {
     public int zoneId;
     public int maxPlayer;
 
-    private final List<Player> humanoids; //player, boss, pet
-    private final List<Player> notBosses; //player, pet
-    private final List<Player> players; //player
-    private final List<Player> bosses; //boss
-    private final List<Player> pets; //pet
+    public final List<Player> humanoids; //player, boss, pet
+    public final List<Player> notBosses; //player, pet
+    public final List<Player> players; //player
+    public final List<Player> bosses; //boss
+    public final List<Player> pets; //pet
 
     public final List<Mob> mobs;
     public final List<ItemMap> items;
@@ -65,12 +65,14 @@ public class Zone {
             mob.update();
         }
     }
- public Mob getRandomMobInMap(){
-        if(!this.mobs.isEmpty()){
+
+    public Mob getRandomMobInMap() {
+        if (!this.mobs.isEmpty()) {
             return this.mobs.get(Util.nextInt(this.mobs.size()));
         }
         return null;
     }
+
     private void udPlayer() {
         for (int i = this.notBosses.size() - 1; i >= 0; i--) {
             Player pl = this.notBosses.get(i);
@@ -293,8 +295,8 @@ public class Zone {
                         msg.writer().writeShort(item.quantity);
                         player.sendMessage(msg);
                         msg.cleanup();
-                        if(this.map != null || this.map.zones != null || !this.map.zones.isEmpty()){
-                        Service.gI().sendToAntherMePickItem(player, itemMapId);
+                        if (this.map != null || this.map.zones != null || !this.map.zones.isEmpty()) {
+                            Service.gI().sendToAntherMePickItem(player, itemMapId);
                         }
                         if (!(this.map.mapId >= 21 && this.map.mapId <= 23
                                 && itemMap.itemTemplate.id == 74
@@ -454,10 +456,11 @@ public class Zone {
 
             plReceive.sendMessage(msg);
             msg.cleanup();
+
         } catch (Exception e) {
 //            Logger.logException(MapService.class, e);
         }
-        Service.gI().sendFlagPlayerToMe(plReceive, plInfo);
+
         if (!plInfo.isBoss && !plInfo.isPet && !plInfo.isNewPet) {
             Service.gI().sendPetFollowToMe(plReceive, plInfo);
         }
@@ -475,6 +478,12 @@ public class Zone {
         } catch (Exception e) {
 
         }
+        // if (plInfo.isBoss && plInfo.name.contains("Tinh")) {
+        //     Service.gI().changeFlag(plInfo, plInfo.cFlag);
+        // } else if (plInfo.isPet || plInfo.isPl()) {
+        //     Service.gI().sendFlagPlayerToMe(plReceive, plInfo);
+        // }
+        Service.gI().changeFlag(plInfo, plInfo.cFlag);
     }
 
     public void mapInfo(Player pl) {

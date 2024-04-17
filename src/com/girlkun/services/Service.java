@@ -1654,9 +1654,35 @@ public class Service {
         }
     }
 
+    // public void sendFlagPlayerToMe(Player pl, byte index) {
+    //     Message msg;
+    //     try {
+    //         msg = new Message(-103);
+    //         msg.writer().writeByte(2);
+    //         msg.writer().writeByte(index);
+    //         msg.writer().writeShort(flagIconId[index]);
+    //         Service.gI().sendMessAllPlayer(msg);
+    //         //System.out.println("id map" + pl.zone.map.mapId + " act: 2 index: " + act);
+    //         msg.cleanup();
+    //     } catch (Exception e) {
+    //     }
+    // }
+    // public void sendFlagPlayer(Player pl, byte index) {
+    //     Message msg;
+    //     try {
+    //         msg = new Message(-103);
+    //         msg.writer().writeByte(2);
+    //         msg.writer().writeByte(index);
+    //         msg.writer().writeShort(flagIconId[index]);
+    //         Service.gI().sendMessAllPlayerInMap(pl, msg);
+    //         System.out.println("id map" + pl.zone.map.mapId + " act: 2 index: " + index);
+    //         msg.cleanup();
+    //     } catch (Exception e) {
+    //     }
+    // }
     public void chooseFlag(Player pl, int index) {
         if (MapService.gI().isMapBlackBallWar(pl.zone.map.mapId) || MapService.gI().isMapMaBu(pl.zone.map.mapId) || MapService.gI().isMapPVP(pl.zone.map.mapId) || MapService.gI().isMapBanDoKhoBau(pl.zone.map.mapId) || MapService.gI().isnguhs(pl.zone.map.mapId)) {
-            sendThongBao(pl, "Không thể đổi cờ lúc này!");
+            sendThongBao(pl, "Không thể đổi cờ lúc này! " + index);
             return;
         }
         if (Util.canDoWithTime(pl.iDMark.getLastTimeChangeFlag(), 60000)) {

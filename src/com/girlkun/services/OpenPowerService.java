@@ -107,6 +107,33 @@ public class OpenPowerService {
         }
         return true;
     }
+    public boolean chuyenSinhNhanhPet(Player player) {
+        if (InventoryServiceNew.gI().getCountEmptyBag(player) <= 0) {
+            Service.gI().sendThongBao(player, "Hành trang không đủ chỗ trống");
+
+        } else {
+            if (player.tongnap >= 15000) {
+                PlayerDAO.subtn(player, 15000);
+                player.pet.nPoint.power -= (player.pet.nPoint.power - 300000000000L);
+                player.chuyenSinhPet++;
+                player.pet.nPoint.hpg += 5000;
+                player.pet.nPoint.dameg += 1000;
+                player.pet.nPoint.mpg += 5000;
+                Service.getInstance().point(player);
+
+                if (!player.isPet) {
+                    Service.gI().sendThongBao(player, "Ngon rồi chú bé đần, cảm ơn 15k Của Ngươi");
+                }
+                return true;
+            } else {
+                if (!player.isPet) {
+                    Service.gI().sendThongBao(player, "Điểm Đổi của bạn không đủ 15k!");
+                }
+                return false;
+            }
+        }
+        return true;
+    }
     public boolean chuyenSinhNhanhVIP(Player player) {
         if (InventoryServiceNew.gI().getCountEmptyBag(player) <= 0) {
             Service.gI().sendThongBao(player, "Hành trang không đủ chỗ trống");

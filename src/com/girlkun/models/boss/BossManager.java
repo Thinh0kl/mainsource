@@ -11,6 +11,7 @@ import com.girlkun.models.boss.list_boss.Cooler.Rong2024;
 import com.girlkun.models.boss.list_boss.Cooler.xendo;
 import com.girlkun.models.boss.list_boss.Cooler.zeno;
 import com.girlkun.models.boss.list_boss.Cooler.rongtaac;
+
 import com.girlkun.models.boss.list_boss.Cooler.wukong;
 import com.girlkun.models.boss.list_boss.Cooler.zamasfusion;
 import com.girlkun.models.boss.list_boss.Cooler.zamasfusion2;
@@ -61,6 +62,8 @@ import com.girlkun.models.boss.list_boss.kami.kamiSooMe;
 import com.girlkun.models.boss.list_boss.nappa.*;
 import com.girlkun.models.boss.list_boss.nappa.KhiUltra;
 import com.girlkun.models.boss.list_boss.nappa.Granola;
+import com.girlkun.models.boss.list_boss.sontinhthuytinh.SonTinh;
+import com.girlkun.models.boss.list_boss.sontinhthuytinh.ThuyTinh;
 import com.girlkun.models.player.Player;
 import com.girlkun.network.io.Message;
 import com.girlkun.server.ServerManager;
@@ -139,9 +142,11 @@ public class BossManager implements Runnable {
             // this.createBoss(BossID.RONGVANG);
             this.createBoss(BossID.XENDO);
             this.createBoss(BossID.RONGTAAC);
+            this.createBoss(BossID.SONTINH);
+            this.createBoss(BossID.THUYTINH);
             this.createBoss(BossID.ZAMASFUSION);
 //            this.createBoss(BossID.ZAMASFUSION2);
-           this.createBoss(BossID.HEARTGOD);
+            this.createBoss(BossID.HEARTGOD);
             this.createBoss(BossID.GOKU4);
             // this.createBoss(BossID.ZENO);
             // this.createBoss(BossID.WUKONG);
@@ -189,7 +194,7 @@ public class BossManager implements Runnable {
                     return new kamiSooMe();
                 case BossID.KHI_ULTRA:
                     return new KhiUltra();
-                    case BossID.GRANOLA:
+                case BossID.GRANOLA:
                     return new Granola();
                 case BossID.KUKU:
                     return new Kuku();
@@ -199,6 +204,10 @@ public class BossManager implements Runnable {
                     return new Rambo();
                 case BossID.DRABURA:
                     return new Drabura();
+                case BossID.SONTINH:
+                    return new SonTinh();
+                case BossID.THUYTINH:
+                    return new ThuyTinh();
                 case BossID.DRABURA_2:
                     return new Drabura2();
                 case BossID.BUI_BUI:
@@ -237,7 +246,7 @@ public class BossManager implements Runnable {
                     return new Android15();
                 case BossID.SUPER_XEN:
                     return new SuperXen();
-                   case BossID.SUPER_ANDROID_17:
+                case BossID.SUPER_ANDROID_17:
                     return new SuperAndroid17();
                 case BossID.PIC:
                     return new Pic();
@@ -266,7 +275,7 @@ public class BossManager implements Runnable {
                 case BossID.FIDE_ROBOT:
                     return new FideRobot();
                 case BossID.COOLER:
-                  return new Cooler();
+                    return new Cooler();
                 case BossID.GOHAN_BEAST:
                     return new GohanBeast();
                 case BossID.MORIMATA:

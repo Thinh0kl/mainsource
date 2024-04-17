@@ -180,6 +180,8 @@ public class ItemService {
                     return 30;
                 case 2113:
                     return 100;
+                case 1329:
+                    return 200;
                 default:
                     return 0;
             }
@@ -198,6 +200,7 @@ public class ItemService {
                 case 531:
                 case 536:
                 case 2113:
+                case 1329:
                     return true;
                 default:
                     return false;
@@ -211,7 +214,9 @@ public class ItemService {
         if (item != null) {
             for (Item.ItemOption io : item.itemOptions) {
                 if (io.optionTemplate.id == 93) {
+                  
                     int dayPass = (int) TimeUtil.diffDate(new Date(), new Date(item.createTime), TimeUtil.DAY);
+                 
                     if (dayPass != 0) {
                         io.param -= dayPass;
                         if (io.param <= 0) {

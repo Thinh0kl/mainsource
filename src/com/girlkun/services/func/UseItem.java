@@ -207,6 +207,22 @@ public class UseItem {
                     InventoryServiceNew.gI().itemBagToBody(pl, indexBag);
                     PetService.Pet2(pl, item.template.head, item.template.body, item.template.leg);
                     Service.getInstance().point(pl);
+                    System.out.println("wear pet: " + item.template.name);
+                    break;
+                case 20:
+                
+                    if (pl.newpet2 != null) {
+                    System.out.println("wear wife: --------" + pl.newpet2);
+                        ChangeMapService.gI().exitMap(pl.newpet2);
+                        pl.newpet2.dispose();
+                        pl.newpet2 = null;
+                    }
+                    InventoryServiceNew.gI().itemBagToBody(pl, indexBag);
+                  
+                    PetService.Pet2(pl, item.template.head, item.template.body, item.template.leg);
+                 
+                    Service.getInstance().point(pl);
+                    System.out.println("wear wife: --------" + item.template.name);
                     break;
                 case 7: //sách học, nâng skill
                     learnSkill(pl, item);

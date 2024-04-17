@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
 public class MapService {
 
     private static MapService i;
@@ -94,7 +93,7 @@ public class MapService {
     }
 
     public Zone getMapCanJoin(Player player, int mapId, int zoneId) {
-       
+
         if (isMapOffline(mapId)) {
             return getMapById(mapId).zones.get(0);
         }
@@ -129,12 +128,12 @@ public class MapService {
         if (map == null) {
             return null;
         }
-            
+
         //int z = Util.nextInt(0, map.zones.size() - 1);
-       int z = 0;
+        int z = 0;
         while (map.zones.get(z).getNumOfPlayers() >= map.zones.get(z).maxPlayer) {
-         //   z = Util.nextInt(0, map.zones.size() - 1);
-         z++;
+            //   z = Util.nextInt(0, map.zones.size() - 1);
+            z++;
         }
         return map.zones.get(z);
     }
@@ -230,6 +229,7 @@ public class MapService {
         }
         return list;
     }
+
     public List<Zone> getMapMaBu() {
         List<Zone> list = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
@@ -275,11 +275,13 @@ public class MapService {
     public boolean isMapBlackBallWar(int mapId) {
         return mapId >= 85 && mapId <= 91;
     }
+
     public boolean isMapMaBu(int mapId) {
         return mapId >= 114 && mapId <= 120;
     }
+
     public boolean isMapPVP(int mapId) {
-        return mapId == 112;
+        return mapId == 112 || mapId == 178;
     }
 
     public boolean isMapCold(Map map) {
@@ -298,9 +300,11 @@ public class MapService {
     public boolean isMapBanDoKhoBau(int mapId) {
         return mapId >= 135 && mapId <= 138;
     }
+
     public boolean isnguhs(int mapId) {
         return mapId >= 122 && mapId <= 124;
     }
+
     public boolean isMapTuongLai(int mapId) {
         return (mapId >= 92 && mapId <= 94)
                 || (mapId >= 96 && mapId <= 100)

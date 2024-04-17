@@ -3725,7 +3725,7 @@ public class CombineServiceNew {
     }
 
     private boolean isDaPhaLe(Item item) {
-        return item != null && (item.template.type == 30 || item.template.id == 2111 || (item.template.id >= 14 && item.template.id <= 20) || item.template.id >= 2164 || (item.template.id >= 2102 && item.template.id <= 2104));
+        return item != null && (item.template.type == 30 || item.template.id == 2111 || (item.template.id >= 14 && item.template.id <= 20) || item.template.id >= 2164 || item.template.id >= 2166 || (item.template.id >= 2102 && item.template.id <= 2104));
     }
 
     private boolean isTrangBiPhaLeHoa(Item item) {
@@ -3770,7 +3770,7 @@ public class CombineServiceNew {
             case 2174:
                 return 15;
             case 2166:
-                return 20;
+                return 13;
             case 2103:
             case 2104:
                 return 8;

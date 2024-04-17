@@ -175,6 +175,9 @@ public class PlayerService {
             if (player.newpet != null) {
                 player.newpet.followMaster();
             }
+            if (player.newpet2 != null) {
+                player.newpet2.followMaster();
+            }
             MapService.gI().sendPlayerMove(player);
             TaskService.gI().checkDoneTaskGoToMap(player, player.zone);
         }

@@ -297,7 +297,7 @@ public class GodGK {
                                 }
                                 player.inventory.itemsBody.add(item);
                             }
-                            if (player.inventory.itemsBody.size() < 14) {
+                            if (player.inventory.itemsBody.size() < 15) {//11zzaa
                                 player.inventory.itemsBody.add(ItemService.gI().createItemNull());
                             }
                             dataArray.clear();
@@ -1009,7 +1009,7 @@ public class GodGK {
                         thoi_vang += item.quantity;
                     }
                     player.inventory.itemsBag.add(item);
-                    if (player.inventory.itemsBody.size() < 14) {
+                    if (player.inventory.itemsBody.size() < 15) {//11zzaa
                         player.inventory.itemsBody.add(ItemService.gI().createItemNull());
                     }
                 }

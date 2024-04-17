@@ -362,6 +362,7 @@ public void addItemGiftCodeToPlayer1(Player p, MaQuaTang1 giftcode) {
             case 17:
             case 18:
             case 19:
+            case 20:
                 break;
             default:
                 Service.getInstance().sendThongBaoOK(player.isPet ? ((Pet) player).master : player, "Trang bị không phù hợp!");
@@ -424,6 +425,9 @@ public void addItemGiftCodeToPlayer1(Player p, MaQuaTang1 giftcode) {
             case 19:
                 index = 13;
                 break;
+            case 20:
+                index = 14;
+                break;
         }
         sItem = player.inventory.itemsBody.get(index);
         player.inventory.itemsBody.set(index, item);
@@ -457,6 +461,13 @@ public void addItemGiftCodeToPlayer1(Player p, MaQuaTang1 giftcode) {
                     ChangeMapService.gI().exitMap(player.newpet);
                     player.newpet.dispose();
                     player.newpet = null;
+                }
+            }
+            if (index == 14) {
+                if (player.newpet2 != null) {
+                    ChangeMapService.gI().exitMap(player.newpet2);
+                    player.newpet2.dispose();
+                    player.newpet2 = null;
                 }
             }
             player.inventory.itemsBody.set(index, putItemBag(player, item));

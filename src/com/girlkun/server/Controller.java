@@ -43,6 +43,7 @@ import com.girlkun.services.func.TransactionService;
 import com.girlkun.utils.Logger;
 import com.kygui.ShopKyGuiService;
 import com.sondao.EffectMapService;
+import com.sun.tools.sjavac.Log;
 
 public class Controller implements IMessageHandler {
 
@@ -321,9 +322,10 @@ public class Controller implements IMessageHandler {
                             Service.gI().openFlagUI(player);
                         } else if (act == 1) {
                             Service.gI().chooseFlag(player, _msg.reader().readByte());
-                        } else {
-//                        Util.log("id map" + player.map.id);
                         }
+                        // else if (act == 2) {
+                        //     Service.gI().sendFlagPlayer(player, _msg.reader().readByte());
+                        // }
                     }
                     break;
                 case -7:
@@ -340,8 +342,8 @@ public class Controller implements IMessageHandler {
                     }
                     break;
                 case -74:
-                byte type = _msg.reader().readByte();
-                System.err.println("type : " + type + ", cmd : " + cmd + ", _msg : " + _msg + ", _session : " + _session);
+                    byte type = _msg.reader().readByte();
+                    System.err.println("type : " + type + ", cmd : " + cmd + ", _msg : " + _msg + ", _session : " + _session);
                     if (type == 1) {
                         DataGame.sendSizeRes(_session);
                     } else if (type == 2) {
@@ -594,13 +596,12 @@ public class Controller implements IMessageHandler {
                         if (Manager.LOCAL) {
                             break;
                         }
-                       // System.out.println("version: " + msg.readUTF());
-                        System.out.println("sai tkmk ở msg" + msg);                        
-                        System.out.println("cmd" + cmd);                        
+                        // System.out.println("version: " + msg.readUTF());
+                        System.out.println("sai tkmk ở msg" + msg);
+                        System.out.println("cmd" + cmd);
                         System.out.println("sai" + msg.reader().readUTF());
 
 //                        System.out.println("msg1" + session.login(msg.reader().readUTF(), msg.reader().readUTF()));
-
                         break;
                     case 2:
                         Service.gI().setClientType(session, msg);

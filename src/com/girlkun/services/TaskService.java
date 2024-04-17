@@ -1,6 +1,7 @@
 package com.girlkun.services;
 
 import com.girlkun.database.GirlkunDB;
+import com.girlkun.jdbc.daos.PlayerDAO;
 import com.girlkun.consts.ConstMob;
 import com.girlkun.consts.ConstNpc;
 import com.girlkun.consts.ConstPlayer;
@@ -1396,10 +1397,10 @@ public class TaskService {
                         goldReward = ConstTask.GOLD_HELL;
                         break;
                 }
-                player.inventory.addGold(goldReward);
+                PlayerDAO.addvnd(player, goldReward);
                 Service.gI().sendMoney(player);
                 Service.gI().sendThongBao(player, "Bạn nhận được "
-                        + Util.numberToMoney(goldReward) + " vàng");
+                        + Util.numberToMoney(goldReward) + " COIN");
                 player.playerTask.sideTask.reset();
             } else {
                 Service.gI().sendThongBao(player, "Bạn chưa hoàn thành nhiệm vụ");

@@ -2,6 +2,7 @@ package com.girlkun.services;
 
     import com.girlkun.consts.ConstPlayer;
 import com.girlkun.models.player.NewPet;
+import com.girlkun.models.player.NewPet2;
 import com.girlkun.models.player.Pet;
 import com.girlkun.models.player.Player;
 import com.girlkun.services.func.ChangeMapService;
@@ -746,7 +747,7 @@ public void creategokuPet(Player player, byte... limitPower) {
         }
         pl.newpet = new NewPet(pl, (short) h, (short) b, (short) l);
      //   pl.newpet1 = new NewPet(pl, (short) h, (short) b, (short) l);
-        pl.newpet.name = "$";
+        pl.newpet.name = "$Pet";
       //  pl.newpet1.name = "$";
         pl.newpet.gender = pl.gender;
         //  pl.newpet1.gender = pl.gender;
@@ -768,6 +769,44 @@ public void creategokuPet(Player player, byte... limitPower) {
         pl.newpet.nPoint.stamina = 1;
         pl.newpet.nPoint.setBasePoint();
         pl.newpet.nPoint.setFullHpMp();
+//        pl.newpet1.nPoint.hp = 500000000;
+//        pl.newpet1.nPoint.mp = 500000000;
+//        pl.newpet1.nPoint.dameg = 1;
+//        pl.newpet1.nPoint.defg = 1;
+//        pl.newpet1.nPoint.critg = 1;
+//        pl.newpet1.nPoint.stamina = 1;
+//        pl.newpet1.nPoint.setBasePoint();
+//        pl.newpet1.nPoint.setFullHpMp();
+    }
+    public static void Pet3(Player pl, int h, int b, int l) {
+        if (pl.newpet2 != null) {
+            pl.newpet2.dispose();
+//            pl.newpet1.dispose();
+        }
+        pl.newpet2 = new NewPet2(pl, (short) h, (short) b, (short) l);
+    
+        pl.newpet2.name = "$Vợ Iu Của Anh";
+      //  pl.newpet1.name = "$";
+        pl.newpet2.gender = pl.gender;
+        //  pl.newpet1.gender = pl.gender;
+        pl.newpet2.nPoint.tiemNang = 1;
+      //   pl.newpet1.nPoint.tiemNang = 1;
+        pl.newpet2.nPoint.power = 1;
+      //  pl.newpet1.nPoint.power = 1;
+        pl.newpet2.nPoint.limitPower = 1;
+      //   pl.newpet1.nPoint.limitPower = 1;
+        pl.newpet2.nPoint.hpg = 500000000;
+      //  pl.newpet1.nPoint.hpg = 500000000;
+        pl.newpet2.nPoint.mpg = 500000000;
+       // pl.newpet1.nPoint.mpg = 500000000;
+        pl.newpet2.nPoint.hp = 500000000;
+        pl.newpet2.nPoint.mp = 500000000;
+        pl.newpet2.nPoint.dameg = 1;
+        pl.newpet2.nPoint.defg = 1;
+        pl.newpet2.nPoint.critg = 1;
+        pl.newpet2.nPoint.stamina = 1;
+        pl.newpet2.nPoint.setBasePoint();
+        pl.newpet2.nPoint.setFullHpMp();
 //        pl.newpet1.nPoint.hp = 500000000;
 //        pl.newpet1.nPoint.mp = 500000000;
 //        pl.newpet1.nPoint.dameg = 1;

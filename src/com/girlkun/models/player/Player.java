@@ -104,6 +104,7 @@ public class Player {
     public List<Zone> mapCapsule;
     public Pet pet;
     public NewPet newpet;
+    public NewPet2 newpet2;
     public MobMe mobMe;
     public Location location;
     public SetClothes setClothes;
@@ -342,6 +343,9 @@ public class Player {
                     if (newpet != null) {
                         newpet.update();
                     }
+                    if (newpet2 != null) {
+                        newpet2.update();
+                    }
 
 //                    if (newpet1 != null) {
 //                        newpet1.update();
@@ -382,13 +386,33 @@ public class Player {
                     if (this.isPl() && this.inventory.itemsBody.get(7) != null) {
                         Item it = this.inventory.itemsBody.get(7);
                         if (it != null && it.isNotNullItem() && this.newpet == null) {
+                            System.out.println("pet 7");
                             PetService.Pet2(this, it.template.head, it.template.body, it.template.leg);
                             Service.getInstance().point(this);
                         }
                     } else if (this.isPl() && newpet != null && !this.inventory.itemsBody.get(7).isNotNullItem()) {
+                        System.out.println("pet 7.2");
+
                         newpet.dispose();
                         newpet = null;
                     }
+
+                    if (this.isPl() && this.inventory.itemsBody.get(14) != null) {
+                        
+                        Item it = this.inventory.itemsBody.get(14);
+                        if (it != null && it.isNotNullItem() && this.newpet2 == null) {
+                            System.out.println("pet 12");
+                            PetService.Pet3(this, it.template.head, it.template.body, it.template.leg);
+                            Service.getInstance().point(this);
+                        }
+                    } else if (this.isPl() && newpet2 != null && !this.inventory.itemsBody.get(14).isNotNullItem()) {
+                        System.out.println("pet 12.2");
+
+                        newpet2.dispose();
+                        newpet2 = null;
+                    }
+
+
                     if (this.isPl() && isWin && this.zone.map.mapId == 51 && Util.canDoWithTime(lastTimeWin, 2000)) {
                         ChangeMapService.gI().changeMapBySpaceShip(this, 52, 0, -1);
                         isWin = false;
@@ -836,6 +860,10 @@ public class Player {
         if (newpet != null) {
             newpet.dispose();
             newpet = null;
+        }
+        if (newpet2 != null) {
+            newpet2.dispose();
+            newpet2 = null;
         }
 //        if (newpet1 != null) {
 //            newpet1.dispose();

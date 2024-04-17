@@ -99,6 +99,7 @@ public class BossData {
         this(name, gender, outfit, dame/100*2, hp, mapJoin, skillTemp, textS, textM, textE, secondsRest);
         this.typeAppear = typeAppear;
     }
+    
 }
 
 /**

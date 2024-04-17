@@ -10,6 +10,7 @@ package com.girlkun.models.boss;
  * @Stole By Arriety
  */
 public enum BossStatus {
+    ATTACK_FLAG,
     REST,
     RESPAWN,
     JOIN_MAP,

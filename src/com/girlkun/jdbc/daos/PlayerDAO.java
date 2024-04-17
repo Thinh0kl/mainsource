@@ -88,7 +88,7 @@ public class PlayerDAO {
             JSONArray item = new JSONArray();
             JSONArray options = new JSONArray();
             JSONArray opt = new JSONArray();
-            for (int i = 0; i < 13; i++) {
+            for (int i = 0; i < 14; i++) {//11zzxx
                 if (i == 0) { //áo
                     opt.add(47); //id option
                     opt.add(def); //param option

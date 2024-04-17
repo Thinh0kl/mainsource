@@ -1563,6 +1563,41 @@ public class BossesData {
                 "|-1|Tobe continue.."}, //text chat 3
             REST_1_M
     );
+
+    public static final BossData SONTINH = new BossData(
+            "Sơn Tinh Đại Vương",
+            ConstPlayer.XAYDA,
+            new short[]{314, 315, 316, 2, -1, -1},
+            5000000000L,
+            new long[]{5000000000000000l},
+            new int[]{178},
+            new int[][]{
+                {Skill.LIEN_HOAN, 7, 1000},
+                {Skill.DEMON, 7, 10000}},
+            new String[]{"|-2|Bay Đâu Đánh Bỏ mẹ nó cho tao"}, //text chat 1
+            new String[]{"|-1|Thấy sức mạnh của ta chưa! Tên Thủy Tinh Kia"}, //text chat 2
+            new String[]{"|-1|Nhớ mặt tao đấy",
+                "|-1|Tobe continue.."}, //text chat 3
+            TypeAppear.APPEAR_WITH_ANOTHER
+    );
+    public static final BossData THUYTINH = new BossData(
+            "Thủy Tinh Đại Vương",
+            ConstPlayer.XAYDA,
+            new short[]{311, 312, 313, 1, -1, -1},
+            5000000000L,
+            new long[]{5000000000000000l},
+            new int[]{178},
+            new int[][]{
+                {Skill.LIEN_HOAN, 7, 1000},
+                {Skill.DEMON, 7, 10000}},
+            new String[]{"|-2|Bay Đâu Đánh Bỏ mẹ nó cho tao"}, //text chat 1
+            new String[]{"|-1|TThấy sức mạnh của ta chưa! Tên Sơn Tinh Kia!"}, //text chat 2
+            new String[]{"|-1|Nhớ mặt tao đấy",
+                "|-1|Tobe continue.."}, //text chat 3
+            REST_30_M,
+            new int[]{BossID.SONTINH}
+    );
+
     public static final BossData DRABURA_2 = new BossData(
             "Ma Vương Dabura",
             ConstPlayer.XAYDA,
@@ -1922,36 +1957,34 @@ public class BossesData {
             REST_15_M
     );
     public static final BossData ZAMASFUSION2 = new BossData(
-        "Cửu Vỷ Hồ", //name
-        ConstPlayer.NAMEC, //gender
-        new short[]{1294, 1295, 1296, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-        100000000000l, //dame
-        new long[]{5000000000000000l}, //hp
-        new int[]{180}, //map join
-        new int[][]{
-            {Skill.THOI_MIEN, 3, 100000},
-            {Skill.KAMEJOKO, 7, 1000},            
-            {Skill.ANTOMIC, 7, 1000},            
-            {Skill.MA_PHONG_BA, 7, 1000},
-            {Skill.MASENKO, 7, 1000},            
-            {Skill.QUA_CAU_KENH_KHI, 7, 10},
-            {Skill.SUPER_KAME, 7, 10},
+            "Cửu Vỷ Hồ", //name
+            ConstPlayer.NAMEC, //gender
+            new short[]{1294, 1295, 1296, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            100000000000l, //dame
+            new long[]{5000000000000000l}, //hp
+            new int[]{180}, //map join
+            new int[][]{
+                {Skill.THOI_MIEN, 3, 100000},
+                {Skill.KAMEJOKO, 7, 1000},
+                {Skill.ANTOMIC, 7, 1000},
+                {Skill.MA_PHONG_BA, 7, 1000},
+                {Skill.MASENKO, 7, 1000},
+                {Skill.QUA_CAU_KENH_KHI, 7, 10},
+                {Skill.SUPER_KAME, 7, 10},
+                {Skill.THAI_DUONG_HA_SAN, 3, 120000},},//skill//skill
 
-
-            {Skill.THAI_DUONG_HA_SAN, 3, 120000},},//skill//skill
-
-        new String[]{}, //text chat 1
-        new String[]{"|-1|Loài người thật hèn hạ",
-            "|-1|Ta sẽ thanh trừng bọn ngươi",
-            "|-1|Tại sao loài người lại dám bước chân vào lãnh địa của ta?",
-            "|-1|Lũ người ngu ngốc chả biết gì hết",
-            "|-1Hãy để ta tiêu diệt các ngươi",
-            "|-1Mỏi tay rồi chứ gì lũ ngu, kakakaka",
-            "|-1Thách cả cha chúng mày vô luôn hahaha",
-            "|-1|Nhờ có ta mà mới có các ngươi",}, //text chat 2
-        new String[]{"|-1|HAHA! ĐÉO CÓ ĐỒ GÌ ĐÂU MẤY CHÚ BÉ  !!!!!!!!!!!!"}, //text chat 3
-        REST_1_M
-);
+            new String[]{}, //text chat 1
+            new String[]{"|-1|Loài người thật hèn hạ",
+                "|-1|Ta sẽ thanh trừng bọn ngươi",
+                "|-1|Tại sao loài người lại dám bước chân vào lãnh địa của ta?",
+                "|-1|Lũ người ngu ngốc chả biết gì hết",
+                "|-1Hãy để ta tiêu diệt các ngươi",
+                "|-1Mỏi tay rồi chứ gì lũ ngu, kakakaka",
+                "|-1Thách cả cha chúng mày vô luôn hahaha",
+                "|-1|Nhờ có ta mà mới có các ngươi",}, //text chat 2
+            new String[]{"|-1|HAHA! ĐÉO CÓ ĐỒ GÌ ĐÂU MẤY CHÚ BÉ  !!!!!!!!!!!!"}, //text chat 3
+            REST_1_M
+    );
     public static final BossData XENDO = new BossData(
             "Thần Tài LUFFY", //name
             ConstPlayer.NAMEC, //gender

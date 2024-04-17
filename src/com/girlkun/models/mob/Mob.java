@@ -381,12 +381,26 @@ public class Mob {
             // }
 
            
-            // if (Util.isTrue(1, 100)) {
-            //     ItemMap mvbt = new ItemMap(this.zone, 2147, 1, this.location.x, this.location.y, player.id);
-            //     itemReward.add(mvbt);
-            // }
-
-        
+            if (Util.isTrue(1, 100)) {
+                ItemMap mvbt = new ItemMap(this.zone, 1325, 1, this.location.x, this.location.y, player.id);
+                itemReward.add(mvbt);
+            }
+             
+            if (Util.isTrue(1, 100)) {
+                ItemMap mvbt = new ItemMap(this.zone, 1326, 1, this.location.x, this.location.y, player.id);
+                itemReward.add(mvbt);
+            }
+             
+            if (Util.isTrue(1, 100)) {
+                ItemMap mvbt = new ItemMap(this.zone, 1327, 1, this.location.x, this.location.y, player.id);
+                itemReward.add(mvbt);
+            }
+            if (Util.isTrue(1, 100)) {
+                ItemMap mvbt = new ItemMap(this.zone, 1330, 1, this.location.x, this.location.y, player.id);
+                itemReward.add(mvbt);
+            }
+            
+            
                if (Util.isTrue(5, 100)) {
                    ItemMap mvbt = new ItemMap(this.zone, 2117, 1, this.location.x, this.location.y, player.id);
                    mvbt.options.add(new Item.ItemOption(30, 1));
