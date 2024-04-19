@@ -21,17 +21,17 @@ public class heartgod extends Boss {
      
         if (Util.isTrue(50, 100)) {
             if(Util.isTrue(10,100)){
-                int randomTC = Util.nextInt(500,520);
-                ItemMap mvbt = new ItemMap(this.zone, 2158, 1, this.location.x, this.location.y, plKill.id);
+                int randomTC = Util.nextInt(200,400);
+                ItemMap mvbt = new ItemMap(this.zone, 2214, 1, this.location.x, this.location.y, plKill.id);
                 mvbt.options.add(new Item.ItemOption(220, randomTC));
                 mvbt.options.add(new Item.ItemOption(21, 400));// giap
                 mvbt.options.add(new Item.ItemOption(36, 0)); // hoac 128 , 129
                 mvbt.options.add(new Item.ItemOption(76, 0)); // hoac 140 ,141
                 Service.gI().dropItemMap(this.zone, mvbt);
             }else{
-                int randomCM = Util.nextInt(15,25);
-                ItemMap mvbt = new ItemMap(this.zone, 2160, 1, this.location.x, this.location.y, plKill.id);
-                mvbt.options.add(new Item.ItemOption(14, randomCM));
+                int randomCM = Util.nextInt(30,50);
+                ItemMap mvbt = new ItemMap(this.zone, 2213, 1, this.location.x, this.location.y, plKill.id);
+                mvbt.options.add(new Item.ItemOption(22, randomCM));
                 mvbt.options.add(new Item.ItemOption(21, 400));// giap
                 mvbt.options.add(new Item.ItemOption(36, 0)); // hoac 128 , 129
                 mvbt.options.add(new Item.ItemOption(76, 0)); // hoac 140 ,141
@@ -51,7 +51,7 @@ public class heartgod extends Boss {
                 this.chat("Xí hụt");
                 return 0;
             }
-            damage = this.nPoint.subDameInjureWithDeff(damage );
+            damage = this.nPoint.subDameInjureWithDeff(damage);
             if (!piercing && effectSkill.isShielding) {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);

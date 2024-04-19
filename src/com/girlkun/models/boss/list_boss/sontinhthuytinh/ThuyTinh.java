@@ -32,8 +32,8 @@ public class ThuyTinh extends Boss {
 
 
         ctSonTinh.options.add(new Item.ItemOption(50, 350));// giap
-        ctSonTinh.options.add(new Item.ItemOption(77, 1));// giap
-        ctSonTinh.options.add(new Item.ItemOption(103, 1));// giap
+        ctSonTinh.options.add(new Item.ItemOption(77, 350));// giap
+        ctSonTinh.options.add(new Item.ItemOption(103, 350));// giap
         ctSonTinh.options.add(new Item.ItemOption(5, 50));// giap
         ctSonTinh.options.add(new Item.ItemOption(93, 1));// giap
 

@@ -920,13 +920,38 @@ public class NPoint {
                 Item item5 = player.inventory.itemsBody.get(5);
                 if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
 
-                    if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && item5.template.id == 2162) { //ctthientu
+                    if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && (item5.template.id == 2162 || item5.template.id == 2172 || item5.template.id == 2150 || item5.template.id == 2173 || item5.template.id == 2185)) { //ctthientu
                         this.hpMax*=2;
                     } else {
                         player.thientu = 0;
                     }
                 } else{
                     player.thientu = 0;
+                }
+                
+                
+            }
+        } catch (Exception e) {
+            Logger.error("Lỗi đồ thiên tử " + this.player.name + "\n");
+        }
+
+        try {
+            if (this.player.chiTon == 2) {
+                Item item0 = player.inventory.itemsBody.get(0);
+                Item item1 = player.inventory.itemsBody.get(1);
+                Item item2 = player.inventory.itemsBody.get(2);
+                Item item3 = player.inventory.itemsBody.get(3);
+                Item item4 = player.inventory.itemsBody.get(4);
+                Item item5 = player.inventory.itemsBody.get(5);
+                if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
+
+                    if (item0.template.id == 2212 && item1.template.id == 2213 && item2.template.id == 2214 && item3.template.id == 2215 && item4.template.id == 2216 ) { //
+                        this.hpMax*=4;
+                    } else {
+                        player.chiTon = 0;
+                    }
+                } else{
+                    player.chiTon = 0;
                 }
                 
                 
@@ -1098,13 +1123,38 @@ public class NPoint {
                 Item item5 = player.inventory.itemsBody.get(5);
                 if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
 
-                    if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && item5.template.id == 2162) { //ctthientu
+                    if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && (item5.template.id == 2162 || item5.template.id == 2172 || item5.template.id == 2150 || item5.template.id == 2173 || item5.template.id == 2185)) { //ctthientu
                         this.mpMax*=2;
                     } else {
                         player.thientu = 0;
                     }
                 } else{
                     player.thientu = 0;
+                }
+                
+                
+            }
+        } catch (Exception e) {
+            Logger.error("Lỗi đồ thiên tử " + this.player.name + "\n");
+        }
+
+        try {
+            if (this.player.chiTon == 3) {
+                Item item0 = player.inventory.itemsBody.get(0);
+                Item item1 = player.inventory.itemsBody.get(1);
+                Item item2 = player.inventory.itemsBody.get(2);
+                Item item3 = player.inventory.itemsBody.get(3);
+                Item item4 = player.inventory.itemsBody.get(4);
+               
+                if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem()) {
+
+                    if (item0.template.id == 2212 && item1.template.id == 2213 && item2.template.id == 2214 && item3.template.id == 2215 && item4.template.id == 2216 ) { //ctthientu
+                        this.mpMax*=4;
+                    } else {
+                        player.chiTon = 0;
+                    }
+                } else{
+                    player.chiTon = 0;
                 }
                 
                 
@@ -1290,7 +1340,7 @@ public class NPoint {
                 Item item5 = player.inventory.itemsBody.get(5);
                 if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
 
-                    if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && item5.template.id == 2162) { //ctthientu
+                    if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && (item5.template.id == 2162 || item5.template.id == 2172 || item5.template.id == 2150 || item5.template.id == 2173 || item5.template.id == 2185)) { //ctthientu
                         this.dame*=2;
                     } else {
                         player.thientu = 0;
@@ -1303,6 +1353,30 @@ public class NPoint {
             }
         } catch (Exception e) {
             Logger.error("Lỗi đồ thiên tử " + this.player.name + "\n");
+        }
+
+        try {
+            if (this.player.chiTon == 1) {
+                Item item0 = player.inventory.itemsBody.get(0);
+                Item item1 = player.inventory.itemsBody.get(1);
+                Item item2 = player.inventory.itemsBody.get(2);
+                Item item3 = player.inventory.itemsBody.get(3);
+                Item item4 = player.inventory.itemsBody.get(4);
+                if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem()) {
+
+                    if (item0.template.id == 2212 && item1.template.id == 2213 && item2.template.id == 2214 && item3.template.id == 2215 && item4.template.id == 2216 ) { //ctthientu
+                        this.dame*=4;
+                    } else {
+                        player.chiTon = 0;
+                    }
+                } else{
+                    player.chiTon = 0;
+                }
+                
+                
+            }
+        } catch (Exception e) {
+            Logger.error("Lỗi đồ chi ton" + this.player.name + "\n");
         }
     }
 

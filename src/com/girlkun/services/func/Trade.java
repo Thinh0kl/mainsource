@@ -193,7 +193,7 @@ public class Trade {
         }
         switch (item.template.type) {
             case 27: //
-                if (item.template.id != 457 && item.template.id != 2128 && item.template.id == 590) {
+                if (item.template.id != 457 && item.template.id == 590) {
                     return true;
                 } else {
                     return false;
@@ -202,14 +202,14 @@ public class Trade {
             case 6: //đậu thần
             case 7: //sách skill
             case 8: //vật phẩm nhiệm vụ
-            case 11: //flag bag
+            //case 11: //flag bag
             case 13: //bùa
             case 22: //vệ tinh
-            case 23: //ván bay
-            case 24: //ván bay vip
+            //case 23: //ván bay
+           // case 24: //ván bay vip
             case 28: //cờ
             case 31: //bánh trung thu, bánh tết
-            case 32: //giáp tập luyện
+            case 32: //giáp tập luyện 
                 return true;
             default:
                 return false;

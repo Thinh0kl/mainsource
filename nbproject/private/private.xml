@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/models/map/Zone.java</file>
-            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/models/boss/BossManager.java</file>
-            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/models/boss/list_boss/sontinhthuytinh/ThuyTinh.java</file>
+            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/data/config/girlkundb.properties</file>
+            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/data/girlkun/girlkun.properties</file>
+            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/services/func/CombineServiceNew.java</file>
             <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/models/npc/NpcFactory.java</file>
-            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/services/Service.java</file>
-            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/models/boss/list_boss/sontinhthuytinh/SonTinh.java</file>
-            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/models/boss/Boss.java</file>
-            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/models/boss/BossData.java</file>
-            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/models/boss/BossesData.java</file>
+            <file>file:/C:/Users/Win%2010/Desktop/New%20folder/mainsource/src/com/girlkun/services/ItemService.java</file>
         </group>
     </open-files>
 </project-private>
