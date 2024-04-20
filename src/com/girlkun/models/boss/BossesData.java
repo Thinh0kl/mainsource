@@ -1882,10 +1882,10 @@ public class BossesData {
             new int[]{180}, //map join
             new int[][]{
                 {Skill.THOI_MIEN, 7, 100000},
-                // {Skill.KHIEN_NANG_LUONG, 7, 100000},
+                {Skill.KHIEN_NANG_LUONG, 7, 100000},
                 {Skill.KAMEJOKO, 7, 500},
                 {Skill.MASENKO, 7, 500},
-                // {Skill.TAI_TAO_NANG_LUONG, 7, 100000},
+                {Skill.TAI_TAO_NANG_LUONG, 1, 100000},
                 {Skill.DE_TRUNG, 7, 100000},
                 {Skill.THOI_MIEN, 7, 100000},
                 {Skill.THAI_DUONG_HA_SAN, 7, 100000},},//skill//skill
