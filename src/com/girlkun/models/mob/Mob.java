@@ -382,17 +382,17 @@ public class Mob {
 
            
             if (Util.isTrue(1, 100)) {
-                ItemMap mvbt = new ItemMap(this.zone, 1325, 1, this.location.x, this.location.y, player.id);
+                ItemMap mvbt = new ItemMap(this.zone, 1325, 5, this.location.x, this.location.y, player.id);
                 itemReward.add(mvbt);
             }
              
             if (Util.isTrue(1, 100)) {
-                ItemMap mvbt = new ItemMap(this.zone, 1326, 1, this.location.x, this.location.y, player.id);
+                ItemMap mvbt = new ItemMap(this.zone, 1326, 5, this.location.x, this.location.y, player.id);
                 itemReward.add(mvbt);
             }
              
             if (Util.isTrue(1, 100)) {
-                ItemMap mvbt = new ItemMap(this.zone, 1327, 1, this.location.x, this.location.y, player.id);
+                ItemMap mvbt = new ItemMap(this.zone, 1327, 5, this.location.x, this.location.y, player.id);
                 itemReward.add(mvbt);
             }
             if (Util.isTrue(1, 100)) {

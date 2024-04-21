@@ -8,8 +8,6 @@ import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.Service;
 import com.girlkun.utils.Util;
 
-import java.util.Random;
-
 public class heartgod extends Boss {
 
     public heartgod() throws Exception {
@@ -18,10 +16,9 @@ public class heartgod extends Boss {
 
     @Override
     public void reward(Player plKill) {
-     
         if (Util.isTrue(50, 100)) {
-            if(Util.isTrue(10,100)){
-                int randomTC = Util.nextInt(200,400);
+            if(Util.isTrue(5,100)){
+                int randomTC = Util.nextInt(500,700); 
                 ItemMap mvbt = new ItemMap(this.zone, 2214, 1, this.location.x, this.location.y, plKill.id);
                 mvbt.options.add(new Item.ItemOption(220, randomTC));
                 mvbt.options.add(new Item.ItemOption(21, 400));// giap
@@ -29,12 +26,37 @@ public class heartgod extends Boss {
                 mvbt.options.add(new Item.ItemOption(76, 0)); // hoac 140 ,141
                 Service.gI().dropItemMap(this.zone, mvbt);
             }else{
-                int randomCM = Util.nextInt(30,50);
-                ItemMap mvbt = new ItemMap(this.zone, 2213, 1, this.location.x, this.location.y, plKill.id);
-                mvbt.options.add(new Item.ItemOption(22, randomCM));
+                int randomITEM = Util.nextInt(2212,2216);
+            
+                ItemMap mvbt = new ItemMap(this.zone, randomITEM, 1, this.location.x, this.location.y, plKill.id);
+                switch(randomITEM){
+                    case 2212 :
+                        int randomGIAP = Util.nextInt(4000,10000);
+                         mvbt.options.add(new Item.ItemOption(47, randomGIAP));
+                        break;
+                    case 2213 :
+                        int randomhp = Util.nextInt(1000,2500);
+                         mvbt.options.add(new Item.ItemOption(22, randomhp));
+                        break;
+                    case 2214 :
+                        int randomTC = Util.nextInt(200,400); 
+                         mvbt.options.add(new Item.ItemOption(220, randomTC));
+                        break;
+                    case 2215 :
+                        int randomki = Util.nextInt(1000,2500);
+                         mvbt.options.add(new Item.ItemOption(23, randomki));
+                        break;
+                    case 2216 :
+                        int randomCM = Util.nextInt(20,50);
+                         mvbt.options.add(new Item.ItemOption(14, randomCM));
+                        break;
+                }
+                
                 mvbt.options.add(new Item.ItemOption(21, 400));// giap
                 mvbt.options.add(new Item.ItemOption(36, 0)); // hoac 128 , 129
-                mvbt.options.add(new Item.ItemOption(76, 0)); // hoac 140 ,141
+                mvbt.options.add(new Item.ItemOption(76, 0)); // hoac 140 ,141                
+                mvbt.options.add(new Item.ItemOption(34, 0)); // hoac 140 ,141
+
                 Service.gI().dropItemMap(this.zone, mvbt);
             }
            
