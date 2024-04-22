@@ -1,5 +1,4 @@
 package com.girlkun.models.player;
-
 import com.arriety.card.Card;
 import com.arriety.card.OptionCard;
 import com.girlkun.consts.ConstPlayer;
@@ -12,10 +11,9 @@ import com.girlkun.services.*;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-
-
 public class NPoint {
 
     public static final byte MAX_LIMIT = 9; //fix
@@ -1639,6 +1637,7 @@ public class NPoint {
     public long getDameAttack(boolean isAttackMob) {
         setIsCrit();
         long dameAttack = this.dame;
+        System.out.println("dameAttack1     " + dameAttack);
 
         intrinsic = this.player.playerIntrinsic.intrinsic;
         percentDameIntrinsic = 0;
@@ -1702,6 +1701,9 @@ public class NPoint {
                 if (this.player.setClothes.kirin == 5) {
                     percentXDame = 100;
                 }
+                System.out.println("percentDameIntrinsic" + percentDameIntrinsic);
+                System.out.println("percentDameSkill" + percentDameSkill);
+                System.out.println("percentXDame" + percentXDame);
                 break;
             case Skill.LIEN_HOAN:
                 if (intrinsic.id == 13) {
@@ -1735,9 +1737,14 @@ public class NPoint {
         }
         if (percentDameSkill != 0) {
             dameAttack = dameAttack * percentDameSkill / 100;
+            System.out.println("dameAttack2     " + dameAttack);
         }
         dameAttack += (dameAttack * percentDameIntrinsic / 100);
+        System.out.println("dameAttack3     " + dameAttack);
+
         dameAttack += (dameAttack * dameAfter / 100);
+        System.out.println("dameAttack4     " + dameAttack);
+
 
         if (isAttackMob) {
             for (Integer tl : this.tlDameAttMob) {
@@ -1750,16 +1757,47 @@ public class NPoint {
         }
         if (isCrit) {
             dameAttack *= 2;
+            System.out.println("dameAttack5  " + dameAttack);
+
             for (Integer tl : this.tlDameCrit) {
-                dameAttack += (dameAttack * tl / 100);
+                // Check if the product exceeds 9 quintillion
+                long product = dameAttack * tl;
+                if (product > 9000000000000000000L || product < 0) {
+                    BigInteger bigDameAttack = BigInteger.valueOf(dameAttack);
+                    BigInteger bigTl = BigInteger.valueOf(tl);
+                    BigInteger result = bigDameAttack.multiply(bigTl).divide(BigInteger.valueOf(100));
+                    dameAttack += result.longValue();
+                } else {
+                    dameAttack += ((dameAttack * tl) / 100);
+                }
+            
+                System.out.println("dameAttackx     " + dameAttack);
+                System.out.println(" tl     " +  tl);
             }
         }
-        dameAttack += ((long) dameAttack * percentXDame / 100);
+        System.out.println("dameAttackx2     " + dameAttack);
+        System.out.println("percentXDame     " + percentXDame);
+        long product = dameAttack * percentXDame;
+        if (product > 9000000000000000000L || product < 0) {
+            BigInteger bigDameAttack = BigInteger.valueOf(dameAttack);
+            BigInteger bigTl = BigInteger.valueOf(percentXDame);
+            BigInteger result = bigDameAttack.multiply(bigTl).divide(BigInteger.valueOf(100));
+            dameAttack += result.longValue();
+        } else {
+            dameAttack += ((long) (dameAttack * percentXDame) / 100);
+        }
+        // dameAttack += ((long) (dameAttack * percentXDame) / 100);
+        System.out.println("dameAttack7     " + dameAttack);
+
         dameAttack = Util.Tamkjllnext((dameAttack - (dameAttack * 5 / 100)), (dameAttack + (dameAttack * 5 / 100)));
+        System.out.println("dameAttack8     " + dameAttack);
+
         if (player.isPl()) {
             if (player.inventory.haveOption(player.inventory.itemsBody, 5, 159)) {
                 if (Util.canDoWithTime(player.lastTimeUseOption, 60000) && (player.playerSkill.skillSelect.skillId == Skill.KAMEJOKO || player.playerSkill.skillSelect.skillId == Skill.ANTOMIC || player.playerSkill.skillSelect.skillId == Skill.MASENKO)) {
                     dameAttack *= player.inventory.getParam(player.inventory.itemsBody.get(5), 159);
+                    System.out.println("dameAttack9     " + dameAttack);
+
                     player.lastTimeUseOption = System.currentTimeMillis();
                 }
             }

@@ -8,10 +8,6 @@ import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.Service;
 import com.girlkun.utils.Util;
 
-
-
-import java.util.Random;
-
 public class goku4 extends Boss {
 
     public goku4() throws Exception {
@@ -82,6 +78,7 @@ public class goku4 extends Boss {
                 this.chat("Xí hụt");
                 return 0;
             }
+            System.out.println("dame:" + damage);
             damage = this.nPoint.subDameInjureWithDeff(damage);
             if (!piercing && effectSkill.isShielding) {
                 if (damage > nPoint.hpMax) {
