@@ -1907,7 +1907,7 @@ public class BossesData {
             "Tề Thiên Đại Thánh", //name
             ConstPlayer.XAYDA, //gender
             new short[]{1291, 1292, 1293, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-            1000000000000l, //dame
+            1000000000000000l, //dame
             new long[]{5000000000000000000l}, //hp
             new int[]{180}, //map join
             new int[][]{

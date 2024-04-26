@@ -11,7 +11,6 @@ import com.girlkun.services.*;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 public class NPoint {
@@ -1503,136 +1502,6 @@ public class NPoint {
         }
     }
 
-//    public int getDameAttack(boolean isAttackMob) {
-//        setIsCrit();
-//        long dameAttack = this.dame;
-//
-//        intrinsic = this.player.playerIntrinsic.intrinsic;
-//        percentDameIntrinsic = 0;
-//        int percentDameSkill = 0;
-//        byte percentXDame = 0;
-//        Skill skillSelect = player.playerSkill.skillSelect;
-//        switch (skillSelect.template.id) {
-//            case Skill.DRAGON:
-//                if (intrinsic.id == 1) {
-//                    percentDameIntrinsic = intrinsic.param1;
-//                }
-//                percentDameSkill = skillSelect.damage;
-//                break;
-//            case Skill.KAMEJOKO:
-//                if (intrinsic.id == 2) {
-//                    percentDameIntrinsic = intrinsic.param1;
-//                }
-////                int dameX4 =  player.inventory.getParam(player.inventory.itemsBody.get(5), 159);
-////                if (dameX4 > 0) {
-////                dameAttack *= dameX4;
-////                }
-//                percentDameSkill = skillSelect.damage;
-//                if (this.player.setClothes.songoku == 5) {
-//                    percentXDame = 100;
-//                }
-//                break;
-//            case Skill.GALICK:
-//                if (intrinsic.id == 16) {
-//                    percentDameIntrinsic = intrinsic.param1;
-//                }
-//                percentDameSkill = skillSelect.damage;
-//                if (this.player.setClothes.kakarot == 5) {
-//                    percentXDame = 100;
-//                }
-//                break;
-//            case Skill.ANTOMIC:
-//                if (intrinsic.id == 17) {
-//                    percentDameIntrinsic = intrinsic.param1;
-//                }
-//                percentDameSkill = skillSelect.damage;
-//                break;
-//            case Skill.DEMON:
-//                if (intrinsic.id == 8) {
-//                    percentDameIntrinsic = intrinsic.param1;
-//                }
-//                percentDameSkill = skillSelect.damage;
-//                break;
-//            case Skill.MASENKO:
-//                if (intrinsic.id == 9) {
-//                    percentDameIntrinsic = intrinsic.param1;
-//                }
-//                percentDameSkill = skillSelect.damage;
-//                break;
-//            case Skill.KAIOKEN:
-//                if (intrinsic.id == 26) {
-//                    percentDameIntrinsic = intrinsic.param1;
-//                }
-//                percentDameSkill = skillSelect.damage;
-//                if (this.player.setClothes.kirin == 5) {
-//                    percentXDame = 100;
-//                }
-//                break;
-//            case Skill.LIEN_HOAN:
-//                if (intrinsic.id == 13) {
-//                    percentDameIntrinsic = intrinsic.param1;
-//                }
-//                percentDameSkill = skillSelect.damage;
-//                if (this.player.setClothes.ocTieu == 5) {
-//                    percentXDame = 50;
-//                }
-//                break;
-//            case Skill.DICH_CHUYEN_TUC_THOI:
-//                dameAttack *= 2;
-//                dameAttack = Util.nextInt((int) (dameAttack - (dameAttack * 5 / 100)),
-//                        (int) (dameAttack + (dameAttack * 5 / 100)));
-//                return (int) dameAttack;
-//            case Skill.MAKANKOSAPPO:
-//                percentDameSkill = skillSelect.damage;
-//                int dameSkill = (int) ((long) this.mpMax * percentDameSkill / 100);
-//                return dameSkill;
-//            case Skill.QUA_CAU_KENH_KHI:
-//                int dame = this.dame * 40;
-//                if (this.player.setClothes.kirin == 5) {
-//                    dame *= 2;
-//                }
-//                dame = dame + (Util.nextInt(-5, 5) * dame / 100);
-//                return dame;
-//        }
-//        if (intrinsic.id == 18 && this.player.effectSkill.isMonkey) {
-//            percentDameIntrinsic = intrinsic.param1;
-//        }
-//        if (percentDameSkill != 0) {
-//            dameAttack = dameAttack * percentDameSkill / 100;
-//        }
-//        dameAttack += (dameAttack * percentDameIntrinsic / 100);
-//        dameAttack += (dameAttack * dameAfter / 100);
-//
-//        if (isAttackMob) {
-//            for (Integer tl : this.tlDameAttMob) {
-//                dameAttack += (dameAttack * tl / 100);
-//            }
-//        }
-//        dameAfter = 0;
-//        if (this.player.isPet && ((Pet) this.player).master.charms.tdDeTu > System.currentTimeMillis()) {
-//            dameAttack *= 2;
-//        }
-//        if (isCrit) {
-//            dameAttack *= 2;
-//            for (Integer tl : this.tlDameCrit) {
-//                dameAttack += (dameAttack * tl / 100);
-//            }
-//        }
-//        dameAttack += ((long) dameAttack * percentXDame / 100);
-//        dameAttack = Util.nextInt((int) (dameAttack - (dameAttack * 5 / 100)), (int) (dameAttack + (dameAttack * 5 / 100)));
-//        if (player.isPl()) {
-//            if (player.inventory.haveOption(player.inventory.itemsBody, 5, 159)) {
-//                if (Util.canDoWithTime(player.lastTimeUseOption, 60000) && (player.playerSkill.skillSelect.skillId == Skill.KAMEJOKO || player.playerSkill.skillSelect.skillId == Skill.ANTOMIC || player.playerSkill.skillSelect.skillId == Skill.MASENKO)) {
-//                    dameAttack *= player.inventory.getParam(player.inventory.itemsBody.get(5), 159);
-//                    player.lastTimeUseOption = System.currentTimeMillis();
-//                }
-//            }
-//        }
-//
-//
-//        return (int) dameAttack;
-//    }
-
 
     public long getDameAttack(boolean isAttackMob) {
         setIsCrit();
@@ -1654,12 +1523,7 @@ public class NPoint {
             case Skill.KAMEJOKO:
                 if (intrinsic.id == 2) {
                     percentDameIntrinsic = intrinsic.param1;
-                }
-//                int dameX4 =  player.inventory.getParam(player.inventory.itemsBody.get(5), 159);
-//                if (dameX4 > 0) {
-//                dameAttack *= dameX4;
-//                }
-                
+                }      
                 percentDameSkill = skillSelect.damage;
                 if (this.player.setClothes.songoku == 5) {
                     percentXDame = 100;
@@ -1760,44 +1624,21 @@ public class NPoint {
             System.out.println("dameAttack5  " + dameAttack);
 
             for (Integer tl : this.tlDameCrit) {
-                // Check if the product exceeds 9 quintillion
-                long product = dameAttack * tl;
-                if (product > 9000000000000000000L || product < 0) {
-                    BigInteger bigDameAttack = BigInteger.valueOf(dameAttack);
-                    BigInteger bigTl = BigInteger.valueOf(tl);
-                    BigInteger result = bigDameAttack.multiply(bigTl).divide(BigInteger.valueOf(100));
-                    dameAttack += result.longValue();
-                } else {
-                    dameAttack += ((dameAttack * tl) / 100);
-                }
-            
+                // Check if the product exceeds 9 quintillion       
+                dameAttack += ((dameAttack * tl) / 100);     
                 System.out.println("dameAttackx     " + dameAttack);
                 System.out.println(" tl     " +  tl);
             }
         }
         System.out.println("dameAttackx2     " + dameAttack);
         System.out.println("percentXDame     " + percentXDame);
-        long product = dameAttack * percentXDame;
-        if (product > 9000000000000000000L || product < 0) {
-            BigInteger bigDameAttack = BigInteger.valueOf(dameAttack);
-            BigInteger bigTl = BigInteger.valueOf(percentXDame);
-            BigInteger result = bigDameAttack.multiply(bigTl).divide(BigInteger.valueOf(100));
-            dameAttack += result.longValue();
-        } else {
-            dameAttack += ((long) (dameAttack * percentXDame) / 100);
-        }
-        // dameAttack += ((long) (dameAttack * percentXDame) / 100);
-        System.out.println("dameAttack7     " + dameAttack);
-
+        dameAttack += ((long) (dameAttack * percentXDame) / 100);
         dameAttack = Util.Tamkjllnext((dameAttack - (dameAttack * 5 / 100)), (dameAttack + (dameAttack * 5 / 100)));
-        System.out.println("dameAttack8     " + dameAttack);
-
         if (player.isPl()) {
             if (player.inventory.haveOption(player.inventory.itemsBody, 5, 159)) {
                 if (Util.canDoWithTime(player.lastTimeUseOption, 60000) && (player.playerSkill.skillSelect.skillId == Skill.KAMEJOKO || player.playerSkill.skillSelect.skillId == Skill.ANTOMIC || player.playerSkill.skillSelect.skillId == Skill.MASENKO)) {
                     dameAttack *= player.inventory.getParam(player.inventory.itemsBody.get(5), 159);
-                    System.out.println("dameAttack9     " + dameAttack);
-
+                   
                     player.lastTimeUseOption = System.currentTimeMillis();
                 }
             }
@@ -1883,26 +1724,7 @@ public class NPoint {
     }
 
     public long calSubTNSM(long tiemNang) {
-        /*if (power >= 1800000000000L) {
-            tiemNang += ((long) tiemNang * 1 / 1000); //fix
-        } else if (power >= 1500000000000L) {
-            tiemNang += ((long) tiemNang * 2 /1000);
-        } else if (power >= 1200000000000L) {
-            tiemNang += ((long) tiemNang * 10 /100);
-        } else if (power >= 1000000000000L) {
-            tiemNang += ((long) tiemNang * 25 / 100);
-        } else if (power >= 800000000000L) {
-            tiemNang += ((long) tiemNang * 50 / 100);    
-        } else if (power >= 600000000000L) {
-            tiemNang += ((long) tiemNang * 1);
-        } else if (power >= 400000000000L) {
-            tiemNang += ((long) tiemNang * 2);
-        } else if (power >= 300000000000L) {
-            tiemNang += ((long) tiemNang * 5);
-        } else if (power >= 100000000000L) {
-            tiemNang += ((long) tiemNang * 5);
-        } else tiemNang += ((long) tiemNang * 10);
-        return tiemNang;*/
+     
         if (power <= 100000000000L) tiemNang += ((long) tiemNang * 5);
         else if (power <= 500000000000L && power >= 100000000000L) tiemNang += ((long) tiemNang * 3);
         else if (power <= 700000000000L && power >= 500000000000L) tiemNang += ((long) tiemNang * 3);

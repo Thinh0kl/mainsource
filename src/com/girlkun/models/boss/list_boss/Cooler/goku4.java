@@ -73,6 +73,7 @@ public class goku4 extends Boss {
     }
 
     public long injured(Player plAtt, long damage, boolean piercing, boolean isMobAttack) {
+        
         if (!this.isDie()) {
             if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 1000)) {
                 this.chat("Xí hụt");
