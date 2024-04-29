@@ -1933,6 +1933,127 @@ public class BossesData {
             new String[]{"|-1|HAHA!TOANG TA RỒI. !!!!!!!!!!!!"}, //text chat 3
             REST_15_M
     );
+    public static final BossData GOKU5 = new BossData(
+        "Broly Ngoại Truyện", //name
+        ConstPlayer.XAYDA, //gender
+        new short[]{1402, 1403, 1404, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+        1000000000000000l, //dame
+        new long[]{9000000000000000000l}, //hp
+        new int[]{0}, //map join
+        new int[][]{
+            {Skill.THOI_MIEN, 7, 100000},
+            {Skill.KHIEN_NANG_LUONG, 7, 100000},
+            {Skill.KAMEJOKO, 7, 500},
+            {Skill.MASENKO, 7, 500},
+            {Skill.TAI_TAO_NANG_LUONG, 1, 100000},
+            {Skill.DE_TRUNG, 7, 100000},
+            {Skill.THOI_MIEN, 7, 100000},
+            {Skill.THAI_DUONG_HA_SAN, 7, 100000},},//skill//skill
+
+
+        new String[]{}, //text chat 1
+        new String[]{"|-1|GOKU đây",
+            "|-1|Có đồ thiên tử VIP nè, tới đây mà bú",
+            "|-1|Haha, Đánh mỏi tay lắm phải ko mấy cu em",
+            "|-1|CHÚ BÉ ĐẦN CHÚ BÉ ĐẦN CHÚ BÉ ĐẦN ĐẦN ĐẦN ĐẦN ĐẦN ĐẦN ",
+            "|-1|NGU NGU NGU NGU NGU",
+            "|-1|YẾU QUÁ YẾU",
+            "|-1|Gà GÀ GÀ CÔNG NGHIỆP",
+            "|-1|Úi dời sao rồi, ko đánh lại đúng ko",}, //text chat 2
+        new String[]{"|-1|HAHA!TOANG TA RỒI. !!!!!!!!!!!!"}, //text chat 3
+        REST_15_M
+);
+public static final BossData GOKU6 = new BossData(
+    "Vegeta Long Nhân", //name
+    ConstPlayer.XAYDA, //gender
+    new short[]{1273, 1274, 1275, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+    1000000000000000l, //dame
+    new long[]{9000000000000000000l}, //hp
+    new int[]{7}, //map join
+    new int[][]{
+        {Skill.THOI_MIEN, 7, 100000},
+        {Skill.KHIEN_NANG_LUONG, 7, 100000},
+        {Skill.KAMEJOKO, 7, 500},
+        {Skill.MASENKO, 7, 500},
+        {Skill.TAI_TAO_NANG_LUONG, 1, 100000},
+        {Skill.DE_TRUNG, 7, 100000},
+        {Skill.THOI_MIEN, 7, 100000},
+        {Skill.THAI_DUONG_HA_SAN, 7, 100000},},//skill//skill
+
+
+    new String[]{}, //text chat 1
+    new String[]{"|-1|GOKU đây",
+        "|-1|Có đồ thiên tử VIP nè, tới đây mà bú",
+        "|-1|Haha, Đánh mỏi tay lắm phải ko mấy cu em",
+        "|-1|CHÚ BÉ ĐẦN CHÚ BÉ ĐẦN CHÚ BÉ ĐẦN ĐẦN ĐẦN ĐẦN ĐẦN ĐẦN ",
+        "|-1|NGU NGU NGU NGU NGU",
+        "|-1|YẾU QUÁ YẾU",
+        "|-1|Gà GÀ GÀ CÔNG NGHIỆP",
+        "|-1|Úi dời sao rồi, ko đánh lại đúng ko",}, //text chat 2
+    new String[]{"|-1|HAHA!TOANG TA RỒI. !!!!!!!!!!!!"}, //text chat 3
+    REST_15_M
+);
+
+public static final BossData GOKU7 = new BossData(
+    "Goku Long Nhân", //name
+    ConstPlayer.XAYDA, //gender
+    new short[]{1270, 1271, 1272, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+    1000000000000000l, //dame
+    new long[]{9000000000000000000l}, //hp
+    new int[]{8}, //map join
+    new int[][]{
+        {Skill.THOI_MIEN, 7, 100000},
+        {Skill.KHIEN_NANG_LUONG, 7, 100000},
+        {Skill.KAMEJOKO, 7, 500},
+        {Skill.MASENKO, 7, 500},
+        {Skill.TAI_TAO_NANG_LUONG, 1, 100000},
+        {Skill.DE_TRUNG, 7, 100000},
+        {Skill.THOI_MIEN, 7, 100000},
+        {Skill.THAI_DUONG_HA_SAN, 7, 100000},},//skill//skill
+
+
+    new String[]{}, //text chat 1
+    new String[]{"|-1|GOKU đây",
+        "|-1|Có đồ thiên tử VIP nè, tới đây mà bú",
+        "|-1|Haha, Đánh mỏi tay lắm phải ko mấy cu em",
+        "|-1|CHÚ BÉ ĐẦN CHÚ BÉ ĐẦN CHÚ BÉ ĐẦN ĐẦN ĐẦN ĐẦN ĐẦN ĐẦN ",
+        "|-1|NGU NGU NGU NGU NGU",
+        "|-1|YẾU QUÁ YẾU",
+        "|-1|Gà GÀ GÀ CÔNG NGHIỆP",
+        "|-1|Úi dời sao rồi, ko đánh lại đúng ko",}, //text chat 2
+    new String[]{"|-1|HAHA!TOANG TA RỒI. !!!!!!!!!!!!"}, //text chat 3
+    REST_15_M
+);
+public static final BossData GOKU8 = new BossData(
+    "Picolo Long Nhân", //name
+    ConstPlayer.XAYDA, //gender
+    new short[]{1276, 1277, 1278, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+    1000000000000000l, //dame
+    new long[]{9000000000000000000l}, //hp
+    new int[]{9}, //map join
+    new int[][]{
+        {Skill.THOI_MIEN, 7, 100000},
+        {Skill.KHIEN_NANG_LUONG, 7, 100000},
+        {Skill.KAMEJOKO, 7, 500},
+        {Skill.MASENKO, 7, 500},
+        {Skill.TAI_TAO_NANG_LUONG, 1, 100000},
+        {Skill.DE_TRUNG, 7, 100000},
+        {Skill.THOI_MIEN, 7, 100000},
+        {Skill.THAI_DUONG_HA_SAN, 7, 100000},},//skill//skill
+
+
+    new String[]{}, //text chat 1
+    new String[]{"|-1|GOKU đây",
+        "|-1|Có đồ thiên tử VIP nè, tới đây mà bú",
+        "|-1|Haha, Đánh mỏi tay lắm phải ko mấy cu em",
+        "|-1|CHÚ BÉ ĐẦN CHÚ BÉ ĐẦN CHÚ BÉ ĐẦN ĐẦN ĐẦN ĐẦN ĐẦN ĐẦN ",
+        "|-1|NGU NGU NGU NGU NGU",
+        "|-1|YẾU QUÁ YẾU",
+        "|-1|Gà GÀ GÀ CÔNG NGHIỆP",
+        "|-1|Úi dời sao rồi, ko đánh lại đúng ko",}, //text chat 2
+    new String[]{"|-1|HAHA!TOANG TA RỒI. !!!!!!!!!!!!"}, //text chat 3
+    REST_15_M
+);
     public static final BossData ZAMASFUSION = new BossData(
             "Zamasu Fusion", //name
             ConstPlayer.NAMEC, //gender

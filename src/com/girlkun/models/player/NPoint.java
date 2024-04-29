@@ -1505,7 +1505,7 @@ public class NPoint {
 
     public long getDameAttack(boolean isAttackMob) {
         setIsCrit();
-        long dameAttack = this.dame;
+        long dameAttack = this.dame/1000000;
         System.out.println("dameAttack1     " + dameAttack);
 
         intrinsic = this.player.playerIntrinsic.intrinsic;
@@ -1644,8 +1644,13 @@ public class NPoint {
             }
         }
 
-
-        return dameAttack;
+        long dameAttack2 = dameAttack*1000000 ;
+        if(dameAttack2 > 9000000000000000000L || dameAttack2 < 0){
+            return 9200000000000000000L;
+        }else{
+            return dameAttack2;
+        }
+        
     }
 
     public int getCurrPercentHP() {

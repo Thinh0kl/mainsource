@@ -6546,7 +6546,7 @@ public class NpcFactory {
                     createOtherMenu(player, ConstNpc.BASE_MENU,
                             "|1|Nạp rồi bú quà mốc nạp thôi"
                             + "\n|7|ở chỗ ta để nhận quà mốc nạp và mốc nạp đơn (reset theo tuần)",
-                            "Nhận quà\n Mốc Nạp", "Nhận quà mốc\n nạp Đơn", "Nâng cấp\nPet Rồng", "Hộp quà Hyper", "Nhận SKH Thiên Tử Không Giới Hạn","Không");
+                            "Nhận quà\n Mốc Nạp", "Nhận quà mốc\n nạp Đơn", "Nâng cấp\nPet Rồng", "Hộp quà Hyper", "Nhận SKH Thiên Tử Không Giới Hạn","Quà mốc 15m","Không");
                 }
             }
 
@@ -6606,7 +6606,11 @@ public class NpcFactory {
                                     + "\nChọn Trang Bị ",
                                     "Áo","Quần","Găng","Giày","Nhẫn","Không");
                                     break;
-                                    
+                                case 5:
+                                    createOtherMenu(player, 1999,
+                                    "Quà mốc 15M gồm : 1 Cải trang Picolo Long nhân chỉ số siêu vip và set Chí tôn có chỉ số sát thương Bom, sát thương chí mạng, 5 viên spl 20%, Danh Hiệu VIP chỉ số siêu cao. 1000 Ball tăng chỉ số các loại\n Tổng nạp của ngươi đang là :" + player.tongnap2
+                                   ,
+                                    "Nhận");
 
                             }
                         }else if (player.iDMark.getIndexMenu() == 1330) {
@@ -7674,7 +7678,7 @@ public class NpcFactory {
                     if (canOpenNpc(player)) {
                         createOtherMenu(player, ConstNpc.BASE_MENU,
                                 "|5|Ngươi muốn có con với cô Công Chúa của ta à??????",
-                                "Trao Sính Lễ","Gửi Cây Trúc", "không");
+                                "Trao Sính Lễ","Gửi Lá Cờ 30/4", "không");
                     }
                 }
             }
@@ -7735,7 +7739,7 @@ public class NpcFactory {
                                 }
                                
                                 if (caytruc == null || caytruc.quantity < 99 ) {
-                                    this.npcChat(player, "Không đủ cây trúc mà cũng đòi đua top????");
+                                    this.npcChat(player, "Không đủ lá cờ mà cũng đòi đua top????");
                                 } else {
                                     InventoryServiceNew.gI().subQuantityItemsBag(player, caytruc, 99);
                                     player.topdiem += 99;

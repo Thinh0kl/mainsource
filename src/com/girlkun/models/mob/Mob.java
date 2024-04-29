@@ -399,24 +399,22 @@ public class Mob {
                 ItemMap mvbt = new ItemMap(this.zone, 1330, 1, this.location.x, this.location.y, player.id);
                 itemReward.add(mvbt);
             }
-            
-            
-               if (Util.isTrue(5, 100)) {
+
+            if (Util.isTrue(5, 100)) {
                    ItemMap mvbt = new ItemMap(this.zone, 2117, 1, this.location.x, this.location.y, player.id);
                    mvbt.options.add(new Item.ItemOption(30, 1));
                    itemReward.add(mvbt);
                }
-               if (Util.isTrue(1, 300)) {
+            if (Util.isTrue(1, 300)) {
                    ItemMap mvbt = new ItemMap(this.zone, 2118, 1, this.location.x, this.location.y, player.id);
                    mvbt.options.add(new Item.ItemOption(30, 1));
                    itemReward.add(mvbt);
                }
-                if (Util.isTrue(1, 100)) {
+            if (Util.isTrue(1, 100)) {
                    ItemMap mvbt = new ItemMap(this.zone, 2182, 1, this.location.x, this.location.y, player.id);
                    mvbt.options.add(new Item.ItemOption(30, 1));
                    itemReward.add(mvbt);
                }
-              // return itemReward;
            
             if (!player.isPet && (player.zone.map.mapId == 1 || player.zone.map.mapId == 2 || player.zone.map.mapId == 3
                     || player.zone.map.mapId == 10 || player.zone.map.mapId == 8 || player.zone.map.mapId == 9

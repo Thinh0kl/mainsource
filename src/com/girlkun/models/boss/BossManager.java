@@ -17,6 +17,10 @@ import com.girlkun.models.boss.list_boss.Cooler.zamasfusion;
 import com.girlkun.models.boss.list_boss.Cooler.zamasfusion2;
 import com.girlkun.models.boss.list_boss.Cooler.heartgod;
 import com.girlkun.models.boss.list_boss.Cooler.goku4;
+import com.girlkun.models.boss.list_boss.Cooler.goku5;
+import com.girlkun.models.boss.list_boss.Cooler.goku6;
+import com.girlkun.models.boss.list_boss.Cooler.goku7;
+import com.girlkun.models.boss.list_boss.Cooler.goku8;
 import com.girlkun.models.boss.list_boss.HuyDiet.Champa;
 import com.girlkun.models.boss.list_boss.HuyDiet.ThanHuyDiet;
 import com.girlkun.models.boss.list_boss.HuyDiet.ThienSuWhis;
@@ -148,8 +152,12 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.ZAMASFUSION2);
              this.createBoss(BossID.HEARTGOD);
             this.createBoss(BossID.GOKU4);
+            this.createBoss(BossID.GOKU5);
+            this.createBoss(BossID.GOKU6);
+            this.createBoss(BossID.GOKU7);
+            this.createBoss(BossID.GOKU8);
             this.createBoss(BossID.ZENO);
-            this.createBoss(BossID.WUKONG);
+            // this.createBoss(BossID.WUKONG);
             this.createBoss(BossID.DORAEMON);
             this.createBoss(BossID.NOBITA);
             this.createBoss(BossID.XUKA);
@@ -170,7 +178,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.DR_KORE);
             this.createBoss(BossID.ANDROID_14);
             this.createBoss(BossID.TRUNG_UY_TRANG);
-            // this.createBoss(BossID.SUPER_ANDROID_17); 
+            this.createBoss(BossID.SUPER_ANDROID_17); 
             this.createBoss(BossID.MABU);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -304,6 +312,14 @@ public class BossManager implements Runnable {
                     return new heartgod();
                 case BossID.GOKU4:
                     return new goku4();
+                case BossID.GOKU5:
+                    return new goku5();
+                case BossID.GOKU6:
+                    return new goku6();
+                case BossID.GOKU7:
+                    return new goku7();
+                case BossID.GOKU8:
+                    return new goku8();
                 case BossID.ZAMASZIN:
                     return new ZamasKaio();
                 case BossID.BLACK2:
