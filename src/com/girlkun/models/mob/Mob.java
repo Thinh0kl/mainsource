@@ -68,6 +68,7 @@ public class Mob {
 
     public void setTiemNang() {
         this.maxTiemNang = (long) this.point.getHpFull() * (this.pTiemNang + Util.nextInt(-2, 2)) / 100;
+        // System.err.println("this.maxTiemNang" + this.maxTiemNang);
     }
 
     private long lastTimeAttackPlayer;
@@ -109,13 +110,16 @@ public class Mob {
         int levelPlayer = Service.gI().getCurrLevel(pl);
         int n = levelPlayer - this.level;
         long pDameHit = (dame) * 100 / point.getHpFull();
+        System.err.println("maxTiemNang"+ maxTiemNang);
+        System.err.println("pDameHit"+ pDameHit);
+        System.err.println("n"+ n);
         long tiemNang = pDameHit * maxTiemNang / 100;
         if (tiemNang <= 0) {
             tiemNang = 1;
         }
         if (n >= 0) {
             for (int i = 0; i < n; i++) {
-                long sub = tiemNang * 5 / 100;
+                long sub = tiemNang / 100;
                 if (sub <= 0) {
                     sub = 1;
                 }
@@ -123,7 +127,7 @@ public class Mob {
             }
         } else {
             for (int i = 0; i < -n; i++) {
-                long add = tiemNang * 5 / 100;
+                long add = tiemNang  / 100;
                 if (add <= 0) {
                     add = 1;
                 }
@@ -135,15 +139,15 @@ public class Mob {
         }
         tiemNang = (pl.nPoint.calSucManhTiemNang(tiemNang));
         if (pl.zone.map.mapId == 122 || pl.zone.map.mapId == 123 || pl.zone.map.mapId == 124) {
-            tiemNang *= 10;
+            tiemNang *= 2;
         }
         if (pl.zone.map.mapId == 156 || pl.zone.map.mapId == 157) {
-            tiemNang *= 5;
+            tiemNang *= 2;
         }
         if (pl.zone.map.mapId == 158 || pl.zone.map.mapId == 159) {
             tiemNang /= 15;
         }
-        tiemNang = (pl.nPoint.calSucManhTiemNang(tiemNang));
+//        tiemNang = (pl.nPoint.calSucManhTiemNang(tiemNang));
         return tiemNang;
     }
 
@@ -353,18 +357,18 @@ public class Mob {
 //                itemReward.add(mvbt);
 //            }
 
-            if (player.zone.map.mapId == 170) {
-                if (Util.isTrue(8, 100)) {
-                    ItemMap mvbt = new ItemMap(this.zone, 2068, 1, this.location.x, this.location.y, player.id);
-                    mvbt.options.add(new Item.ItemOption(30, 0));
-                    itemReward.add(mvbt);
-                }
-            }
+            // if (player.zone.map.mapId == 170) {
+            //     if (Util.isTrue(8, 100)) {
+            //         ItemMap mvbt = new ItemMap(this.zone, 2068, 1, this.location.x, this.location.y, player.id);
+            //         mvbt.options.add(new Item.ItemOption(30, 0));
+            //         itemReward.add(mvbt);
+            //     }
+            // }
 
-            if (Util.isTrue(2, 100)) {
-                ItemMap mvbt = new ItemMap(this.zone, 2235, 1, this.location.x, this.location.y, player.id);
-                itemReward.add(mvbt);
-            }
+            // if (Util.isTrue(2, 100)) {
+            //     ItemMap mvbt = new ItemMap(this.zone, 2235, 1, this.location.x, this.location.y, player.id);
+            //     itemReward.add(mvbt);
+            // }
 
             // if (Util.isTrue(50, 100)) {
             //     ItemMap mvbt = new ItemMap(this.zone, 888, 1, this.location.x, this.location.y, player.id);
@@ -381,40 +385,40 @@ public class Mob {
             // }
 
            
-            if (Util.isTrue(1, 100)) {
-                ItemMap mvbt = new ItemMap(this.zone, 1325, 5, this.location.x, this.location.y, player.id);
-                itemReward.add(mvbt);
-            }
+            // if (Util.isTrue(1, 100)) {
+            //     ItemMap mvbt = new ItemMap(this.zone, 1325, 5, this.location.x, this.location.y, player.id);
+            //     itemReward.add(mvbt);
+            // }
              
-            if (Util.isTrue(1, 100)) {
-                ItemMap mvbt = new ItemMap(this.zone, 1326, 5, this.location.x, this.location.y, player.id);
-                itemReward.add(mvbt);
-            }
+            // if (Util.isTrue(1, 100)) {
+            //     ItemMap mvbt = new ItemMap(this.zone, 1326, 5, this.location.x, this.location.y, player.id);
+            //     itemReward.add(mvbt);
+            // }
              
-            if (Util.isTrue(1, 100)) {
-                ItemMap mvbt = new ItemMap(this.zone, 1327, 5, this.location.x, this.location.y, player.id);
-                itemReward.add(mvbt);
-            }
-            if (Util.isTrue(1, 100)) {
-                ItemMap mvbt = new ItemMap(this.zone, 1330, 1, this.location.x, this.location.y, player.id);
-                itemReward.add(mvbt);
-            }
+            // if (Util.isTrue(1, 100)) {
+            //     ItemMap mvbt = new ItemMap(this.zone, 1327, 5, this.location.x, this.location.y, player.id);
+            //     itemReward.add(mvbt);
+            // }
+            // if (Util.isTrue(1, 100)) {
+            //     ItemMap mvbt = new ItemMap(this.zone, 1330, 1, this.location.x, this.location.y, player.id);
+            //     itemReward.add(mvbt);
+            // }
 
-            if (Util.isTrue(5, 100)) {
-                   ItemMap mvbt = new ItemMap(this.zone, 2117, 1, this.location.x, this.location.y, player.id);
-                   mvbt.options.add(new Item.ItemOption(30, 1));
-                   itemReward.add(mvbt);
-               }
-            if (Util.isTrue(1, 300)) {
-                   ItemMap mvbt = new ItemMap(this.zone, 2118, 1, this.location.x, this.location.y, player.id);
-                   mvbt.options.add(new Item.ItemOption(30, 1));
-                   itemReward.add(mvbt);
-               }
-            if (Util.isTrue(1, 100)) {
-                   ItemMap mvbt = new ItemMap(this.zone, 2182, 1, this.location.x, this.location.y, player.id);
-                   mvbt.options.add(new Item.ItemOption(30, 1));
-                   itemReward.add(mvbt);
-               }
+            // if (Util.isTrue(5, 100)) {
+            //        ItemMap mvbt = new ItemMap(this.zone, 2117, 1, this.location.x, this.location.y, player.id);
+            //        mvbt.options.add(new Item.ItemOption(30, 1));
+            //        itemReward.add(mvbt);
+            //    }
+            // if (Util.isTrue(1, 300)) {
+            //        ItemMap mvbt = new ItemMap(this.zone, 2118, 1, this.location.x, this.location.y, player.id);
+            //        mvbt.options.add(new Item.ItemOption(30, 1));
+            //        itemReward.add(mvbt);
+            //    }
+            // if (Util.isTrue(1, 100)) {
+            //        ItemMap mvbt = new ItemMap(this.zone, 2182, 1, this.location.x, this.location.y, player.id);
+            //        mvbt.options.add(new Item.ItemOption(30, 1));
+            //        itemReward.add(mvbt);
+            //    }
            
             if (!player.isPet && (player.zone.map.mapId == 1 || player.zone.map.mapId == 2 || player.zone.map.mapId == 3
                     || player.zone.map.mapId == 10 || player.zone.map.mapId == 8 || player.zone.map.mapId == 9
@@ -852,9 +856,9 @@ public class Mob {
                 list.add(new ItemMap(zone, 861, 1, x, player.location.y, player.id));
             }
         }
-        if (Util.nextInt(0, 100) < 3) {
-            list.add(new ItemMap(zone, 1229, 1, x, player.location.y, player.id));
-        }
+        // if (Util.nextInt(0, 100) < 3) {
+        //     list.add(new ItemMap(zone, 1229, 1, x, player.location.y, player.id));
+        // }
 
         if (player.zone.map.mapId == 174) {
             try {

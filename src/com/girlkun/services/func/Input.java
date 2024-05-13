@@ -935,18 +935,27 @@ public class Input {
                     //int coinGem = 1000; // là cái loz
                     int gemTrade = Integer.parseInt(text[0]);
                     if (gemTrade <= 0 || gemTrade >= 50000000) {
-                        Service.gI().sendThongBao(player, "giới hạn");
-                    } else if (player.getSession().coin >= gemTrade) {
-                        PlayerDAO.subvnd(player, gemTrade);
-                        Item thoiVang = ItemService.gI().createNewItem((short) 457, gemTrade / 10);// x4
-                        thoiVang.itemOptions.add(new Item.ItemOption(30, 0));
-                        InventoryServiceNew.gI().addItemBag(player, thoiVang);
-                        InventoryServiceNew.gI().sendItemBags(player);
-                        Service.gI().sendThongBao(player, "bạn nhận được " + gemTrade / 10
+                        Service.gI().sendThongBao(player, "giới hạn là 0-50 triệu VNĐ");
+                    } else if (player.tongnap >= gemTrade) {
+                        PlayerDAO.subtn(player, gemTrade);
+                        if(gemTrade >= 500000){
+                            Item thoiVang = ItemService.gI().createNewItem((short) 457, ((gemTrade / 333) * 3) / 2);// x4
+                            System.err.print("cccc" +  ((gemTrade / 333) * 3) / 2 );
+                            InventoryServiceNew.gI().addItemBag(player, thoiVang);
+                            InventoryServiceNew.gI().sendItemBags(player);
+                            Service.gI().sendThongBao(player, "bạn nhận được " + gemTrade / 333 * 3 / 2
                                 + " " + thoiVang.template.name);
+                        }else{
+                            Item thoiVang = ItemService.gI().createNewItem((short) 457, gemTrade / 333);// x4
+                            InventoryServiceNew.gI().addItemBag(player, thoiVang);
+                            InventoryServiceNew.gI().sendItemBags(player);
+                            Service.gI().sendThongBao(player, "bạn nhận được " + gemTrade / 333
+                                + " " + thoiVang.template.name);
+                        }
+                      
                     } else {
-                        Service.gI().sendThongBao(player, "Số tiền của bạn là " + player.getSession().coin + " không đủ để quy "
-                                + " đổi " + gemTrade / 10 + " Thỏi Vàng" + " " + "bạn cần thêm" + (player.getSession().coin - gemTrade));
+                        Service.gI().sendThongBao(player, "Số tiền của bạn là " + player.tongnap + " không đủ để quy "
+                                + " đổi " + gemTrade / 333 + " Thỏi Vàng" + " " + "bạn cần thêm" + (player.tongnap - gemTrade));
                     }
                     break;
                 case QUY_MH: {
@@ -1179,7 +1188,7 @@ public class Input {
 
         createForm(pl, QUY_DOI_HONG_NGOC, "Quy đổi Thỏi Vàng"
                 // + "\nNhập 10 Có nghĩa là  10.000đ"
-                + "Ví dụ nhập 10.000 VNĐ = 1000 tv", new SubInput("Nhập số VNĐ muốn đổi", NUMERIC));
+                + "Ví dụ nhập 10.000 VNĐ bạn sẽ được 30 tv, tỉ lệ cứ thế mà nhân lên\n Nếu đổi trên 500k sẽ được x1.5 thỏi vàng", new SubInput("Nhập số VNĐ muốn đổi", NUMERIC));
         // + "\nLiên hệ Key vàng trong box zalo để nạp tiền "
         //  + "\nCó thể nạp card trên Website: "
         //  + "\nĐăng Nhập và Chọn nạp VNĐ "

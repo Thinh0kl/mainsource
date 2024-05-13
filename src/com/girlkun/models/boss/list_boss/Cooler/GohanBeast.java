@@ -16,21 +16,21 @@ import java.util.Random;
 public class GohanBeast extends Boss {
 
     public GohanBeast() throws Exception {
-        super(Util.randomBossId(), BossesData.Gohan_Beast,BossesData.Morimata,BossesData.Goku_Svip );
+        super(Util.randomBossId(), BossesData.Gohan_Beast);
     }
 
     @Override
     public void reward(Player plKill) {
-        int[] itemDos = new int[]{233, 237, 241,245, 249, 253,257, 261, 265,269, 273, 277,281,566, 563, 565, 567, 561};
-        int[] itemtime = new int[]{381,382,383,384,385};
-        int randomDo = new Random().nextInt(itemDos.length);
-        int randomitem = new Random().nextInt(itemtime.length);
+       
+      
         if (plKill != null && plKill.getSession().actived) {
-            if(Util.isTrue(30, 100)){
-                            Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2114, 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
-
-        }
-        
+            if (plKill.pet == null) {
+                PetService.gI().createNormalPet(plKill);
+                Service.gI().sendThongBao(plKill, "Bạn vừa nhận được đệ tử");
+            } else {
+                Service.gI().sendThongBao(plKill, "Bạn đã có đệ rồi");
+            }
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2114, 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }
     }
 
@@ -41,7 +41,7 @@ public class GohanBeast extends Boss {
                 this.chat("Xí hụt");
                 return 0;
             }
-            damage = this.nPoint.subDameInjureWithDeff(damage/7);
+            damage = this.nPoint.subDameInjureWithDeff(damage);
             if (!piercing && effectSkill.isShielding) {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);

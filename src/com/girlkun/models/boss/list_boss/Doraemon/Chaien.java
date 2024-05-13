@@ -26,8 +26,7 @@ public class Chaien extends Boss {
         int randomNR = new Random().nextInt(NRs.length);
         if (Util.isTrue(15, 100)) {
             if (Util.isTrue(1, 5)) {
-              Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2106, 1, this.location.x, this.location.y, plKill.id));
-              Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2051, 1, this.location.x, this.location.y, plKill.id));
+                Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2051, 1, this.location.x, this.location.y, plKill.id));
                 return;
             }
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));

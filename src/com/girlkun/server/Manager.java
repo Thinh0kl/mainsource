@@ -68,7 +68,7 @@ public class Manager {
     public static byte SECOND_WAIT_LOGIN = 10;
     public static int MAX_PER_IP = 5;
     public static int MAX_PLAYER = 1000;
-    public static byte RATE_EXP_SERVER = 4;
+    public static byte RATE_EXP_SERVER = 1;
     public static long GHSM = 201;
     public static boolean LOCAL = false;
 //    public static byte RATE_EXP_SERVER = 1;// sau khi chinh
@@ -703,7 +703,7 @@ public class Manager {
 
                         //chỗ chỉnh sao pha lê nè
                         if (item.getTemp().type == 30) { // sao pha lê
-                            item.setRatio(new int[]{30, 100});
+                            item.setRatio(new int[]{1, 100});
                         }
                         if (item.getTemp().type == 14) { //14 đá nâng cấp
                             item.setRatio(new int[]{20, Integer.parseInt(ratio[1])});

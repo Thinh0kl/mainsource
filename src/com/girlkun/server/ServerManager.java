@@ -199,7 +199,7 @@ public class ServerManager {
                 if (line.equals("baotri")) {
                     Maintenance.gI().start(2);
                 } else if (line.equals("athread")) {
-                    ServerNotify.gI().notify("Nro JIEN debug server: " + Thread.activeCount());
+                    ServerNotify.gI().notify("Nro Z debug server: " + Thread.activeCount());
                 } else if (line.equals("nplayer")) {
                     Logger.error("Player in game: " + Client.gI().getPlayers().size() + "\n");
                 } else if (line.equals("admin")) {

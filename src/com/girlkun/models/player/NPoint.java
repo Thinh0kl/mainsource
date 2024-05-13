@@ -1505,7 +1505,7 @@ public class NPoint {
 
     public long getDameAttack(boolean isAttackMob) {
         setIsCrit();
-        long dameAttack = this.dame/1000000;
+        long dameAttack = this.dame;
         System.out.println("dameAttack1     " + dameAttack);
 
         intrinsic = this.player.playerIntrinsic.intrinsic;
@@ -1644,7 +1644,7 @@ public class NPoint {
             }
         }
 
-        long dameAttack2 = dameAttack*1000000 ;
+        long dameAttack2 = dameAttack ;
         if(dameAttack2 > 9000000000000000000L || dameAttack2 < 0){
             return 9200000000000000000L;
         }else{
@@ -1700,12 +1700,12 @@ public class NPoint {
             if (this.player.charms.tdTriTue > System.currentTimeMillis()) {
                 tiemNang += tn;
             }
-            if (this.player.charms.tdTriTue3 > System.currentTimeMillis()) {
+             if (this.player.charms.tdTriTue4 > System.currentTimeMillis()) {
+                tiemNang += tn * 3;
+            }else if (this.player.charms.tdTriTue3 > System.currentTimeMillis()) {
                 tiemNang += tn * 2;
             }
-            if (this.player.charms.tdTriTue4 > System.currentTimeMillis()) {
-                tiemNang += tn * 3;
-            }
+           
             if (this.intrinsic != null && this.intrinsic.id == 24) {
                 tiemNang += ((long) tiemNang * this.intrinsic.param1 / 100);
             }
@@ -1730,14 +1730,14 @@ public class NPoint {
 
     public long calSubTNSM(long tiemNang) {
      
-        if (power <= 100000000000L) tiemNang += ((long) tiemNang * 5);
-        else if (power <= 500000000000L && power >= 100000000000L) tiemNang += ((long) tiemNang * 3);
-        else if (power <= 700000000000L && power >= 500000000000L) tiemNang += ((long) tiemNang * 3);
+        if (power <= 100000000000L) tiemNang += ((long) tiemNang * 2);
+        else if (power <= 500000000000L && power >= 100000000000L) tiemNang += ((long) tiemNang * 1);
+        else if (power <= 700000000000L && power >= 500000000000L) tiemNang += ((long) tiemNang * 1);
         else if (power <= 1000000000000L && power >= 700000000000L) tiemNang += ((long) tiemNang * 1);
-        else if (power <= 1200000000000L && power >= 1000000000000L) tiemNang += ((long) tiemNang * 1 / 2);
-        else if (power <= 1500000000000L && power >= 1200000000000L) tiemNang += ((long) tiemNang * 1 / 4);
-        else if (power <= 1700000000000L && power >= 1500000000000L) tiemNang += ((long) tiemNang / 7);
-        else if (power <= 1800000000000L && power >= 1700000000000L) tiemNang += ((long) tiemNang / 10);
+        else if (power <= 1200000000000L && power >= 1000000000000L) tiemNang += ((long) tiemNang * 0.25);
+        else if (power <= 1500000000000L && power >= 1200000000000L) tiemNang += ((long) tiemNang * 0.125);
+        else if (power <= 1700000000000L && power >= 1500000000000L) tiemNang += ((long) tiemNang * 0.075);
+        else if (power <= 1800000000000L && power >= 1700000000000L) tiemNang += ((long) tiemNang / 0.025);
         else if (power >= 1800000000000L) tiemNang += ((long) tiemNang / 100);
         return tiemNang;
     }
@@ -2001,7 +2001,7 @@ public class NPoint {
                     hpg += pointHp;
                 }
             } else {
-                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
                 return;
             }
         }
@@ -2013,7 +2013,7 @@ public class NPoint {
                     mpg += pointMp;
                 }
             } else {
-                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
                 return;
             }
         }
@@ -2024,7 +2024,7 @@ public class NPoint {
                     dameg += point;
                 }
             } else {
-                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
                 return;
             }
         }
@@ -2035,7 +2035,7 @@ public class NPoint {
                     defg += point;
                 }
             } else {
-                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
                 return;
             }
         }
@@ -2049,7 +2049,7 @@ public class NPoint {
                     critg += point;
                 }
             } else {
-                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                Service.gI().sendThongBaoOK(player, "Vui lòng mở giới hạn sức mạnh");
                 return;
             }
         }

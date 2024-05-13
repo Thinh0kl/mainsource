@@ -55,10 +55,12 @@ public class Util {
     }
 
     public static String numberToMoney(long power) {
+        System.err.println("power" + power);
         Locale locale = new Locale("vi", "VN");
         NumberFormat num = NumberFormat.getInstance(locale);
         num.setMaximumFractionDigits(1);
         if (power >= 1000000000) {
+            // System.err.println((num.format((long) power / 1000000000) + " Tỷ"))
             return num.format((double) power / 1000000000) + " Tỷ";
         } else if (power >= 1000000) {
             return num.format((double) power / 1000000) + " Tr";

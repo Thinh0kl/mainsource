@@ -84,7 +84,6 @@ public class Player {
     public int lambanh;
     public int tiengui;
     public int mocnapdon;
-    public int diem8thang3 = 0;
     public int napdon;
     public int tongnap2;
     public int mocnap;

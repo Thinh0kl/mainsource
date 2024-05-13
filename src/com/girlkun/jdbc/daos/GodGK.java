@@ -160,7 +160,7 @@ public class GodGK {
                             player.tiengui = rs.getInt("tiengui");
                             player.napdon = rs.getInt("napdon");
                             player.mocnapdon = rs.getInt("mocnapdon");
-                            player.diem8thang3 = rs.getInt("diem8thang3");
+                           
                             player.tongnap2 = rs.getInt("tongnap2");
                             player.mocnap = rs.getInt("mocnap");
                             player.timeRong = rs.getLong("timeRong");

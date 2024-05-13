@@ -109,27 +109,58 @@ public class BossManager implements Runnable {
             return;
         }
         try {
-            this.createBoss(BossID.KAMIRIN);
-            this.createBoss(BossID.KAMILOC);
-            this.createBoss(BossID.KAMI_SOOME);
-            this.createBoss(BossID.CUMBERBLACK);
-            this.createBoss(BossID.CUMBERYELLOW);
-            this.createBoss(BossID.SUPER_XEN);
+            // this.createBoss(BossID.KAMIRIN);
+            // this.createBoss(BossID.KAMILOC);
+            // this.createBoss(BossID.KAMI_SOOME);
+            // this.createBoss(BossID.CUMBERBLACK);
+            // this.createBoss(BossID.CUMBERYELLOW);
+            // this.createBoss(BossID.SUPER_XEN);
+             //  this.createBoss(BossID.ONGNOEL);
+            //  this.createBoss(BossID.SKNOEL);           
+            // this.createBoss(BossID.RONGVANG);
+            //  this.createBoss(BossID.XENDO);
+            //  this.createBoss(BossID.RONGTAAC);
+            // this.createBoss(BossID.SONTINH);
+            // this.createBoss(BossID.THUYTINH);
+            //  this.createBoss(BossID.ZAMASFUSION);
+            // this.createBoss(BossID.ZAMASFUSION2);
+            //  this.createBoss(BossID.HEARTGOD);
+            // this.createBoss(BossID.GOKU4);
+            // this.createBoss(BossID.GOKU5);
+            // this.createBoss(BossID.GOKU6);
+            // this.createBoss(BossID.GOKU7);
+            // this.createBoss(BossID.GOKU8);
+            // this.createBoss(BossID.ZENO);
+            // this.createBoss(BossID.WUKONG);
+            // this.createBoss(BossID.BROLY);
+             // this.createBoss(BossID.SONGOKU_TA_AC);
+            // this.createBoss(BossID.CUMBER);
+            // this.createBoss(BossID.COOLER_GOLD);
+              //  this.createBoss(BossID.KHI_ULTRA);
+            // this.createBoss(BossID.GRANOLA);
+            // this.createBoss(BossID.MABU);
+            // this.createBoss(BossID.TRUNG_UY_TRANG);
+            // this.createBoss(BossID.ANDROID_14);
+            // this.createBoss(BossID.SUPER_ANDROID_17); 
+            this.createBoss(BossID.KUKU);
+            this.createBoss(BossID.MAP_DAU_DINH);
+            this.createBoss(BossID.RAMBO);
             this.createBoss(BossID.TDST);
-            this.createBoss(BossID.BROLY);
+            this.createBoss(BossID.FIDE);
+            this.createBoss(BossID.DR_KORE);
             this.createBoss(BossID.PIC);
             this.createBoss(BossID.POC);
             this.createBoss(BossID.KING_KONG);
-            this.createBoss(BossID.SONGOKU_TA_AC);
-            this.createBoss(BossID.CUMBER);
-            this.createBoss(BossID.COOLER_GOLD);
             this.createBoss(BossID.XEN_BO_HUNG);
             this.createBoss(BossID.SIEU_BO_HUNG);
             this.createBoss(BossID.XEN_CON_1);
             this.createBoss(BossID.XEN_CON_1);
             this.createBoss(BossID.XEN_CON_1);
             this.createBoss(BossID.XEN_CON_1);
-
+            this.createBoss(BossID.NOBITA);
+            this.createBoss(BossID.XUKA);
+            this.createBoss(BossID.CHAIEN);
+            this.createBoss(BossID.XEKO);
             this.createBoss(BossID.THIEN_SU_VADOS);
             this.createBoss(BossID.THIEN_SU_WHIS);
             this.createBoss(BossID.THIEN_SU_VADOS);
@@ -139,47 +170,20 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.THIEN_SU_VADOS);
             this.createBoss(BossID.THIEN_SU_WHIS);
             this.createBoss(BossID.GOHAN_BEAST);
+
+            //de tu
             this.createBoss(BossID.MORIMATA);
             this.createBoss(BossID.GOKU_SVIP);
-             this.createBoss(BossID.ONGNOEL);
-             this.createBoss(BossID.SKNOEL);           
-            this.createBoss(BossID.RONGVANG);
-             this.createBoss(BossID.XENDO);
-             this.createBoss(BossID.RONGTAAC);
-            this.createBoss(BossID.SONTINH);
-            this.createBoss(BossID.THUYTINH);
-             this.createBoss(BossID.ZAMASFUSION);
-            this.createBoss(BossID.ZAMASFUSION2);
-             this.createBoss(BossID.HEARTGOD);
-            this.createBoss(BossID.GOKU4);
-            this.createBoss(BossID.GOKU5);
-            this.createBoss(BossID.GOKU6);
-            this.createBoss(BossID.GOKU7);
-            this.createBoss(BossID.GOKU8);
-            this.createBoss(BossID.ZENO);
-            // this.createBoss(BossID.WUKONG);
             this.createBoss(BossID.DORAEMON);
-            this.createBoss(BossID.NOBITA);
-            this.createBoss(BossID.XUKA);
-            this.createBoss(BossID.CHAIEN);
-            this.createBoss(BossID.XEKO);
+
+           
             this.createBoss(BossID.BLACK);
             this.createBoss(BossID.ZAMASZIN);
             this.createBoss(BossID.BLACK2);
             this.createBoss(BossID.ZAMASMAX);
             this.createBoss(BossID.BLACK);
             this.createBoss(BossID.BLACK3);
-            this.createBoss(BossID.KUKU);
-            this.createBoss(BossID.MAP_DAU_DINH);
-            this.createBoss(BossID.RAMBO);
-             this.createBoss(BossID.KHI_ULTRA);
-            this.createBoss(BossID.GRANOLA);
-            this.createBoss(BossID.FIDE);
-            this.createBoss(BossID.DR_KORE);
-            this.createBoss(BossID.ANDROID_14);
-            this.createBoss(BossID.TRUNG_UY_TRANG);
-            this.createBoss(BossID.SUPER_ANDROID_17); 
-            this.createBoss(BossID.MABU);
+          
         } catch (Exception ex) {
             ex.printStackTrace();
         }

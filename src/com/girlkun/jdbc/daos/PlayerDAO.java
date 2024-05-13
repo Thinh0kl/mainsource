@@ -118,7 +118,7 @@ public class PlayerDAO {
 
             for (int i = 0; i < 20; i++) { // item tạo player 
                 if (i == 0) { //thỏi vàng
-                    opt.add(30); //id option cấm giao dịch
+                    opt.add(73); //id option cấm giao dịch
                     opt.add(1); //param option
                     item.add(457); //id item
                     item.add(2); //số lượng
@@ -202,7 +202,7 @@ public class PlayerDAO {
             String itemTimeSC = dataArray.toJSONString();
             dataArray.clear();
 
-            dataArray.add(20); //id nhiệm vụ
+            dataArray.add(1); //id nhiệm vụ
             dataArray.add(0); //index nhiệm vụ con
             dataArray.add(0); //số lượng đã làm
             String task = dataArray.toJSONString();
@@ -702,7 +702,7 @@ public class PlayerDAO {
                         + "items_body = ?, items_bag = ?, items_box = ?, items_box_lucky_round = ?, friends = ?,"
                         + "enemies = ?, data_intrinsic = ?, data_item_time = ?, data_item_time_sieu_cap = ?, data_task = ?, data_mabu_egg = ?, pet = ?,"
                         + "data_black_ball = ?, data_side_task = ?, data_charm = ?, skills = ?,"
-                        + " skills_shortcut = ?, pointPvp=?, NguHanhSonPoint=?,data_card=?,bill_data =?, chuyenSinh=?,mapmoi=?,nhanngoc=?,ngoccs = ?, timeRong = ?, khiultra = ?, dsk =?, qtt = ?, qv = ?, gd = ?, topdiem=?, thientu = ?, mott = ?,tongnap2 = ?,mocnap = ?,nhanqua =?,tiengui=?,lambanh=?,napdon=?,mocnapdon=?,diem8thang3=?, moChiTon=?,chiTon =?,chuyenSinhPet=? where id = ? ";
+                        + " skills_shortcut = ?, pointPvp=?, NguHanhSonPoint=?,data_card=?,bill_data =?, chuyenSinh=?,mapmoi=?,nhanngoc=?,ngoccs = ?, timeRong = ?, khiultra = ?, dsk =?, qtt = ?, qv = ?, gd = ?, topdiem=?, thientu = ?, mott = ?,tongnap2 = ?,mocnap = ?,nhanqua =?,tiengui=?,lambanh=?,napdon=?,mocnapdon=?, moChiTon=?,chiTon =?,chuyenSinhPet=? where id = ? ";
                 GirlkunDB.executeUpdate(query,
                         player.head,
                         player.haveTennisSpaceShip,
@@ -752,7 +752,6 @@ public class PlayerDAO {
                         player.lambanh,
                         player.napdon,
                         player.mocnapdon,
-                        player.diem8thang3,
                         player.moChiTon,
                         player.chiTon,
                         player.chuyenSinhPet,
@@ -1031,3 +1030,6 @@ public class PlayerDAO {
     }
 
 }
+
+
+

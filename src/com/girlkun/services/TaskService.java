@@ -1397,10 +1397,10 @@ public class TaskService {
                         goldReward = ConstTask.GOLD_HELL;
                         break;
                 }
-                PlayerDAO.addvnd(player, goldReward);
+                player.inventory.gold += goldReward;
                 Service.gI().sendMoney(player);
                 Service.gI().sendThongBao(player, "Bạn nhận được "
-                        + Util.numberToMoney(goldReward) + " COIN");
+                        + Util.numberToMoney(goldReward) + " Vàng");
                 player.playerTask.sideTask.reset();
             } else {
                 Service.gI().sendThongBao(player, "Bạn chưa hoàn thành nhiệm vụ");

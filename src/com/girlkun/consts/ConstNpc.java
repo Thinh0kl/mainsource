@@ -40,7 +40,7 @@ public class ConstNpc {
     public static final String HUONG_DAN_CAY = "Cách để bạn có 1 lượng vàng lớn :\n"
             + "Có thể cày ở nv bò mộng hàng ngày"
             + "\nLưu ý mỗi ngày có 20nv Nhiệm vụ càng khó lượng vàng nhận được càng nhiều "
-            + "\nHoặc bạn có thể liên hệ Admin để nạp tiền và sang Đảo kame gặp Santa để quy đổi ";
+            + "\nHoặc bạn có thể liên hệ Admin để nạp tiền và sang Đảo kame gặp Santa để quy đổi tiền nạp sang thỏi vàng ";
             //+ "1k VND = 1k coin ; 1k coin = 10 thỏi vàng";
     public static final String HUONG_DAN_SK = "Cách Làm Sự Kiện :\n"
             + "Có thể kiếm đồng xu vàng bằng cách fam quái"
