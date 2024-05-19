@@ -1190,9 +1190,9 @@ public class CombineServiceNew {
                         this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Thiếu đồ hủy diệt", "Đóng");
                         return;
                     }
-                    String npcSay = "|2|Con có muốn đổi các món nguyên liệu ?\n|7|"
-                            + "Và nhận được " + player.combineNew.itemsCombine.stream().filter(Item::isDHD).findFirst().get().typeName()
-                            + "|1|Cần " + Util.numberToMoney(COST) + " vàng";
+                    String npcSay = "|2|Con có muốn đổi các món đồ này để nhận 1 món đồ SKH Hủy Diệt không?"
+                            + "\nCon sẽ nhận được 1 " + player.combineNew.itemsCombine.stream().filter(Item::isDHD).findFirst().get().typeName() +"Hủy Diệt SKH"
+                            + "Cần " + Util.numberToMoney(COST) + " vàng";
 
                     if (player.inventory.gold < COST) {
                         this.bill.createOtherMenu(player, ConstNpc.IGNORE_MENU, "Hết tiền rồi", "Đóng");
@@ -2273,12 +2273,12 @@ public class CombineServiceNew {
             short itemId;
 
             if (itemHD.template.gender == 3 || itemHD.template.type == 4) {
-                itemId = Manager.radaHDSKH[Util.nextInt(0, 5)];
+                itemId = 656;
                 if (player.getSession().bdPlayer > 0 && Util.isTrue(1, (int) (100 / player.getSession().bdPlayer))) {
                     itemId = Manager.radaHDSKH[6];
                 }
             } else {
-                itemId = Manager.doHDSKH[itemHD.template.gender][itemHD.template.type][Util.nextInt(0, 5)];
+                itemId = Manager.doHDSKH[itemHD.template.gender][itemHD.template.type][0];
                 if (player.getSession().bdPlayer > 0 && Util.isTrue(1, 500)) {
                     itemId = Manager.doHDSKH[itemHD.template.gender][itemHD.template.type][6];
                 } else if (player.getSession().bdPlayer > 0 && Util.isTrue(5, 100)) {
@@ -4080,7 +4080,7 @@ public class CombineServiceNew {
 
             case NANG_CAP_SKH_HD:
                 return "Chọn 3 trang bị hủy diệt khác nhau " + "\nSau đó chọn 'Nâng cấp'\n"
-                        + "Món đầu tiên đặt vào sẽ là trang bị \nđể nâng cấp SKH Vip";
+                        + "Món đầu tiên đặt vào sẽ là trang bị \nđể nâng cấp SKH Hủy diệt";
             case NANG_CAP_SKH_TS:
                 return "Chọn 3 trang bị thiên sứ khác nhau " + "\nSau đó chọn 'Nâng cấp'\n"
                         + "Món đầu tiên đặt vào sẽ là trang bị \nđể nâng cấp SKH Vip";
@@ -4099,7 +4099,7 @@ public class CombineServiceNew {
                         + " Đồ SKH VIP sẽ cùng loại \n với đồ thiên sứ!"
                         + "Chỉ cần chọn 'Nâng Cấp'";
             case NANG_CAP_BONG_TAI:
-                return "Chọn bông tai Porata\nChọn mảnh bông tai để nâng cấp \nSau đó chọn 'Nâng cấp'";
+                return "Chọn bông tai Porata\nChọn mảnh bông tai để nâng cấp \nSau đó chọn 'Nâng cấp'\n Cấp độ tối đa là cấp 4 nhé";
             case MO_CHI_SO_PHAP_SU:
                 return "Chọn Linh Thú và\nChọn 1 Viên Ngọc Pháp Sư và\nSau đó chọn 'Nâng cấp'";
             case XOA_CHI_SO:
@@ -4107,13 +4107,13 @@ public class CombineServiceNew {
             case XOA_CHI_SO_1:
                 return "Chọn 1 trang bị đã ép 12 sao\nSau đó Nâng cấp";
             case MO_CHI_SO_BONG_TAI:
-                return "Chọn bông tai Porata Cấp 2 hoặc Cấp 3 hoặc Cấp 4\nChọn Mảnh hồn bông tai số lượng 99 cái\nvà Đá xanh lam để nâng cấp\nSau đó chọn 'Nâng cấp'";
+                return "Chọn bông tai Porata Cấp 2 hoặc Cấp 3 hoặc Cấp 4\nChọn Mảnh hồn bông tai số lượng 99 cái\nvà Đá xanh lam để nâng cấp\nSau đó chọn 'Nâng cấp'\n Chỉ số max của bông tai là 25%";
             case MO_CHI_SO_Chien_Linh:
-                return "Chọn Chiến Linh\nChọn Đá ma thuật số lượng 99 cái\nvà x99 Hồn Thú để nâng cấp\nSau đó chọn 'Nâng cấp'\n Mỗi chiến linh chỉ mở được duy nhất 1 lần";
+                return "Chọn Chiến Linh\nChọn Đá ma thuật số lượng 99 cái\nvà x99 Hồn Thú (mua ở npc Shop) để nâng cấp\nSau đó chọn 'Nâng cấp'\n Mỗi chiến linh chỉ mở được duy nhất 1 lần";
             case NANG_CAP_KHI:
                 return "Chọn Cải trang Khỉ \nChọn Đá Ngũ Sắc để nâng cấp\nSau đó chọn 'Nâng cấp'";
             case Nang_Chien_Linh:
-                return "Vào hành trang\nChọn Linh Thú \nChọn x99 Thăng tinh thạch để nâng cấp\nSau đó chọn 'Nâng cấp'\nChiến linh nâng rồi có thể nâng lại.";
+                return "Vào hành trang\nChọn Linh Thú \nChọn x99 Thăng tinh thạch (mua ở NPC Shop) để nâng cấp\nSau đó chọn 'Nâng cấp'\nChiến linh nâng rồi có thể nâng lại.";
             default:
                 return "";
         }

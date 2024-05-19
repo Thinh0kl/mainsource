@@ -25,6 +25,7 @@ public class ItemTime {
     public boolean isUseBoKhi;
     public boolean isUseGiapXen;
     public boolean isUseCuongNo;
+    public boolean isUseUocRongNamec;
     public boolean isUseAnDanh;
     public boolean isUseBoHuyet2;
     public boolean isUseBoKhi2;
@@ -37,6 +38,7 @@ public class ItemTime {
     public long lastTimeGiapXen;
     public long lastTimeCuongNo;
     public long lastTimeAnDanh;
+    public long lastTimeUocRongNM;
 
     public long lastTimeBoHuyet2;
     public long lastTimeBoKhi2;

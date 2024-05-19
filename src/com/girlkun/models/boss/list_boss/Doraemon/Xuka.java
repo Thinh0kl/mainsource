@@ -19,27 +19,7 @@ public class Xuka extends Boss {
     }
      @Override
     public void reward(Player plKill) {
-        int[] itemDos = new int[]{1142, 1142, 559, 556, 558, 560, 562, 564, 566, 563, 1142, 1142};
-        int[] NRs = new int[]{15,1230};
-        int randomDo = new Random().nextInt(itemDos.length);
-        int randomNR = new Random().nextInt(NRs.length);
-        if (Util.isTrue(50, 100)) {
-            if (Util.isTrue(1, 5)) {
-              Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2106, 1, this.location.x, this.location.y, plKill.id));
-              Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2051, 1, this.location.x, this.location.y, plKill.id));
-                return;
-            }
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
-        } else  if (Util.isTrue(70, 100)){
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
-        }else {
-            if(Util.isTrue(10, 100)){
-                Service.gI().dropItemMap(this.zone, new ItemMap(zone, 1054, 1, this.location.x, this.location.y, plKill.id));
-            }
-            if(Util.isTrue(1, 100)){
-                Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2130, 1, this.location.x, this.location.y, plKill.id));
-            }
-        }
+      
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 

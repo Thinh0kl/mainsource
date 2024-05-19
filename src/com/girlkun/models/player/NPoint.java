@@ -1581,7 +1581,7 @@ public class NPoint {
                 break;
             case Skill.DICH_CHUYEN_TUC_THOI:
                 dameAttack *= 2;
-                dameAttack = Util.Tamkjllnext(dameAttack - (dameAttack * 5 / 100),
+                dameAttack = Util.nextLong(dameAttack - (dameAttack * 5 / 100),
                         dameAttack + (dameAttack * 5 / 100));
                 return dameAttack;
             case Skill.MAKANKOSAPPO:
@@ -1670,7 +1670,7 @@ public class NPoint {
 
     }
 
-    public void subHP(double sub) {
+    public void subHP(long sub) {
         this.hp -= sub; //fix
         if (this.hp < 0) {
             this.hp = 0;
@@ -1686,8 +1686,8 @@ public class NPoint {
 
     public long calSucManhTiemNang(long tiemNang) {
         if (power < getPowerLimit() && power < (Manager.GHSM * 1000000000L)) {
-            for (Integer t1 : this.tlTNSM) {
-                tiemNang += ((long) tiemNang * 10 / 100);
+            for (Integer tl : this.tlTNSM) {
+                tiemNang += ((long) tiemNang * tl / 100);
             }
             if (this.player.cFlag != 0) {
                 if (this.player.cFlag == 8) {
@@ -2158,7 +2158,7 @@ private boolean doUseTiemNangPet(long tiemNang) {
                     PlayerService.gI().hoiPhuc(player, hpMax / 100 * tiLeHoiPhuc,
                             mpMax / 100 * tiLeHoiPhuc);
                     if (player.effectSkill.countCharging % 3 == 0) {
-                        Service.gI().chat(player, "Phá»¥c há»“i nÄƒng lÆ°á»£ng " + getCurrPercentHP() + "%");
+                        Service.gI().chat(player, "tái tạo năng lượng " + getCurrPercentHP() + "%");
                     }
                 } else {
                     EffectSkillService.gI().stopCharge(player);

@@ -30,9 +30,6 @@ public class TDST extends Boss {
     public void reward(Player plKill) {
         super.reward(plKill);
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
-//        if (this.currentLevel == 1) {
-//            return;
-//        }
     }
 
     @Override

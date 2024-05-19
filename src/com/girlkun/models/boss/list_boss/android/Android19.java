@@ -5,6 +5,7 @@ import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossID;
 import com.girlkun.models.boss.BossStatus;
 import com.girlkun.models.boss.BossesData;
+import com.girlkun.models.item.Item;
 import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.Skill;
@@ -22,11 +23,17 @@ public class Android19 extends Boss {
 
      @Override
     public void reward(Player plKill) {
-        int[] itemRan = new int[]{1230, 382, 383, 384, 385};
-        int itemId = itemRan[2];
+        int[] itemRan = new int[]{257, 261, 265};
         if (Util.isTrue(15, 100)) {
-            ItemMap it = new ItemMap(this.zone, itemId, 17, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
-                    this.location.y - 24), plKill.id);
+            ItemMap it = new ItemMap(this.zone, itemRan[Util.nextInt(0,2)], 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,this.location.y - 24), plKill.id);
+                    it.options.add(new Item.ItemOption(0, Util.nextInt(2200,2500)));
+            Service.gI().dropItemMap(this.zone, it);
+        }
+        if(Util.isTrue(25,100)){
+            ItemMap it = new ItemMap(this.zone, 457, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+        }else{
+            ItemMap it = new ItemMap(this.zone, 16, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
         }
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);

@@ -36,7 +36,7 @@ public class ChatGlobalService implements Runnable {
     public void chat(Player player, String text) {
         if (!player.getSession().actived) {
             Service.gI().sendThongBaoFromAdmin(player,
-                    "|7| Chức Năng Yêu Cầu Mở Thành Viên Để Sử Dụng\b|2| Liên Hệ Admin Hyper Để Mở Thành Viên\b|6|Giá: 20.000K");
+                    "|7| Chức Năng Yêu Cầu Mở Thành Viên Để Sử Dụng\b|2| Liên Hệ Admin NROZ Để Mở Thành Viên\b|6|Giá: 20.000K");
             return;
         }
         if (waitingChat.size() >= COUNT_WAIT) {

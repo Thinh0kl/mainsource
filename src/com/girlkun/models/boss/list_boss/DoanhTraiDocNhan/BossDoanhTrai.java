@@ -1,4 +1,4 @@
-package com.girlkun.models.boss.list_boss.doanh_trai;
+package com.girlkun.models.boss.list_boss.DoanhTraiDocNhan;
 
 import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossData;

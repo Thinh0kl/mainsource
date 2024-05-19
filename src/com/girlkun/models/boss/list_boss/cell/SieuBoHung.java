@@ -5,6 +5,7 @@ import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossID;
 import com.girlkun.models.boss.BossManager;
 import com.girlkun.models.boss.BossesData;
+import com.girlkun.models.item.Item;
 import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
 import com.girlkun.server.Manager;
@@ -25,20 +26,24 @@ public class SieuBoHung extends Boss {
 
    @Override
     public void reward(Player plKill) {
-        int[] itemDos = new int[]{1142,1116,1117,1118,1142};
-        int[] NRs = new int[]{1142,1230,1142};
-        int randomDo = new Random().nextInt(itemDos.length);
-        int randomNR = new Random().nextInt(NRs.length);
-        if (Util.isTrue(15, 100)) {
-            if (Util.isTrue(30, 100)) {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 16, 1, this.location.x, this.location.y, plKill.id));
-                return;
+
+        int[] itemDos = new int[]{563,565,567,561};
+        if (Util.isTrue(25, 100)) {
+            ItemMap it = new ItemMap(this.zone, itemDos[Util.nextInt(0,3)], 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
+
+            if(itemDos[Util.nextInt(0,3)] == 561){
+                it.options.add(new Item.ItemOption(14, 20));
+            }else{
+                it.options.add(new Item.ItemOption(23, Util.nextInt(40,100)));
             }
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
-             } else if (Util.isTrue(70, 100)) {
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
+            
+            Service.gI().dropItemMap(this.zone, it);
+        } else {
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone,14, 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }
+
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
+
         if (TaskService.gI().getIdTask(plKill) == ConstTask.TASK_27_3) {
             Service.gI().dropItemMap(this.zone, new ItemMap(zone, 16, 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }

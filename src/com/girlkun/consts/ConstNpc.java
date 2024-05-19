@@ -140,6 +140,7 @@ public class ConstNpc {
     public static final byte PCL_LONG_NHAN = 110; 
     public static final byte TE_THIEN_DAI_THANH = 108; 
     public static final byte MI_NUONG = 117; 
+    public static final byte BAR_DOCK = 70; 
     
 
 

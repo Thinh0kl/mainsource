@@ -159,19 +159,19 @@ public class Manager {
     public static final short[][][] doSKHVip = {{aotd, quantd, gangtd, giaytd}, {aonm, quannm, gangnm, giaynm}, {aoxd, quanxd, gangxd, giayxd}}; //fix rd
     //doSKHVip[gender][typeDo][randomLVDo]
 
-    public static final short[] aohdtd = {138, 139, 230, 231, 232, 233, 650};
-    public static final short[] quanhdtd = {142, 143, 242, 243, 244, 245, 651};
-    public static final short[] ganghdtd = {146, 147, 254, 255, 256, 257, 657};
-    public static final short[] giayhdtd = {150, 151, 266, 267, 268, 269, 658};
-    public static final short[] aohdxd = {170, 171, 238, 239, 240, 241, 654};
-    public static final short[] quanhdxd = {174, 175, 250, 251, 252, 253, 655};
-    public static final short[] ganghdxd = {178, 179, 262, 263, 264, 265, 661};
-    public static final short[] giayhdxd = {182, 183, 274, 275, 276, 277, 662};
-    public static final short[] aohdnm = {154, 155, 234, 235, 236, 237, 652};
-    public static final short[] quanhdnm = {158, 159, 246, 247, 248, 249, 653};
-    public static final short[] ganghdnm = {162, 163, 258, 259, 260, 261, 659};
-    public static final short[] giayhdnm = {166, 167, 270, 271, 272, 273, 660};
-    public static final short[] radaHDSKH = {186, 187, 278, 279, 280, 281, 656};
+    public static final short[] aohdtd =    { 650};
+    public static final short[] quanhdtd =  { 651};
+    public static final short[] ganghdtd =  { 657};
+    public static final short[] giayhdtd =  { 658};
+    public static final short[] aohdxd =    { 654};
+    public static final short[] quanhdxd =  { 655};
+    public static final short[] ganghdxd =  { 661};
+    public static final short[] giayhdxd =  { 662};
+    public static final short[] aohdnm =    { 652};
+    public static final short[] quanhdnm =  { 653};
+    public static final short[] ganghdnm =  { 659};
+    public static final short[] giayhdnm =  { 660};
+    public static final short[] radaHDSKH = { 656};
     public static final short[][][] doHDSKH = {{aohdtd, quanhdtd, ganghdtd, giayhdtd, radaHDSKH}, {aohdnm, quanhdnm, ganghdnm, giayhdnm, radaHDSKH}, {aohdxd, quanhdxd, ganghdxd, giayhdxd, radaHDSKH}}; //fix rd
 
     public static final short[] aotstd = {138, 139, 230, 231, 232, 233, 1048};

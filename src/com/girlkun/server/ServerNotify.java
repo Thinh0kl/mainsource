@@ -43,7 +43,7 @@ public class ServerNotify extends Thread {
                     sendThongBaoBenDuoi(notifies.remove(0));
                 }
                 if (Util.canDoWithTime(this.lastTimeGK, 50000)) {
-                    sendThongBaoBenDuoi("Admin Hyper (Giàng A Cay), Kính Chúc Mọi Người Online Vui Vẻ !");
+                    sendThongBaoBenDuoi("Anh em nhớ tham gia nhóm zalo để giao lưu nhé !");
                     this.lastTimeGK = System.currentTimeMillis();
                 }
             } catch (Exception ignored) {

@@ -808,7 +808,7 @@ public class Controller implements IMessageHandler {
 
         if (TaskService.gI().getIdTask(player) == ConstTask.TASK_0_0) {
             NpcService.gI().createTutorial(player, -1,
-                    "Chào mừng " + player.name + " đến với www.nrohyper.com\n"
+                    "Chào mừng " + player.name + " đến với www.nroz.org\n"
                     + "Nhiệm vụ đầu tiên của bạn là di chuyển\n"
                     + "Bạn hãy di chuyển nhân vật theo mũi tên chỉ hướng");
         }
@@ -826,7 +826,7 @@ public class Controller implements IMessageHandler {
     }
 
     private void sendThongBaoServer(Player player) {
-        Service.gI().sendThongBaoFromAdmin(player, "|7| Wellcome Đến Với\b|3| NRO HYPER\b|2| Chúc Anh Em Chơi Game Vui Vẻ\b|2| Nếu bị chặn IP, liên hệ admin để mở lại");
+        Service.gI().sendThongBaoFromAdmin(player, "|7| Wellcome Đến Với\b|3| NROZ\b|2| Chúc Anh Em Chơi Game Vui Vẻ\b|2| Nếu bị chặn IP, liên hệ admin để mở lại");
     }
 
     private void clearVTSK(Player player) {

@@ -17,8 +17,7 @@ import com.girlkun.services.TaskService;
 import com.girlkun.services.func.ChangeMapService;
 import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
-import java.util.List;
-import java.util.ArrayList;
+
 
 public class Boss extends Player implements IBossNew, IBossOutfit {
 
@@ -145,7 +144,6 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
 
     @Override
     public short getFlagBag() {
-        //this.cFlag = (byte)this.data[this.currentLevel].getOutfit()[3];
         return this.data[this.currentLevel].getOutfit()[3];
     }
 
@@ -185,25 +183,9 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         return this.playerTarger;
     }
 
-    public Player getPlayerAttackFlag() {
-        if (this.playerTarger != null && (this.playerTarger.isDie() || !this.zone.equals(this.playerTarger.zone))) {
-            this.playerTarger = null;
-        }
-        if (this.playerTarger == null || Util.canDoWithTime(this.lastTimeTargetPlayer, this.timeTargetPlayer)) {
-            this.playerTarger = this.getRandomPlayerFlagInMap();
-            this.lastTimeTargetPlayer = System.currentTimeMillis();
-            this.timeTargetPlayer = Util.nextInt(5000, 7000);
-        }
-        return this.playerTarger;
-    }
-
     @Override
     public void changeToTypePK() {
         PlayerService.gI().changeAndSendTypePK(this, ConstPlayer.PK_ALL);
-    }
-
-    public void changeToTypePKPvP() {
-        PlayerService.gI().changeAndSendTypePK(this, ConstPlayer.PK_PVP);
     }
 
     @Override
@@ -236,17 +218,10 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
                     this.doneChatS();
                     this.lastTimeChatM = System.currentTimeMillis();
                     this.timeChatM = 5000;
-
-                    if (this.name.contains("Tinh") && !this.isDie()) {
-                        changeToTypeNonPK();
-                        changeStatus(BossStatus.ATTACK_FLAG);
-                    } else {
-                        this.changeStatus(BossStatus.ACTIVE);
-                    }
+                    this.changeStatus(BossStatus.ACTIVE);
                 }
                 break;
             case ACTIVE:
-            case ATTACK_FLAG:
                 this.chatM();
                 if (this.effectSkill.isCharging && !Util.isTrue(1, 20) || this.effectSkill.useTroi) {
                     return;
@@ -340,12 +315,9 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
     }
 
     protected void notifyJoinMap() {
-        if (this.id >= -22 && this.id <= -20) {
+        if (this.id >= -22 && this.id <= -20) return;
+        if (this.zone.map.mapId == 140||MapService.gI().isMapMaBu(this.zone.map.mapId) || MapService.gI().isMapBlackBallWar(this.zone.map.mapId)||MapService.gI().isMapBanDoKhoBau(this.zone.map.mapId)||MapService.gI().isnguhs(this.zone.map.mapId))
             return;
-        }
-        if (this.zone.map.mapId == 140 || MapService.gI().isMapMaBu(this.zone.map.mapId) || MapService.gI().isMapBlackBallWar(this.zone.map.mapId) || MapService.gI().isMapBanDoKhoBau(this.zone.map.mapId) || MapService.gI().isnguhs(this.zone.map.mapId)) {
-            return;
-        }
         ServerNotify.gI().notify("BOSS " + this.name + " vừa xuất hiện tại " + this.zone.map.mapName);
     }
 
@@ -397,7 +369,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
 
     @Override
     public void active() {
-        if (this.typePk == ConstPlayer.NON_PK && !this.name.contains("Tinh")) {
+        if (this.typePk == ConstPlayer.NON_PK) {
             this.changeToTypePK();
         }
         this.attack();
@@ -410,7 +382,6 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         if (Util.canDoWithTime(this.lastTimeAttack, 100) && this.typePk == ConstPlayer.PK_ALL) {
             this.lastTimeAttack = System.currentTimeMillis();
             try {
-
                 Player pl = getPlayerAttack();
                 if (pl == null || pl.isDie() || pl.isNewPet) {
                     return;
@@ -426,7 +397,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
                                     Util.nextInt(10) % 2 == 0 ? pl.location.y : pl.location.y - Util.nextInt(0, 50));
                         }
                     }
-                    SkillService.gI().useSkill(this, pl, null, null);
+                    SkillService.gI().useSkill(this, pl, null,null);
                     checkPlayerDie(pl);
                 } else {
                     if (Util.isTrue(1, 2)) {
@@ -446,6 +417,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         }
     }
 
+    @Override
     public int getRangeCanAttackWithSkillSelect() {
         int skillId = this.playerSkill.skillSelect.template.id;
         if (skillId == Skill.KAMEJOKO || skillId == Skill.MASENKO || skillId == Skill.ANTOMIC) {
@@ -460,6 +432,10 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
     public void die(Player plKill) {
         if (plKill != null) {
             reward(plKill);
+            if(this.id ==BossID.KHI_ULTRA)
+            {
+                plKill.khiultra ++;
+            }
             ServerNotify.gI().notify(plKill.name + " vừa tiêu diệt được " + this.name + ", ghê chưa ghê chưa..");
         }
         this.changeStatus(BossStatus.DIE);
@@ -585,28 +561,10 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         return true;
     }
 
-    public Player getRandomPlayerFlagInMap() {
-        if (!this.zone.humanoids.isEmpty()) {
-            List<Player> Players = new ArrayList<>();
-            for (Player pl : this.zone.humanoids) {
-                if ((pl != null && !pl.isNewPet && !pl.isDie() && (pl.cFlag >= 1) && pl != this && pl.cFlag != this.cFlag)) {
-                    Players.add(pl);
-                }
-            }
-            if (!Players.isEmpty()) {
-                return Players.get(Util.nextInt(Players.size()));
-            }
-            return null;
-            //return this.notBosses.get(Util.nextInt(0, this.notBosses.size() - 1));
-        } else {
-            return null;
-        }
-    }
-
     @Override
     public void wakeupAnotherBossWhenAppear() {
         System.out.println(this.name + ":" + this.zone.map.mapName + " khu vực " + this.zone.zoneId + "(" + this.zone.map.mapId + ")");
-        if (!MapService.gI().isMapMaBu(this.zone.map.mapId) && !MapService.gI().isMapBlackBallWar(this.zone.map.mapId) && !MapService.gI().isMapBanDoKhoBau(this.zone.map.mapId) && !MapService.gI().isnguhs(this.zone.map.mapId)) {
+        if (!MapService.gI().isMapMaBu(this.zone.map.mapId) && !MapService.gI().isMapBlackBallWar(this.zone.map.mapId) && !MapService.gI().isMapBanDoKhoBau(this.zone.map.mapId)&& !MapService.gI().isnguhs(this.zone.map.mapId)) {
             System.out.println("BOSS " + this.name + " : " + this.zone.map.mapName + " khu vực " + this.zone.zoneId + "(" + this.zone.map.mapId + ")");
         }
         if (this.bossAppearTogether == null || this.bossAppearTogether[this.currentLevel] == null) {
@@ -630,7 +588,6 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
             }
         }
     }
-
     @Override
     public void wakeupAnotherBossWhenDisappear() {
 //        System.out.println("wake up boss when disappear");

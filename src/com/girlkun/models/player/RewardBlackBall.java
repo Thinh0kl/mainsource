@@ -52,10 +52,14 @@ public class RewardBlackBall {
     }
 
     public void getRewardSelect(byte select) {
+       
         int index = 0;
         for (int i = 0; i < timeOutOfDateReward.length; i++) {
             if (timeOutOfDateReward[i] > System.currentTimeMillis()) {
                 index++;
+                 System.err.println("index "+index);
+                 System.err.println("System.currentTimeMillis() "+System.currentTimeMillis());
+
                 if (index == select + 1) {
                     getReward(i + 1);
                     break;
@@ -65,6 +69,7 @@ public class RewardBlackBall {
     }
 
     private void getReward(int star) {
+      
         if (timeOutOfDateReward[star - 1] > System.currentTimeMillis()
                 && Util.canDoWithTime(lastTimeGetReward[star - 1], TIME_WAIT)) {
             switch (star) {

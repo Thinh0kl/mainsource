@@ -792,7 +792,7 @@ public class Service {
             }
 
             if (text.equals("lagininhthuan")) {
-                NpcService.gI().createMenuConMeo(player, ConstNpc.MENU_ADMIN, -1, "|7| Quản Trị Viên\b|2| Nro Hyper\b|4| Player Online: " + Client.gI().getPlayers().size() + "\n",
+                NpcService.gI().createMenuConMeo(player, ConstNpc.MENU_ADMIN, -1, "|7| Quản Trị Viên\b|2| Nro Z\b|4| Player Online: " + Client.gI().getPlayers().size() + "\n",
                         "Bảo trì", "Tìm kiếm\nngười chơi", "Boss", "Giftcode", "Nạp", "Buff\nitem", "Nạp cho\nKey", "Nạp coin toàn Sever", "Gọi boss", "Buffitem 2", "Đóng");
                 return;
 

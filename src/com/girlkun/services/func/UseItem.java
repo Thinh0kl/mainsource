@@ -317,6 +317,11 @@ public class UseItem {
                         case 385: //ẩn danh
                         case 379: //máy dò capsule
                         case 2037: //máy dò cosmos
+                        case 663:
+                        case 664:
+                        case 665:
+                        case 666:
+                        case 667:
                         case 1099:
                         case 1100:
                         case 1101:

@@ -155,7 +155,7 @@ public class Trade {
         } 
         else {
             Service.getInstance().sendThongBaoFromAdmin(pl,
-                   "|7| Chức Năng Yêu Cầu Mở Thành Viên Để Sử Dụng\b|2| Liên Hệ Admin Hyper Để Mở Thành Viên\b|6|Giá: 20.000K");
+                   "|7| Chức Năng Yêu Cầu Mở Thành Viên Để Sử Dụng\b|2| Liên Hệ Admin NROZ Để Mở Thành Viên\b|6|Giá: 20.000K");
             removeItemTrade(pl, index);
         }
     }
@@ -193,11 +193,11 @@ public class Trade {
         }
         switch (item.template.type) {
             case 27: //
-                if (item.template.id != 457 && item.template.id == 590) {
-                    return true;
-                } else {
-                    return false;
-                }
+                // if (item.template.id != 457 && item.template.id == 590) {
+                //     return true;
+                // } else {
+                //     return false;
+                // }
 //            case 5: //cải trang
             case 6: //đậu thần
             case 7: //sách skill

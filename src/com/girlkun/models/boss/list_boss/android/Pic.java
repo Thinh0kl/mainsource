@@ -19,13 +19,14 @@ public class Pic extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        int[] itemRan = new int[]{381, 382, 1230, 384, 385};
-        int itemId = itemRan[2];
-        if (Util.isTrue(15, 100)) {
-            ItemMap it = new ItemMap(this.zone, itemId, 17, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
-                    this.location.y - 24), plKill.id);
+        if(Util.isTrue(25,100)){
+            ItemMap it = new ItemMap(this.zone, 457, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+        }else{
+            ItemMap it = new ItemMap(this.zone, 16, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
         }
+        
          TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
     @Override

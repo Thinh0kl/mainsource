@@ -10,6 +10,7 @@ import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossID;
 import com.girlkun.models.boss.BossManager;
 import com.girlkun.models.boss.BossesData;
+import com.girlkun.models.item.Item;
 import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.Skill;
@@ -33,18 +34,13 @@ public class Xencon extends Boss {
 
    @Override
     public void reward(Player plKill) {
-        int[] itemDos = new int[]{1142,1116,1117,1118,1142};
-        int[] NRs = new int[]{17};
-        int randomDo = new Random().nextInt(itemDos.length);
-        int randomNR = new Random().nextInt(NRs.length);
+        int[] itemDos = new int[]{555,557,559};
         if (Util.isTrue(15, 100)) {
-            if (Util.isTrue(1, 5)) {
-                Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
-                return;
-            }
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
+           ItemMap it = new ItemMap(this.zone, itemDos[Util.nextInt(0,2)], 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
+            it.options.add(new Item.ItemOption(47, Util.nextInt(500,1300)));
+            Service.gI().dropItemMap(this.zone, it);
         } else {
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone, 14, 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
         if (TaskService.gI().getIdTask(plKill) == ConstTask.TASK_27_3) {

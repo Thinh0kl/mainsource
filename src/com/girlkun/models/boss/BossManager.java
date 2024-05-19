@@ -2,6 +2,7 @@ package com.girlkun.models.boss;
 
 import com.girlkun.models.boss.list_boss.BLACK.*;
 import com.girlkun.models.boss.list_boss.Cooler.Cooler;
+import com.girlkun.models.boss.list_boss.Cooler.Chiller;
 import com.girlkun.models.boss.list_boss.Cooler.GohanBeast;
 import com.girlkun.models.boss.list_boss.Cooler.Morimata;
 import com.girlkun.models.boss.list_boss.Cooler.GokuSvip;
@@ -33,10 +34,11 @@ import com.girlkun.models.boss.list_boss.SuperXen;
 import com.girlkun.models.boss.list_boss.NgucTu.Cumber;
 import com.girlkun.models.boss.list_boss.cell.Xencon;
 import com.girlkun.models.boss.list_boss.ginyu.TDST;
+import com.girlkun.models.boss.list_boss.ginyu.BlackGoku;
 import com.girlkun.models.boss.list_boss.android.*;
 import com.girlkun.models.boss.list_boss.cell.SieuBoHung;
 import com.girlkun.models.boss.list_boss.cell.XenBoHung;
-import com.girlkun.models.boss.list_boss.doanh_trai.TrungUyTrang;
+//import com.girlkun.models.boss.list_boss.doanh_trai.TrungUyTrang;
 import com.girlkun.models.boss.list_boss.Broly.Broly;
 import com.girlkun.models.boss.list_boss.Doraemon.Nobita;
 import com.girlkun.models.boss.list_boss.Doraemon.Xeko;
@@ -66,8 +68,8 @@ import com.girlkun.models.boss.list_boss.kami.kamiSooMe;
 import com.girlkun.models.boss.list_boss.nappa.*;
 import com.girlkun.models.boss.list_boss.nappa.KhiUltra;
 import com.girlkun.models.boss.list_boss.nappa.Granola;
-import com.girlkun.models.boss.list_boss.sontinhthuytinh.SonTinh;
-import com.girlkun.models.boss.list_boss.sontinhthuytinh.ThuyTinh;
+
+
 import com.girlkun.models.player.Player;
 import com.girlkun.network.io.Message;
 import com.girlkun.server.ServerManager;
@@ -142,6 +144,14 @@ public class BossManager implements Runnable {
             // this.createBoss(BossID.TRUNG_UY_TRANG);
             // this.createBoss(BossID.ANDROID_14);
             // this.createBoss(BossID.SUPER_ANDROID_17); 
+             // this.createBoss(BossID.THIEN_SU_VADOS);
+            // this.createBoss(BossID.THIEN_SU_WHIS);
+            // this.createBoss(BossID.THIEN_SU_VADOS);
+            // this.createBoss(BossID.THIEN_SU_WHIS);
+            // this.createBoss(BossID.THIEN_SU_VADOS);
+            // this.createBoss(BossID.THIEN_SU_WHIS);
+            // this.createBoss(BossID.THIEN_SU_VADOS);
+            // this.createBoss(BossID.THIEN_SU_WHIS);
             this.createBoss(BossID.KUKU);
             this.createBoss(BossID.MAP_DAU_DINH);
             this.createBoss(BossID.RAMBO);
@@ -154,35 +164,26 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.XEN_BO_HUNG);
             this.createBoss(BossID.SIEU_BO_HUNG);
             this.createBoss(BossID.XEN_CON_1);
-            this.createBoss(BossID.XEN_CON_1);
-            this.createBoss(BossID.XEN_CON_1);
-            this.createBoss(BossID.XEN_CON_1);
             this.createBoss(BossID.NOBITA);
             this.createBoss(BossID.XUKA);
             this.createBoss(BossID.CHAIEN);
             this.createBoss(BossID.XEKO);
-            this.createBoss(BossID.THIEN_SU_VADOS);
-            this.createBoss(BossID.THIEN_SU_WHIS);
-            this.createBoss(BossID.THIEN_SU_VADOS);
-            this.createBoss(BossID.THIEN_SU_WHIS);
-            this.createBoss(BossID.THIEN_SU_VADOS);
-            this.createBoss(BossID.THIEN_SU_WHIS);
-            this.createBoss(BossID.THIEN_SU_VADOS);
-            this.createBoss(BossID.THIEN_SU_WHIS);
-            this.createBoss(BossID.GOHAN_BEAST);
-
+            this.createBoss(BossID.DORAEMON);
+            this.createBoss(BossID.BlackGoku);
+            this.createBoss(BossID.CHILLER);
+            
             //de tu
+            this.createBoss(BossID.GOHAN_BEAST);
             this.createBoss(BossID.MORIMATA);
             this.createBoss(BossID.GOKU_SVIP);
-            this.createBoss(BossID.DORAEMON);
 
-           
-            this.createBoss(BossID.BLACK);
-            this.createBoss(BossID.ZAMASZIN);
-            this.createBoss(BossID.BLACK2);
-            this.createBoss(BossID.ZAMASMAX);
-            this.createBoss(BossID.BLACK);
-            this.createBoss(BossID.BLACK3);
+            
+            // this.createBoss(BossID.BLACK);
+            // this.createBoss(BossID.ZAMASZIN);
+            // this.createBoss(BossID.BLACK2);
+            // this.createBoss(BossID.ZAMASMAX);
+            // this.createBoss(BossID.BLACK);
+            // this.createBoss(BossID.BLACK3);
           
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -216,10 +217,6 @@ public class BossManager implements Runnable {
                     return new Rambo();
                 case BossID.DRABURA:
                     return new Drabura();
-                case BossID.SONTINH:
-                    return new SonTinh();
-                case BossID.THUYTINH:
-                    return new ThuyTinh();
                 case BossID.DRABURA_2:
                     return new Drabura2();
                 case BossID.BUI_BUI:
@@ -270,8 +267,8 @@ public class BossManager implements Runnable {
                     return new XenBoHung();
                 case BossID.SIEU_BO_HUNG:
                     return new SieuBoHung();
-                case BossID.TRUNG_UY_TRANG:
-                    return new TrungUyTrang();
+//                case BossID.TRUNG_UY_TRANG:
+//                    return new TrungUyTrang();
                 case BossID.XUKA:
                     return new Xuka();
                 case BossID.NOBITA:
@@ -288,6 +285,8 @@ public class BossManager implements Runnable {
                     return new FideRobot();
                 case BossID.COOLER:
                     return new Cooler();
+                case BossID.CHILLER:
+                    return new Chiller();
                 case BossID.GOHAN_BEAST:
                     return new GohanBeast();
                 case BossID.MORIMATA:
@@ -340,6 +339,8 @@ public class BossManager implements Runnable {
                     return new Mabu();
                 case BossID.TDST:
                     return new TDST();
+                case BossID.BlackGoku:
+                    return new BlackGoku();
                 case BossID.COOLER_GOLD:
                     return new CoolerGold();
                 case BossID.CUMBER:

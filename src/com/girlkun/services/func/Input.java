@@ -316,8 +316,8 @@ public class Input {
                 case TAI:
                     if (player != null) {
                         int sohntai = Integer.valueOf(text[0]);
-                        if (sohntai > 500000) {
-                            Service.getInstance().sendThongBao(player, "Tối đa 500000 Hồng Ngọc!!");
+                        if (sohntai > 500) {
+                            Service.getInstance().sendThongBao(player, "Tối đa 500 Thỏi Vàng!!");
                             return;
                         }
                         if (sohntai <= 0) {
@@ -328,47 +328,47 @@ public class Input {
                             Service.getInstance().sendThongBao(player, "Ít nhất 2 ô trống trong hành trang!!");
                             return;
                         }
-//                    Item tv1 = null;
-//                    for (Item item : player.inventory.itemsBag) {
-//                        if (item.isNotNullItem() && item.template.id == 457) {
-//                            tv1 = item;
-//                            break;
-//                        }
-//                    }
+                   Item tv1 = null;
+                   for (Item item : player.inventory.itemsBag) {
+                       if (item.isNotNullItem() && item.template.id == 457) {
+                           tv1 = item;
+                           break;
+                       }
+                   }
                         try {
-                            if (player.inventory.ruby >= sohntai) {
-//                            InventoryServiceNew.gI().subQuantityItemsBag(player, tv1, sotvtai);
-                                player.inventory.ruby -= sohntai;
+                            if (tv1.quantity >= sohntai) {
+                                player.topdiem += sohntai;
+                                InventoryServiceNew.gI().subQuantityItemsBag(player, tv1, sohntai);
                                 Service.gI().sendMoney(player);
-                                int TimeSeconds = 10;
-                                Service.getInstance().sendThongBao(player, "Chờ 10 giây để biết kết quả.");
+                                int TimeSeconds = 5;
+                                Service.getInstance().sendThongBao(player, "Chờ 5 giây để biết kết quả.");
                                 while (TimeSeconds > 0) {
                                     TimeSeconds--;
                                     Thread.sleep(1000);
                                 }
-                                int x = Util.nextInt(1, 6);
-                                int y = Util.nextInt(1, 6);
+                                int x = Util.nextInt(1, 3);
+                                int y = Util.nextInt(1, 2);
                                 int z = Util.nextInt(1, 6);
                                 int tong = (x + y + z);
                                 if (4 <= (x + y + z) && (x + y + z) <= 10) {
                                     if (player != null) {
                                         Service.getInstance().sendThongBaoOK(player, "Kết quả" + "\nSố hệ thống quay ra là :"
                                                 + " " + x + " " + y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : "
-                                                + sohntai + " Hồng Ngọc vào Tài" + "\nKết quả : Xỉu" + "\nCòn cái nịt.");
+                                                + sohntai + "  Thỏi vàng vào Tài" + "\nKết quả : Xỉu" + "\nCòn cái nịt.");
                                         return;
                                     }
                                 } else if (x == y && x == z) {
                                     if (player != null) {
-                                        Service.getInstance().sendThongBaoOK(player, "Kết quả" + "Số hệ thống quay ra : " + x + " " + y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : " + sohntai + " Hồng Ngọc vào Xỉu" + "\nKết quả : Tam hoa" + "\nCòn cái nịt.");
+                                        Service.getInstance().sendThongBaoOK(player, "Kết quả" + "Số hệ thống quay ra : " + x + " " + y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : " + sohntai + "  Thỏi vàng vào Xỉu" + "\nKết quả : Tam hoa" + "\nCòn cái nịt.");
                                         return;
                                     }
                                 } else if ((x + y + z) > 10) {
 
                                     if (player != null) {
-//                                    Item tvthang = ItemService.gI().createNewItem((short) 457);
-//                                    tvthang.quantity = (int) Math.round(sotvtai * 1.8);
-//                                    InventoryServiceNew.gI().addItemBag(player, tvthang);
-                                        player.inventory.ruby += sohntai * 1.8;
+                                        Item tvthang = ItemService.gI().createNewItem((short) 457);
+                                        tvthang.quantity = (int) Math.round(sohntai * 2);
+                                        InventoryServiceNew.gI().addItemBag(player, tvthang);
+                                        // player.inventory.ruby += sohntai * 1.8;
                                         Service.gI().sendMoney(player);
                                         InventoryServiceNew.gI().sendItemBags(player);
                                         Service.getInstance().sendThongBaoOK(player, "Kết quả" + "\nSố hệ thống quay ra : " + x + " "
@@ -378,7 +378,7 @@ public class Input {
                                     }
                                 }
                             } else {
-                                Service.getInstance().sendThongBao(player, "Bạn không đủ Hồng Ngọc để chơi.");
+                                Service.getInstance().sendThongBao(player, "Bạn không đủ Thỏi Vàng để chơi.");
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -388,8 +388,8 @@ public class Input {
                 case XIU:
                     if (player != null) {
                         int sohnxiu = Integer.valueOf(text[0]);
-                        if (sohnxiu > 500000) {
-                            Service.getInstance().sendThongBao(player, "Tối đa 500000 Hồng Ngọc!!");
+                        if (sohnxiu > 500) {
+                            Service.getInstance().sendThongBao(player, "Tối đa 500 Thỏi Vàng!!");
                             return;
                         }
                         if (sohnxiu <= 0) {
@@ -400,56 +400,51 @@ public class Input {
                             Service.getInstance().sendThongBao(player, "Ít nhất 2 ô trống trong hành trang!!");
                             return;
                         }
-//                    Item tv2 = null;
-//                    for (Item item : player.inventory.itemsBag) {
-//                        if (item.isNotNullItem() && item.template.id == 457) {
-//                            tv2 = item;
-//                            break;
-//                        }
-//                    }
+                    Item tv2 = null;
+                    for (Item item : player.inventory.itemsBag) {
+                        if (item.isNotNullItem() && item.template.id == 457) {
+                            tv2 = item;
+                            break;
+                        }
+                    }
                         try {
-                            if (player.inventory.ruby >= sohnxiu) {
-//                            InventoryServiceNew.gI().subQuantityItemsBag(player, tv2, sotvxiu);
-                                player.inventory.ruby -= sohnxiu;
+                            if (tv2.quantity >= sohnxiu) {
+                                player.topdiem += sohnxiu;
+                                InventoryServiceNew.gI().subQuantityItemsBag(player, tv2, sohnxiu);
                                 Service.gI().sendMoney(player);
-                                int TimeSeconds = 10;
-                                Service.getInstance().sendThongBao(player, "Chờ 10 giây để biết kết quả.");
+                                int TimeSeconds = 5;
+                                Service.getInstance().sendThongBao(player, "Chờ 5 giây để biết kết quả.");
                                 while (TimeSeconds > 0) {
                                     TimeSeconds--;
                                     Thread.sleep(1000);
                                 }
-                                int x = Util.nextInt(1, 6);
-                                int y = Util.nextInt(1, 6);
+                                int x = Util.nextInt(4, 6);
+                                int y = Util.nextInt(2, 6);
                                 int z = Util.nextInt(1, 6);
                                 int tong = (x + y + z);
                                 if (4 <= (x + y + z) && (x + y + z) <= 10) {
                                     if (player != null) {
-//                                    Item tvthang = ItemService.gI().createNewItem((short) 457);
-//                                    tvthang.quantity = (int) Math.round(sotvxiu * 1.8);
-//                                    InventoryServiceNew.gI().addItemBag(player, tvthang);
-                                        player.inventory.ruby += sohnxiu * 1.8;
-                                        Service.gI().sendMoney(player);
-                                        InventoryServiceNew.gI().sendItemBags(player);
-                                        Service.getInstance().sendThongBaoOK(player, "Kết quả" + "\nSố hệ thống quay ra : " + x + " "
-                                                + y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : " + sohnxiu
-                                                + " Hồng Ngọc vào Xỉu" + "\nKết quả : Xỉu" + "\n\nVề bờ");
+                                   Item tvthang = ItemService.gI().createNewItem((short) 457);
+                                   tvthang.quantity = (int) Math.round(sohnxiu * 2);
+                                   InventoryServiceNew.gI().addItemBag(player, tvthang);
+                                    Service.gI().sendMoney(player);
+                                    InventoryServiceNew.gI().sendItemBags(player);
+                                    Service.getInstance().sendThongBaoOK(player, "Kết quả" + "\nSố hệ thống quay ra : " + x + " "+ y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : " + sohnxiu + " Thỏi Vàng vào Xỉu" + "\nKết quả : Xỉu" + "\n\nVề bờ");
                                         return;
                                     }
                                 } else if (x == y && x == z) {
                                     if (player != null) {
-                                        Service.getInstance().sendThongBaoOK(player, "Kết quả" + "Số hệ thống quay ra : " + x + " " + y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : " + sohnxiu + " Hồng Ngọc vào Xỉu" + "\nKết quả : Tam hoa" + "\nCòn cái nịt.");
+                                        Service.getInstance().sendThongBaoOK(player, "Kết quả" + "Số hệ thống quay ra : " + x + " " + y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : " + sohnxiu + " Thỏi vàng vào Xỉu" + "\nKết quả : Tam hoa" + "\nCòn cái nịt.");
                                         return;
                                     }
                                 } else if ((x + y + z) > 10) {
                                     if (player != null) {
-                                        Service.getInstance().sendThongBaoOK(player, "Kết quả" + "\nSố hệ thống quay ra là :"
-                                                + " " + x + " " + y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : "
-                                                + sohnxiu + " Hồng Ngọc vào Xỉu" + "\nKết quả : Tài" + "\nCòn cái nịt.");
+                                        Service.getInstance().sendThongBaoOK(player, "Kết quả" + "\nSố hệ thống quay ra là :" + " " + x + " " + y + " " + z + "\nTổng là : " + tong + "\nBạn đã cược : "+ sohnxiu + "  Thỏi vàng vào Xỉu" + "\nKết quả : Tài" + "\nCòn cái nịt.");
                                         return;
                                     }
                                 }
                             } else {
-                                Service.getInstance().sendThongBao(player, "Bạn không đủ Hồng Ngọc để chơi.");
+                                Service.getInstance().sendThongBao(player, "Bạn không đủ Thỏi vàng để chơi.");
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -1077,11 +1072,11 @@ public class Input {
     }
 
     public void TAI(Player pl) {
-        createForm(pl, TAI, "Nhập số Hồng ngọc (Tài)", new SubInput("Số Hồng ngọc", ANY));
+        createForm(pl, TAI, "Nhập số Thỏi Vàng (Tài)", new SubInput("Số Thỏi Vàng", ANY));
     }
 
     public void XIU(Player pl) {
-        createForm(pl, XIU, "Nhập số Hồng ngọc (Xỉu)", new SubInput("Số Hồng ngọc", ANY));
+        createForm(pl, XIU, "Nhập số Thỏi Vàng (Xỉu)", new SubInput("Số Thỏi Vàng", ANY));
     }
 
     public void TD1(Player pl) {

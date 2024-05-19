@@ -323,7 +323,7 @@ public class SummonDragon {
     }
 
     private void sendWhishesNamec(Player pl) {
-        NpcService.gI().createMenuRongThieng(pl, ConstNpc.NAMEC_1, "Ta sẽ ban cho cả bang ngươi 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định", "x99 ngọc rồng 3 sao");
+        NpcService.gI().createMenuRongThieng(pl, ConstNpc.NAMEC_1, "Ta sẽ ban cho cả bang ngươi 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định. ta sẽ cộng đồ cho người ước, hãy chia ra cho anh em của ngươi", "Cộng 10% chỉ số trong 1 ngày");
     }
 
     private void activeShenron(Player pl, boolean appear , byte type) {
@@ -787,7 +787,7 @@ public class SummonDragon {
                 wish = SHENRON_3_STARS_WHISHES[select];
                 break;
             case ConstNpc.NAMEC_1:
-                wish = "x1 ngọc rồng 3 sao";
+                wish = "x20 Bùa tăng chỉ số";
                 break;
             case ConstNpc.SHENRON_10:
                 wish = SHENRON_10[select];

@@ -19,6 +19,7 @@ public class BossID {
     public static final int TIEU_DOI_TRUONG = -27;
 
     public static final int TDST = -223;
+    public static final int BlackGoku = -2241;
 
     public static final int FIDE = -28;
 
@@ -123,5 +124,6 @@ public class BossID {
     public static final int GOKU6 = -2538;
     public static final int GOKU7 = -2539;
     public static final int GOKU8 = -2540;
+    public static final int CHILLER = -2541;
 
 }

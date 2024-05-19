@@ -4,6 +4,7 @@ import com.girlkun.models.map.Zone;
 import com.girlkun.models.player.Player;
 import com.girlkun.services.Service;
 import com.girlkun.services.func.ChangeMapService;
+import com.girlkun.utils.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +33,9 @@ public class DoanhTraiService {
         this.doanhTrais.get(id).getZones().add(zone);
     }
 
-    public void joinDoanhTrai(Player pl) {
+    public void joinDoanhTrai(Player pl) throws Exception {
         if (pl.clan == null) {
-            Service.gI().sendThongBao(pl, "Không thể thực hiện");
+            Service.getInstance().sendThongBao(pl, "Không thể thực hiện");
             return;
         }
         if (pl.clan.doanhTrai != null) {
@@ -48,13 +49,40 @@ public class DoanhTraiService {
                 break;
             }
         }
-        if (doanhTrai == null) {
-            Service.gI().sendThongBao(pl, "Doanh trại đã đầy, hãy quay lại vào lúc khác!");
-            return;
-        }
-        doanhTrai.openDoanhTrai(pl);
-    }
-}
+        if (doanhTrai != null) {
+            doanhTrai.openDoanhTrai(pl);
+        try {
+                            long totalDame = 0;
+                        long totalHp = 0;
+                        for (Player play : pl.clan.membersInGame) {
+                            totalDame += play.nPoint.dame;
+                            totalHp += play.nPoint.hpMax;
+                        }
+                        long dame = (totalHp / 20);
+                        long hp = (totalDame * 4);
+                        if (dame >= 2000000L) {
+                            dame = 2000000L;
+                        }
+                        if (hp >= 2000000L) {
+                            hp = 200000L;
+                        }
+//                            new TrungUyTrang(pl.clan.doanhTrai.getMapById(59), (int) dame, (int) hp);
+//                            new TrungUyXanhLo(pl.clan.doanhTrai.getMapById(62), (int) dame, (int) hp);
+//                            new TrungUyThep(pl.clan.doanhTrai.getMapById(55), (int) dame, (int) hp);
+//                            new NinjaAoTim(pl.clan.doanhTrai.getMapById(54), (int) dame, (int) hp);
+//                            new RobotVeSi(pl.clan.doanhTrai.getMapById(57), (int) dame, (int) hp);
+//                            new RobotVeSi(pl.clan.doanhTrai.getMapById(57), (int) dame, (int) hp);
+//                            new RobotVeSi(pl.clan.doanhTrai.getMapById(57), (int) dame, (int) hp);
+//                            new RobotVeSi(pl.clan.doanhTrai.getMapById(57), (int) dame, (int) hp);
+                        } catch (Exception e) {
+                            Logger.logException(DoanhTraiService.class, e, "Lỗi init boss");
+                        }
+                    } else {
+                        Service.getInstance().sendThongBao(pl, "Không thể thực hiện");
+                    }
+                  }
+               }
+
 
 /**
  * Vui lòng không sao chép mã nguồn này dưới mọi hình thức. Hãy tôn trọng tác

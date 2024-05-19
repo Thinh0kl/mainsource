@@ -908,6 +908,7 @@ public class ChangeMapService {
             }
         }
     }
+  
 
 //    public Zone checkMapCanJoin(Player pl, Zone mapGo) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

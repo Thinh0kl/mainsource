@@ -18,10 +18,12 @@ public class Fide extends Boss {
     }
     @Override
     public void reward(Player plKill) {
-        if (Util.isTrue(15, 100)) {
-            ItemMap it = new ItemMap(this.zone, 17, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
-                    this.location.y - 24), plKill.id);
-        Service.gI().dropItemMap(this.zone, it);
+        if(Util.isTrue(25,100)){
+            ItemMap it = new ItemMap(this.zone, 457, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+        }else{
+            ItemMap it = new ItemMap(this.zone, 16, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
         }
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }

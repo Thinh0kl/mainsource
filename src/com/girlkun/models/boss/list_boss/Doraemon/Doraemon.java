@@ -4,6 +4,7 @@ import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossID;
 import com.girlkun.models.boss.BossStatus;
 import com.girlkun.models.boss.BossesData;
+import com.girlkun.models.item.Item;
 import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.Skill;
@@ -21,27 +22,21 @@ public class Doraemon extends Boss {
     }
     @Override
     public void reward(Player plKill) {
-        int[] itemDos = new int[]{1142, 1142, 559, 556, 558, 560, 562, 564, 566, 563, 1142, 1142};
-        int[] NRs = new int[]{16,18};
-        int randomDo = new Random().nextInt(itemDos.length);
-        int randomNR = new Random().nextInt(NRs.length);
-        if (Util.isTrue(15, 100)) {
-            if (Util.isTrue(1, 5)) {
-              Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2106, 1, this.location.x, this.location.y, plKill.id));
-              Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2051, 1, this.location.x, this.location.y, plKill.id));
-                return;
+        int[] itemDos = new int[]{563,565,567,561,656};
+        if (Util.isTrue(25, 100)) {
+            ItemMap it = new ItemMap(this.zone, itemDos[Util.nextInt(0,4)], 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
+
+            if(itemDos[Util.nextInt(0,4)] == 561 || itemDos[Util.nextInt(0,4)] == 656 ){
+                it.options.add(new Item.ItemOption(14, Util.nextInt(20,30)));
+            }else{
+                it.options.add(new Item.ItemOption(23, Util.nextInt(40,100)));
             }
-            Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, itemDos[randomDo], 1, this.location.x, this.location.y, plKill.id));
-        } else  if (Util.isTrue(50, 100)){
-            Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
-        }else {
-            if(Util.isTrue(10, 100)){
-                Service.gI().dropItemMap(this.zone, new ItemMap(zone, 1052, 1, this.location.x, this.location.y, plKill.id));
-            }
-            if(Util.isTrue(1, 100)){
-                Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2128, 1, this.location.x, this.location.y, plKill.id));
-            }
+            
+            Service.gI().dropItemMap(this.zone, it);
+        } else {
+            Service.gI().dropItemMap(this.zone, new ItemMap(zone,14, 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         }
+
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 

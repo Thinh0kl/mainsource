@@ -3,6 +3,7 @@ package com.girlkun.models.boss.list_boss.cell;
 import com.girlkun.consts.ConstPlayer;
 import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossesData;
+import com.girlkun.models.item.Item;
 import com.girlkun.models.boss.BossID;
 import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
@@ -26,11 +27,13 @@ public class XenBoHung extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        if(Util.isTrue(50,100)){
-        ItemMap it = new ItemMap(this.zone, 1142, 1, this.location.x, this.location.y, plKill.id);
-        Service.gI().dropItemMap(this.zone, it);
+        int ramdomDo[] = new int[] {556,558,560};
+        if(Util.isTrue(15,100)){
+            ItemMap it = new ItemMap(this.zone, ramdomDo[Util.nextInt(0,2)], 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
+            it.options.add(new Item.ItemOption(22, Util.nextInt(40,100)));
+            Service.gI().dropItemMap(this.zone, it);
     }else  if(Util.isTrue(5,100)){
-         ItemMap it = new ItemMap(this.zone, 16, 1, this.location.x, this.location.y, plKill.id);
+         ItemMap it = new ItemMap(this.zone, 14, 1, this.location.x, this.location.y, plKill.id);
         Service.gI().dropItemMap(this.zone, it);
         }
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
