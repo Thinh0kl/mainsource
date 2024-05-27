@@ -286,7 +286,7 @@ public class PlayerDAO {
                     + "data_black_ball, data_side_task, data_card, bill_data, chuyenSinh, tongnap, mapmoi,nhanngoc, ngoccs, timeRong, khiultra, dsk, qtt, qv, gd ,topdiem, thientu, mott,tongnap2, mocnap,nhanqua,tiengui,lambanh,napdon,mocnapdon,moChiTon,chiTon,chuyenSinhPet) "
                     + "values ()", userId, name, hair, gender, 0, -1, inventory, location, point, magicTree,
                     itemsBody, itemsBag, itemsBox, itemsBoxLuckyRound, friends, enemies, intrinsic,
-                    itemTime, itemTimeSC, task, mabuEgg, charms, skills, skillsShortcut, petData, dataBlackBall, dataSideTask, data_card, bill_data, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0);
+                    itemTime, itemTimeSC, task, mabuEgg, charms, skills, skillsShortcut, petData, dataBlackBall, dataSideTask, data_card, bill_data, 0, 100000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0);
             Logger.success("Tạo player mới thành công!");
             return true;
         } catch (Exception e) {
