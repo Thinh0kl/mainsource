@@ -2910,7 +2910,7 @@ public class NpcFactory {
                                         } catch (Exception e) {
                                             return;
                                         }
-                                        if(player.moChiTon > 0){
+                                        if(player.mocnapdon > 0){
                                             if(thoiVang == null || thoiVang.quantity < 200){
                                                 Service.getInstance().sendThongBao(player, "Không đủ 200 thỏi vàng");
                                                 return;
@@ -2926,7 +2926,7 @@ public class NpcFactory {
                                             }
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, thoiVang, 200);
                                         }
-                                        player.moChiTon = 1;
+                                        player.mocnapdon = 1;
                                         Item item = ItemService.gI().createNewItem((short) 1294, 1);
                                         item.itemOptions.add(new Item.ItemOption(72, 1));
                                         int rd = Util.nextInt(1, 10);
@@ -2958,7 +2958,7 @@ public class NpcFactory {
                                         } catch (Exception e) {
                                             return;
                                         }
-                                        if(player.thientu > 0){
+                                        if(player.chuyenSinhPet > 0){
                                            
                                             if(thoiVang == null || thoiVang.quantity < 200){
                                                 Service.getInstance().sendThongBao(player, "Không đủ 200 thỏi vàng");
@@ -2975,7 +2975,7 @@ public class NpcFactory {
                                             }
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, thoiVang, 200);
                                         }
-                                         player.thientu = 1;
+                                         player.chuyenSinhPet = 1;
                                         Item item = ItemService.gI().createNewItem((short) 1285, 1);
                                         item.itemOptions.add(new Item.ItemOption(72, 1));
                                         int rd = Util.nextInt(1, 10);
