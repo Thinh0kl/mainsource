@@ -16,6 +16,8 @@ public class Item {
     public String info;
 
     public String content;
+    
+    public Item instance;
 
     public int quantity;
 
@@ -26,8 +28,13 @@ public class Item {
     public long createTime;
 
     public boolean isNotNullItem() {
-        return this.template != null;
-    }
+        if(instance == null){
+            instance = this;
+            return this.template != null;
+        }
+    return    instance != null && this.template != null;
+        }
+    
 
     public Item() {
         this.itemOptions = new ArrayList<>();

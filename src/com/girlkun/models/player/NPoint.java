@@ -1506,8 +1506,6 @@ public class NPoint {
     public long getDameAttack(boolean isAttackMob) {
         setIsCrit();
         long dameAttack = this.dame;
-        System.out.println("dameAttack1     " + dameAttack);
-
         intrinsic = this.player.playerIntrinsic.intrinsic;
         percentDameIntrinsic = 0;
         long percentDameSkill = 0;
@@ -1565,9 +1563,7 @@ public class NPoint {
                 if (this.player.setClothes.kirin == 5) {
                     percentXDame = 100;
                 }
-                System.out.println("percentDameIntrinsic" + percentDameIntrinsic);
-                System.out.println("percentDameSkill" + percentDameSkill);
-                System.out.println("percentXDame" + percentXDame);
+             
                 break;
             case Skill.LIEN_HOAN:
                 if (intrinsic.id == 13) {
@@ -1601,13 +1597,13 @@ public class NPoint {
         }
         if (percentDameSkill != 0) {
             dameAttack = dameAttack * percentDameSkill / 100;
-            System.out.println("dameAttack2     " + dameAttack);
+           
         }
         dameAttack += (dameAttack * percentDameIntrinsic / 100);
-        System.out.println("dameAttack3     " + dameAttack);
+   
 
         dameAttack += (dameAttack * dameAfter / 100);
-        System.out.println("dameAttack4     " + dameAttack);
+       
 
 
         if (isAttackMob) {
@@ -1621,17 +1617,15 @@ public class NPoint {
         }
         if (isCrit) {
             dameAttack *= 2;
-            System.out.println("dameAttack5  " + dameAttack);
+        
 
             for (Integer tl : this.tlDameCrit) {
                 // Check if the product exceeds 9 quintillion       
                 dameAttack += ((dameAttack * tl) / 100);     
-                System.out.println("dameAttackx     " + dameAttack);
-                System.out.println(" tl     " +  tl);
+               
             }
         }
-        System.out.println("dameAttackx2     " + dameAttack);
-        System.out.println("percentXDame     " + percentXDame);
+     
         dameAttack += ((long) (dameAttack * percentXDame) / 100);
         dameAttack = Util.Tamkjllnext((dameAttack - (dameAttack * 5 / 100)), (dameAttack + (dameAttack * 5 / 100)));
         if (player.isPl()) {

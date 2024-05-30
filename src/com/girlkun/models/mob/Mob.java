@@ -110,9 +110,6 @@ public class Mob {
         int levelPlayer = Service.gI().getCurrLevel(pl);
         int n = levelPlayer - this.level;
         long pDameHit = (dame) * 100 / point.getHpFull();
-        System.err.println("maxTiemNang"+ maxTiemNang);
-        System.err.println("pDameHit"+ pDameHit);
-        System.err.println("n"+ n);
         long tiemNang = pDameHit * maxTiemNang / 100;
         if (tiemNang <= 0) {
             tiemNang = 1;

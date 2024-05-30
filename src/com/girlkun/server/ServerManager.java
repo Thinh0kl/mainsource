@@ -16,6 +16,7 @@ import com.girlkun.network.example.MessageSendCollect;
 import com.girlkun.network.server.GirlkunServer;
 import com.girlkun.network.server.IServerClose;
 import com.girlkun.network.server.ISessionAcceptHandler;
+import com.girlkun.quayTamBao.TamBaoService;
 import com.girlkun.server.io.MyKeyHandler;
 import com.girlkun.server.io.MySession;
 import com.girlkun.services.ClanService;
@@ -68,6 +69,7 @@ public class ServerManager {
     public static void main(String[] args) {
 //        timeStart = TimeUtil.getTimeNow("dd/MM/yyyy HH:mm:ss");
         ServerManager.gI().run();
+        TamBaoService.loadItem();
     }
 
     public void run() {

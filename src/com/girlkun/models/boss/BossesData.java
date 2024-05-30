@@ -1591,39 +1591,7 @@ public class BossesData {
             REST_1_M
     );
 
-    public static final BossData SONTINH = new BossData(
-            "Sơn Tinh Đại Vương",
-            ConstPlayer.XAYDA,
-            new short[]{314, 315, 316, 2, -1, -1},
-            5000000000L,
-            new long[]{5000000000000000l},
-            new int[]{178},
-            new int[][]{
-                {Skill.LIEN_HOAN, 7, 1000},
-                {Skill.DEMON, 7, 10000}},
-            new String[]{"|-2|Bay Đâu Đánh Bỏ mẹ nó cho tao"}, //text chat 1
-            new String[]{"|-1|Thấy sức mạnh của ta chưa! Tên Thủy Tinh Kia"}, //text chat 2
-            new String[]{"|-1|Nhớ mặt tao đấy",
-                "|-1|Tobe continue.."}, //text chat 3
-            TypeAppear.APPEAR_WITH_ANOTHER
-    );
-    public static final BossData THUYTINH = new BossData(
-            "Thủy Tinh Đại Vương",
-            ConstPlayer.XAYDA,
-            new short[]{311, 312, 313, 1, -1, -1},
-            5000000000L,
-            new long[]{5000000000000000l},
-            new int[]{178},
-            new int[][]{
-                {Skill.LIEN_HOAN, 7, 1000},
-                {Skill.DEMON, 7, 10000}},
-            new String[]{"|-2|Bay Đâu Đánh Bỏ mẹ nó cho tao"}, //text chat 1
-            new String[]{"|-1|TThấy sức mạnh của ta chưa! Tên Sơn Tinh Kia!"}, //text chat 2
-            new String[]{"|-1|Nhớ mặt tao đấy",
-                "|-1|Tobe continue.."}, //text chat 3
-            REST_30_M,
-            new int[]{BossID.SONTINH}
-    );
+  
 
     public static final BossData DRABURA_2 = new BossData(
             "Ma Vương Dabura",

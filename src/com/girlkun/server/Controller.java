@@ -33,6 +33,7 @@ import com.girlkun.models.shop.ShopServiceNew;
 import com.girlkun.network.handler.IMessageHandler;
 import com.girlkun.network.io.Message;
 import com.girlkun.network.session.ISession;
+import com.girlkun.quayTamBao.TamBaoService;
 import com.girlkun.services.func.CombineServiceNew;
 
 import static com.girlkun.services.func.Input.CHOOSE_LEVEL_BDKB;
@@ -85,6 +86,9 @@ public class Controller implements IMessageHandler {
                 player.incrementCommandCount(cmd);
             }
             switch (cmd) {
+                case 70:
+                    TamBaoService.readData(_msg, player);
+                    break;
                 case -100:
                     byte action = _msg.reader().readByte();
                     switch (action) {
@@ -306,7 +310,7 @@ public class Controller implements IMessageHandler {
                     break;
                 case -113:
                     if (player != null) {
-                        for (int i = 0; i < 5; i++) {
+                        for (int i = 0; i < 10; i++) {
                             player.playerSkill.skillShortCut[i] = _msg.reader().readByte();
                         }
                         player.playerSkill.sendSkillShortCut();
