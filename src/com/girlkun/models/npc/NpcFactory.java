@@ -396,7 +396,7 @@ public class NpcFactory {
                                 "Nạp Lần Đầu Đi Con!"
                                         .replaceAll("%1", player.gender == ConstPlayer.TRAI_DAT ? "Quy lão Kamê"
                                                 : player.gender == ConstPlayer.NAMEC ? "Trưởng lão Guru" : "Vua Vegeta"),
-                                "Đổi mật khẩu", "Nhận ngọc xanh", "Cách kiếm vàng", "Mở\nThành Viên", "GiftCode\nthường", "Giftcode\nkhi MTV" ,"hồi skill nhanh 100tr vàng");
+                                "Đổi mật khẩu", "Nhận ngọc xanh", "Cách kiếm vàng", "Mở\nThành Viên", "GiftCode\nthường", "Giftcode\nkhi MTV" ,"hồi skill nhanh 1 ty vàng");
                     }
                 }
             }
@@ -506,11 +506,11 @@ public class NpcFactory {
                                     break;
                                 }
                             case 6 :
-                                if(player.inventory.gold < 100000000){
-                                    Service.getInstance().sendThongBao(player, "Bạn không đủ 100 triệu");
+                                if(player.inventory.gold < 1000000000){
+                                    Service.getInstance().sendThongBao(player, "Bạn không đủ 1 ty");
                                     return;
                                 }
-                                player.inventory.gold -= 100000000;
+                                player.inventory.gold -= 1000000000;
                                 Service.gI().releaseCooldownSkill(player);
                                 break;
                         }
