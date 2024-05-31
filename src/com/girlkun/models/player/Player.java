@@ -395,21 +395,21 @@ public class Player {
                         newpet.dispose();
                         newpet = null;
                     }
-
-                    if (this.isPl() && this.inventory.itemsBody.get(14) != null) {
-                        
-                        Item it = this.inventory.itemsBody.get(14);
-                        if (it != null && it.isNotNullItem() && this.newpet2 == null) {
-                            System.out.println("pet 12");
-                            PetService.Pet3(this, it.template.head, it.template.body, it.template.leg);
-                            Service.getInstance().point(this);
-                        }
-                    } else if (this.isPl() && newpet2 != null && !this.inventory.itemsBody.get(14).isNotNullItem()) {
-                        System.out.println("pet 12.2");
-
-                        newpet2.dispose();
-                        newpet2 = null;
-                    }
+//
+//                    if (this.isPl() && this.inventory.itemsBody.get(14) != null) {
+//                        
+//                        Item it = this.inventory.itemsBody.get(14);
+//                        if (it != null && it.isNotNullItem() && this.newpet2 == null) {
+//                            System.out.println("pet 12");
+//                            PetService.Pet3(this, it.template.head, it.template.body, it.template.leg);
+//                            Service.getInstance().point(this);
+//                        }
+//                    } else if (this.isPl() && newpet2 != null && !this.inventory.itemsBody.get(14).isNotNullItem()) {
+//                        System.out.println("pet 12.2");
+//
+//                        newpet2.dispose();
+//                        newpet2 = null;
+//                    }
 
 
                     if (this.isPl() && isWin && this.zone.map.mapId == 51 && Util.canDoWithTime(lastTimeWin, 2000)) {
