@@ -43,7 +43,6 @@ import com.girlkun.services.func.LuckyRound;
 import com.girlkun.services.func.TransactionService;
 import com.girlkun.utils.Logger;
 import com.kygui.ShopKyGuiService;
-import com.sondao.EffectMapService;
 import com.sun.tools.sjavac.Log;
 
 public class Controller implements IMessageHandler {
@@ -320,17 +319,17 @@ public class Controller implements IMessageHandler {
                     login2(_session, _msg);
                     break;
                 case -103:
-                    if (player != null) {
-                        byte act = _msg.reader().readByte();
-                        if (act == 0) {
-                            Service.gI().openFlagUI(player);
-                        } else if (act == 1) {
-                            Service.gI().chooseFlag(player, _msg.reader().readByte());
-                        }
-                        // else if (act == 2) {
-                        //     Service.gI().sendFlagPlayer(player, _msg.reader().readByte());
-                        // }
-                    }
+                    // if (player != null) {
+                    //     byte act = _msg.reader().readByte();
+                    //     if (act == 0) {
+                    //         Service.gI().openFlagUI(player);
+                    //     } else if (act == 1) {
+                    //         Service.gI().chooseFlag(player, _msg.reader().readByte());
+                    //     }
+                    //     // else if (act == 2) {
+                    //     //     Service.gI().sendFlagPlayer(player, _msg.reader().readByte());
+                    //     // }
+                    // }
                     break;
                 case -7:
                     if (player != null) {
@@ -504,7 +503,7 @@ public class Controller implements IMessageHandler {
                                 player.billEgg.sendBillEgg();
                             }
                         }
-                        EffectMapService.gI().sendEffEvent(player);
+                      
                     }
                     break;
                 case 11:

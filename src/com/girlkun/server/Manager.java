@@ -54,7 +54,6 @@ import java.util.Properties;
 import com.girlkun.utils.Util;
 import com.kygui.ItemKyGui;
 import com.kygui.ShopKyGuiManager;
-import com.sondao.EffectEventManager;
 import java.util.Arrays;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -300,7 +299,7 @@ public class Manager {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try (Connection con = GirlkunDB.getConnection();) {
-            EffectEventManager.gI().load(con);
+      
             //load part
             ps = con.prepareStatement("select * from part");
             rs = ps.executeQuery();
